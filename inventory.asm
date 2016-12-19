@@ -108,7 +108,7 @@ is_adjacent_door
 	leax NORTH,x ; skip to direction bytes
 	lda #0	;l
 @lp ldb a,x
-	cmpb ,u  ;  is the param, any of the adjacent rooms?
+	cmpb sentence+1  ;  is the param, any of the adjacent rooms?
 	bne @s
 	nop 	;  it's adjacent, is it a door
 	nop 	; not doing door check right now
