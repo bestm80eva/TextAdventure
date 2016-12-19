@@ -34,9 +34,11 @@ drop_sub
 	rts
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;param on top is object
+;param on top is object to consider
 ;param under top is parent to check for
 ;0 or non zero is return on the stack
+;
+;loop over each 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 is_visible_child_of
 	pshs d,x,y
@@ -48,7 +50,7 @@ is_visible_child_of
 	lda HOLDER_ID,x
 	cmpa ,u		;is the parent a match
 	beq @y
-	cmpa #0
+	cmpa #0		;offscreen
 	beq @x
 	bra @lp
 @y  lda #1  	;if not found, a will be 0
@@ -87,6 +89,38 @@ count_visible_items
 	sta 1,u ;one byte into stack 
 	pulu a ;pop local var
 	puls y,x,d
+	rts
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;returns true if paramter 1
+;is an adjacent door to the param 2 
+;
+;param 1(top) = object#
+;param 2	  = room#	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+is_adjacent_door
+	pshs d,x,y
+	pulu a
+	ldb #OBJ_ENTRY_SIZE
+	mul
+	tfr d,x
+	leax obj_table,x
+	leax NORTH,x
+	lda #0	;l
+@lp ldb a,x
+	cmpb ,u  ;  is the param, any of the adjacent rooms?
+	bne @s
+	nop 	;  it's adjacent, is it a door
+	nop 	; not doing door check right now
+	lda #1  ; return a 1	
+	sta ,u
+	bra @x
+@s	inca	 
+	cmpa #10 ; 10 directions
+	bne @lp
+	lda #0	 ; if got here, not adjacent
+	sta ,u	;return a 0
+@x	puls y,x,d
 	rts
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
