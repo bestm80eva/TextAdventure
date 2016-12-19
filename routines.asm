@@ -38,8 +38,12 @@ look_at_sub
 	pshs d,x,y
 	nop ; check for light
 	lda sentence+1
-	cmpa #$ff
+	cmpa #$f
 	lbeq print_ret_bad_examine 
+	jsr is_adjacent_door
+	pulu a
+	cmpa #1
+	beq @s
 	ldx #obj_table+OBJ_ENTRY_SIZE
 	lda HOLDER_ID,x
 	pshu a ; push player's room
@@ -48,7 +52,7 @@ look_at_sub
 	jsr is_visible_child_of
 	pulu a
 	lbeq print_ret_not_visible
-	lda sentence+1
+@s	lda sentence+1
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
