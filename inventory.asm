@@ -95,17 +95,17 @@ count_visible_items
 ;returns true if paramter 1
 ;is an adjacent door to the param 2 
 ;
-;param 1(top) = object#
-;param 2	  = room#	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 is_adjacent_door
 	pshs d,x,y
+	jsr get_player_room
 	pulu a
+	pshu a
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
 	leax obj_table,x
-	leax NORTH,x
+	leax NORTH,x ; skip to direction bytes
 	lda #0	;l
 @lp ldb a,x
 	cmpb ,u  ;  is the param, any of the adjacent rooms?
