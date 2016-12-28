@@ -12,7 +12,7 @@ print_ret_bad_noun
 	ldx #close_quote
 	jsr PRINT		 ;close the sentence
 	jsr PRINTCR		;newline
-	puls y,x,a
+	puls y,x,d
 	rts
 
 print_ret_bad_verb
@@ -23,7 +23,7 @@ print_ret_bad_verb
 	ldx #close_quote
 	jsr PRINT
 	jsr PRINTCR
-	puls y,x,a
+	puls y,x,d
 	rts
 	
 print_ret_not_portable
