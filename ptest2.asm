@@ -543,9 +543,9 @@ get_object_attribute
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;set_object_attribute
 ;params are on user stack
-;top param is value
+;top param is new value
 ;next param is attr to set 
-;next is value
+;next is object
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 set_object_attribute
 	pshs d,x,y
