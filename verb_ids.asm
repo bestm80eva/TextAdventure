@@ -22,3 +22,4 @@ open_verb_id equ 18
 close_verb_id equ 19
 smell_verb_id equ 20
 listen_verb_id equ 21
+enter_verb_id equ 23

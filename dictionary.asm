@@ -3,50 +3,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;byte 2 (PROPERTY_BYTE_2 on the 'right')
 
-PORTABLE_MASK equ 1
-EDIBLE_MASK equ 2
-DRINKABLE_MASK equ 4
-FLAMABLE_MASK equ 8
-LIGHTABLE_MASK equ 16
-LIT_MASK equ 32	
-EMITTING_LIGHT_MASK equ 32
-DOOR_MASK equ 64
-USED_MASK equ 128
-;DRINKABLE_MASK equ 128
 
-
-; byte 1 (PROPERTY_BYTE_1)
-SCENERY_MASK equ 1
-SUPPORTER_MASK equ 2
-CONTAINER_MASK equ 4
-TRANSPARENT_MASK equ 8
-OPENABLE_MASK equ 16
-OPEN_MASK equ 32
-LOCKABLE_MASK equ 64
-LOCKED_MASK equ 128
-OPEN_CONTAINER_MASK equ (OPEN_MASK|CONTAINER_MASK) ;
-
-
-OBJ_ID equ 0
-HOLDER_ID equ 1
-NAME_ID equ  2
-DESC_ID equ 3
-NORTH equ 4
-SOUTH equ 5
-EAST equ 6
-WEST equ 7
-NORTHEAST equ 8
-SOUTHEAST equ 9
-SOUTHWEST equ 10
-NORTHWEST equ 11
-UP equ 12
-DOWN equ 13
-OUT equ 14
-
-
-OBJ_ENTRY_SIZE equ 18
-PROPERTY_BYTE_1 equ 16
-PROPERTY_BYTE_2 equ 17
 dictionary
 	.db 5
 	.strz "RUSTY" 
@@ -83,7 +40,7 @@ obj_word_table
 obj_table_size .db 5
 
 
-;id,holder id,name id,description id,n,s,e,w,ne,se,sw,nw,u,d,out,size 	
+;id,holder id,initial desc,description id,n,s,e,w,ne,se,sw,nw,u,d,out,size 	
 ;18 bytes per entry
 obj_table
 	.db 0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,0				; offscreen

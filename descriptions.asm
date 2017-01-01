@@ -16,9 +16,9 @@ description_table
 	.db 45
 	.strz "THIS IS A SMALL CAVE WHICH OPENS TO THE EAST."
 	.db 38
-	.strz "THE DOOR IS APPEARS TO BE SOLID STEEL."		; 5
+	.strz "THE DOOR APPEARS TO BE SOLID STEEL."		; 5
 	.db 31
-	.strz "THIS IS A SMALL STORAGE CLOSET."
+	.strz "THIS IS A SMALL STORAGE CLOSET."	; 6
 	.db 0	
 	
 	

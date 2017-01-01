@@ -38,7 +38,7 @@ look_at_sub
 	pshs d,x,y
 	nop ; check for light
 	lda sentence+1
-	cmpa #$f
+	cmpa #$ff
 	lbeq print_ret_bad_examine 
 	jsr is_adjacent_door
 	pulu a
@@ -77,6 +77,7 @@ look_at_sub
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	called by jump table
+;   new room is on user stack
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 move_player
 	pshs a,x,y
@@ -192,6 +193,9 @@ get_sub
 	ldx #taken
 	jsr PRINT
 	jsr PRINTCR
+	lda sentence+1
+	pshu a
+	jsr unset_initial_description
 @x	puls y,x,d
 	rts
 
@@ -226,6 +230,23 @@ direction_map
 	.db down_verb_id,DOWN
 	.db out_verb_id,OUT
 	.db 255	
+	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;if the player is a parent of the object,
+;set its initial desc to 255 (none)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+unset_initial_description
+	pshs d,x,y
+	pulu a 
+	ldx #obj_table
+	ldb #OBJ_ENTRY_SIZE
+	mul
+	leax d,x
+	leax INITIAL_DESC_ID,x
+	lda #255
+	sta ,x
+	puls y,x,d
+	rts
 	
 new_room .db  255
 	

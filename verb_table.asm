@@ -10,6 +10,12 @@ verb_table
 	.db 0	;id
 	.db 3	;len
 	.strz "GET"
+	.db 0
+	.db 4
+	.strz "TAKE"
+	.db 0
+	.db 7
+	.strz "PICK UP"
 	.db 1
 	.db 1 
 	.strz "L"
@@ -58,58 +64,58 @@ verb_table
 	.db 6
 	.db 7
 	.strz "GO WEST"	
-	.db 8
+	.db 7
 	.db 2	
 	.strz "NE"
-	.db 8
+	.db 7
 	.db 9
 	.strz "NORTHEAST"
-	.db 8
+	.db 7
 	.db 12
 	.strz "GO NORTHEAST"	
-	.db 9
+	.db 8
 	.db 2	
 	.strz "SE"
-	.db 9
+	.db 8
 	.db 9
 	.strz "SOUTHEAST"
-	.db 9
+	.db 8
 	.db 12
 	.strz "GO SOUTHEAST"	
-	.db 10
+	.db 9
 	.db 2
 	.strz "SW"
-	.db 10
+	.db 9
 	.db 9
 	.strz "SOUTHWEST"
+	.db 9
+	.db 12
+	.strz "GO SOUTHWEST"	
 	.db 10
-	.db 11
-	.strz "GO SOUTWEST"	
-	.db 11
 	.db 2
 	.strz "NW"
-	.db 11
+	.db 10
 	.db 9
 	.strz "NORTHWEST"
-	.db 11
+	.db 10
 	.db 12
 	.strz "GO NORTHWEST"	
-	.db 12
+	.db 11
 	.db 1
 	.strz "U"
-	.db 12
+	.db 11
 	.db 2
 	.strz "UP"
-	.db 12
+	.db 11
 	.db 5
 	.strz "GO UP"	
-	.db 13
+	.db 12
 	.db 1
 	.strz "D"
-	.db 13
+	.db 12
 	.db 4
 	.strz "DOWN"
-	.db 13
+	.db 12
 	.db 7
 	.strz "GO DOWN"	
 	.db 14
@@ -141,12 +147,27 @@ verb_table
 	.strz "SHUT"	
 	.db 20
 	.db 5
-	.strz "smell"
+	.strz "SMELL"
 	.db 20
 	.db 5
-	.strz "sniff"	
+	.strz "SNIFF"	
 	.db 21
-	.db 21
-	.strz "listen"
+	.db 6
+	.strz "LISTEN"
+	.db 22 
+	.db 4 
+	.strz "QUIT"
+	.db 22
+	.db 1
+	.strz "Q"
+	.db 23
+	.db 5
+	.strz "ENTER"
+	.db 23
+	.db 5
+	.strz "GO IN"
+	.db 23
+	.db 7
+	.strz "GO INTO"	
 	.db 0 ;two zeros at end
 	.db 0

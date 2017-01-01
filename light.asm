@@ -8,6 +8,8 @@
  ;room or the something in that room has
  ;a child that is emitting light and is in
  ;a supporter or (an open or transparent container)
+ ;
+ ;player's room is on user stack
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ambient_light
 	pshs d,x,y

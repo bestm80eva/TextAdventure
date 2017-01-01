@@ -481,8 +481,19 @@ encode_sentence
 	tfr a,b				;lookup routine uses b as its param
 	jsr get_obj_id		;get the object it belongs to
 	pulu a
-	sta sentence+1		;store id of d.o.	
-@dn	jsr run_sentence ; run the sentence
+	sta sentence+1		;store id of d.o.
+	nop ; run 'before' rules
+@dn	ldx #preactions_table
+	jsr run_actions	;
+	jsr run_instead_actions
+	pulu a
+	cmpa #1 ; if handled skip default handling
+	beq @s
+	jsr run_sentence ; run the sentence
+@s	nop ; run 'after' rules
+	ldx #postactions_table
+	jsr run_actions	;
+	jsr do_events
 @x	puls y,x,d
 	rts	
 
@@ -590,7 +601,7 @@ get_object_property
 	leax OBJ_ENTRY_SIZE,x
 	deca
 	bra @lp
-@d	andb 16,x		;skip over to property bytes
+@d	andb (OBJ_ENTRY_SIZE-2),x		;skip over to property bytes
 	cmpb #9	; props >=9 are stored 
 	blo @lo
 	andb ,x 		;load the byte
@@ -626,7 +637,9 @@ run_sentence
 @sk	leax 3,x	; skip to next handler
 	bne @lp
 @x	rts
+
 	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
 prep_index .db 0	
 prep_id .db 0
 sentence_type .db 0	

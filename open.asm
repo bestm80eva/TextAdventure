@@ -28,11 +28,11 @@ open_sub
 	lda PROPERTY_BYTE_1,x  ; already open?
 	anda #OPEN_MASK
 	cmpa #OPEN_MASK
-	lbne print_ret_already_open
+	lbeq print_ret_already_open
 	lda PROPERTY_BYTE_1,x  ; locked?
 	anda #LOCKED_MASK
 	cmpa #LOCKED_MASK
-	lbne print_ret_locked
+	lbeq print_ret_locked
 	lda PROPERTY_BYTE_1,x
 	ora #OPEN_MASK
 	sta PROPERTY_BYTE_1,x

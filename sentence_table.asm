@@ -9,12 +9,24 @@ sentence_table
 	.dw inventory_sub
 	.db north_verb_id
 	.dw move_player
+	.db ne_verb_id
+	.dw move_player
+	.db nw_verb_id
+	.dw move_player	
 	.db south_verb_id
 	.dw move_player
 	.db east_verb_id
 	.dw move_player
 	.db west_verb_id
 	.dw move_player
+	.db se_verb_id
+	.dw move_player	
+	.db sw_verb_id
+	.dw move_player	
+	.db up_verb_id
+	.dw move_player	
+	.db down_verb_id
+	.dw move_player	
 	.db get_id
 	.dw get_sub
 	.db drop_verb_id
@@ -35,4 +47,6 @@ sentence_table
 	.dw smell_sub
 	.db listen_verb_id
 	.dw listen_sub
+	.db enter_verb_id
+	.dw enter_sub
 	.db 255

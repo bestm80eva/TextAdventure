@@ -11,7 +11,7 @@ KBBUF	equ $02dd	; keyboard buffer
 start
 
 	include verb_ids.asm
-
+	include objdefs.asm
 main
 	ldu #0x3FFF ; setup user stack
 	clr DEVNUM 	; set device to screen (not needed? )
@@ -38,9 +38,9 @@ main
 @quit lds sys_stack_save
 @x	rts
 
-	
 	include ptest2.asm	
 	include routines.asm
+	include preactions.asm
 	include printrets.asm
 	include inventory.asm
 	include print.asm
@@ -49,14 +49,26 @@ main
 	include light.asm
 	include locks.asm
 	include smell.asm
-	include listen.asm
+ 	include listen.asm
+	include enter_sub.asm
+	include instead.asm
 	include before_rules.asm
 	include after_rules.asm
-	include dictionary.asm
+	;include dictionary.asm
+	include Dictionary6809.asm
+	include ObjectTable6809.asm
+	include ObjectWordTable6809.asm
+	include DescriptionTable6809.asm
+	include NogoTable6809.asm
+	; include descriptions.asm
 	include sentence_table.asm
 	include verb_table.asm
-	include nogo_table.asm
-	
+	;include nogo_table.asm
+	include preactions_table.asm
+	include instead_table.asm
+	include postactions_table.asm
+	include events.asm
+	include vars.asm
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;prep table
 ;1st byte is length number
@@ -89,7 +101,7 @@ article_table
 	.db 2
 	.strz "AN"
 	.db 0
-	include descriptions.asm
+
 word1 rmb 32
 word2 rmb 32
 word3 rmb 32
