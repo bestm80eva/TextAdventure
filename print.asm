@@ -65,25 +65,42 @@ print_obj_contents
 	nop ; now list all the objects
 	ldx #obj_table
 @lp lda ,x
-	cmpa #$ff
+	cmpa #$ff	; end of table?
 	beq @x
-	cmpa #PLAYER
+	cmpa #PLAYER ; skip over player
 	beq @c
 	lda HOLDER_ID,x ;get holder byte
-	;cmpa #PLAYER	;is the player the holder?
 	cmpa ,u			;compare to parameter
-	bne @c
+	bne @c			; skip it
 	lda PROPERTY_BYTE_1,x		;get the byte with the scenery bit
 	anda #SCENERY_MASK
 	cmpa #SCENERY_MASK
-	beq @c
-	lda ,x	; reload and push object id
+	beq @c	; this items is 'invisible' - don't show it
+	lda OBJ_ID,x	; reload and push object id
+	nop		; does the object have an initial description?
+	ldb #OBJ_ENTRY_SIZE
+	mul
+    pshs x
+	tfr d,x
+	leax obj_table,x
+	ldb INITIAL_DESC_ID,x
+	puls x
+	cmpb #$ff
+	beq @p
+	pshs x
+	ldx #description_table
+	pshu b
+	jsr print_table_entry
+	jsr PRINTCR
+	puls x
+	bra @r 
+@p	lda OBJ_ID,x
 	pshu a
 	jsr print_obj_name
 	jsr PRINTCR
 	nop ;	if that is an open container or transprent
 	nop ;	print its name
-	jsr print_nested_contents
+@r	jsr print_nested_contents
 @c  leax OBJ_ENTRY_SIZE,x	 ; skip to next object
 	bra @lp	
 @x	pulu a ; pop parameter
@@ -123,29 +140,27 @@ list_room_items
 ;this routine is called by print_object_name
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 print_table_entry
-	pshs a,x,y
-	pulu a	   ;get index to print
-	pshu a     ;push a as local var	
-	lda #0		;set loop counter to 0
-	ldb #0
-@lp	cmpa ,u		;done looping?
+	pshs d,x,y
+	pulu b	   ;get index to print
+@lp	cmpb #0		;done looping?
 	beq @d
-	pshs a		;save lp counter
-	lda ,x		;get length byte
-	leax a,x	;skip past text (add it to x)
+	tfr d,y		;save a,b
+	tfr x,d
+	addb ,x		;get length byte
+	adca #0			;add any carry to hi byte 
+	tfr d,x
 	leax 2,x	;skip null and length byte
-	puls a		;restore lp counter
-	inca 
+	tfr y,d		;restore a,b
+	decb
 	bra @lp
 @d  leax 1,x	;skip length byte
 	jsr PRINT   ; x should now be 1 byte behind str 
-	pulu a      ; pop local var
-	puls y,x,a
+	puls y,x,d
 	rts
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;this subroutine prints the nested contents
-;of an object if it has any.
+;of an object ()if it has any.
 ;x contains address of object to examine
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
 print_nested_contents
