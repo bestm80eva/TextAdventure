@@ -40,5 +40,6 @@ obj_word_table
 	.db 34,47,48,255   ;   FILTHY TOILET
 	.db 35,49,50,255   ;   CHARRED PAPERS
 	.db 36,51,255,255   ;   LIGHTER
+	.db 37,52,255,255   ;   WATER
 	.db 255
-obj_table_size	.db 37
+obj_table_size	.db 38

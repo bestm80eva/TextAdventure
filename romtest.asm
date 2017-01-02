@@ -64,6 +64,7 @@ main
 	; include descriptions.asm
 	include sentence_table.asm
 	include verb_table.asm
+	include prep_table.asm
 	;include nogo_table.asm
 	include preactions_table.asm
 	include instead_table.asm
@@ -71,26 +72,7 @@ main
 	include events.asm
 	include vars.asm
 	
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;prep table
-;1st byte is length number
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-prep_table
-	.db 2
-	.strz "IN"
-	.db 2
-	.strz "AT"
-	.db 2
-	.strz "TO"
-	.db 6
-	.strz "INSIDE"
-	.db 3
-	.strz "OUT"
-	.db 5
-	.strz "UNDER"
-	.db 2
-	.strz "ON"
-	.db 0
+
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;article table
 ;1st byte is length number

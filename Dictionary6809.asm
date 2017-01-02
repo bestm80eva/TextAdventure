@@ -107,4 +107,6 @@ dictionary
 	.strz "PAPERS" ; 50
 	.db 7
 	.strz "LIGHTER" ; 51
+	.db 5
+	.strz "WATER" ; 52
 	.db 0
