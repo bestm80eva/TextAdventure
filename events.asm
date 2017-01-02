@@ -41,6 +41,7 @@ disolve_salt_sub
 	lda #HOLDER_ID
 	pshu a
 	lda #0 ; offscreen
+	pshu a
 	jsr set_object_attribute
 @x	puls y,d,x
 	rts
