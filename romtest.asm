@@ -13,7 +13,7 @@ start
 	include verb_ids.asm
 	include objdefs.asm
 main
-	ldu #0x3FFF ; setup user stack
+	ldu #0x7FFF ; setup user stack
 	clr DEVNUM 	; set device to screen (not needed? )
 	tfr u,x 
 	stx sys_stack_save
@@ -42,6 +42,7 @@ main
 	include routines.asm
 	include preactions.asm
 	include printrets.asm
+	include look.asm
 	include inventory.asm
 	include print.asm
 	include put.asm
@@ -69,6 +70,7 @@ main
 	include postactions_table.asm
 	include events.asm
 	include vars.asm
+	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;prep table
 ;1st byte is length number

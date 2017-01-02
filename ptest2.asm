@@ -484,8 +484,10 @@ encode_sentence
 	sta sentence+1		;store id of d.o.
 	nop ; run 'before' rules
 @dn	ldx #preactions_table
-	jsr run_actions	;
-	jsr run_instead_actions
+ 	jsr run_actions
+	ldx #actions_table
+	pulu a
+	jsr run_actions
 	pulu a
 	cmpa #1 ; if handled skip default handling
 	beq @s
@@ -493,6 +495,7 @@ encode_sentence
 @s	nop ; run 'after' rules
 	ldx #postactions_table
 	jsr run_actions	;
+	pulu a
 	jsr do_events
 @x	puls y,x,d
 	rts	

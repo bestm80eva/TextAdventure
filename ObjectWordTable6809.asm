@@ -30,12 +30,15 @@ obj_word_table
 	.db 24,36,37,255   ;   ON LADDER
 	.db 25,14,10,35   ;   TOP OF SHAFT
 	.db 26,14,10,38   ;   TOP OF HILL
-	.db 27,39,10,40   ;   PILE OF LEAVES
-	.db 28,41,255,255   ;   TABLE
-	.db 29,42,255,255   ;   DOCUMENTS
-	.db 30,43,255,255   ;   PAPERCLIP
-	.db 31,44,255,255   ;   LOCK
-	.db 32,45,255,255   ;   FLASHLIGHT
-	.db 32,46,47,255   ;   WHITE CUBE
+	.db 27,39,255,255   ;   LEAVES
+	.db 28,40,255,255   ;   TABLE
+	.db 29,41,255,255   ;   DOCUMENTS
+	.db 30,42,255,255   ;   PAPERCLIP
+	.db 31,43,255,255   ;   LOCK
+	.db 32,44,255,255   ;   FLASHLIGHT
+	.db 33,45,46,255   ;   WHITE CUBE
+	.db 34,47,48,255   ;   FILTHY TOILET
+	.db 35,49,50,255   ;   CHARRED PAPERS
+	.db 36,51,255,255   ;   LIGHTER
 	.db 255
-obj_table_size	.db 34
+obj_table_size	.db 37

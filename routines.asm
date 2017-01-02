@@ -1,35 +1,3 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;routines
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-look_sub
-	pshs d,x,y
-	;check for light
-	jsr get_player_room
-	jsr ambient_light
-	pulu a
-	cmpa #0
-	lbeq print_ret_no_light
-	;print room name
-	;load the 'holder' of object 1 player
-	ldx #obj_table
-	leax OBJ_ENTRY_SIZE,x
-	lda HOLDER_ID,x
-	nop	; now get the holder's description attr
-	pshu a  ; push space for return val
-	pshu a	; push holder id
-	lda #DESC_ID 	; holder attr #
-	pshu a	;
-	jsr get_object_attribute
-	pulu a  ; get description id#2	
-	nop		; now print that id
-	ldx #description_table
-	pshu x
-	pshu a 
-	jsr print_table_entry
-	jsr PRINTCR
-	jsr list_room_items
-	puls x,y,d
-	rts
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;look_at_sub

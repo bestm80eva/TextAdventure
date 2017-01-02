@@ -148,6 +148,8 @@ inventory_sub
 @x	puls y,x,d
 	rts
 
+
+
 carrying .strz "YOU ARE CARRYING..."
 noitems .strz "YOU ARE EMPTY HANDED."
 nosee .strz "YOU DON'T SEE THAT."

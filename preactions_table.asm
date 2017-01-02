@@ -1,4 +1,4 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;
+;3;;;;;;;;;;;;;;;;;;;;;;;;;
 ;before action table 
 ;table format is 
 ;verb id,obj_id,prep id,obj_id 
@@ -17,5 +17,7 @@ preactions_table
 	;.dw look_at_preaction
 	.db west_verb_id,NO_OBJECT,NO_OBJECT,NO_OBJECT
 	.dw west_preaction
+	.db burn_verb_id,27,NO_OBJECT,NO_OBJECT
+	.dw burn_leaves_sub
 	.db 255
 	

@@ -81,22 +81,30 @@ dictionary
 	.strz "LADDER" ; 37
 	.db 4
 	.strz "HILL" ; 38
-	.db 4
-	.strz "PILE" ; 39
 	.db 6
-	.strz "LEAVES" ; 40
+	.strz "LEAVES" ; 39
 	.db 5
-	.strz "TABLE" ; 41
+	.strz "TABLE" ; 40
 	.db 9
-	.strz "DOCUMENTS" ; 42
+	.strz "DOCUMENTS" ; 41
 	.db 9
-	.strz "PAPERCLIP" ; 43
+	.strz "PAPERCLIP" ; 42
 	.db 4
-	.strz "LOCK" ; 44
+	.strz "LOCK" ; 43
 	.db 10
-	.strz "FLASHLIGHT" ; 45
+	.strz "FLASHLIGHT" ; 44
 	.db 5
-	.strz "WHITE" ; 46
+	.strz "WHITE" ; 45
 	.db 4
-	.strz "CUBE" ; 47
+	.strz "CUBE" ; 46
+	.db 6
+	.strz "FILTHY" ; 47
+	.db 6
+	.strz "TOILET" ; 48
+	.db 7
+	.strz "CHARRED" ; 49
+	.db 6
+	.strz "PAPERS" ; 50
+	.db 7
+	.strz "LIGHTER" ; 51
 	.db 0

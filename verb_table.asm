@@ -169,5 +169,8 @@ verb_table
 	.db 23
 	.db 7
 	.strz "GO INTO"	
+	.db 24
+	.db 4
+	.strz "BURN"	
 	.db 0 ;two zeros at end
 	.db 0

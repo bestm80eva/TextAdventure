@@ -121,9 +121,9 @@ list_room_items
 	pulu a
 	cmpa #0
 	beq	@x	; quit if no visible objects
-	ldx #visible_items
-	jsr PRINT
-	jsr PRINTCR
+;	ldx #visible_items
+;	jsr PRINT
+;	jsr PRINTCR
 	pshu b	;push room #
 	jsr print_obj_contents
 @x	puls y,x,d
@@ -200,5 +200,6 @@ print_nested_contents
 @d	puls y,x,d
 	rts
 
+
+	
 space .strz " "
-visible_items .strz "VISIBLE ITEMS:"

@@ -9,7 +9,9 @@
 ; registers are clobbered
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 run_actions
-    
+	pshs d,x,y
+	lda #0	; push a 0 onto the stack
+	pshu a	
 @lp	lda ,x
 	cmpa #$ff  ; hit end?
 	beq @x
@@ -24,9 +26,12 @@ run_actions
 	bne @l2  ;loop
 	nop ; if got here sentence matches
 	jsr [4,x]
+	lda #1		;put a 1 on return stack
+	sta ,u
 @c  leax 6,x	; entries are 6 bytes
 	bra @lp
-@x	rts
+@x	puls y,x,d
+	rts
 
 west_preaction
 		pshs d,x,y
@@ -66,3 +71,47 @@ look_at_preaction
 @s2	rts  ; return back to run preactions
 
 msg1 .strz "AS YOU SQUEEZE THROUGHT THE GAP, THE ROCKS GIVE WAY AND YOU FALL MANY FEET TO THE DAMP GROUND AT THE BOTTOM."	
+
+burn_leaves_sub
+	pshs d,x,y
+	nop ; does the player have the lighter?
+	nop ; is the player holding the leaves?
+	jsr get_player_room
+	pulu a
+	cmpa #23  ; base of shaft
+	bne @nb
+	ldx #brnstr
+	jsr PRINT
+	jsr PRINTCR
+	nop ; move leaves offscreen
+	lda #27
+	pshu a
+	lda #HOLDER_ID
+	pshu a
+	lda #0
+	pshu a
+	jsr set_object_attribute
+	nop ; connect 'on ladder' up to 
+	lda #24 ; object`
+	pshu a
+	lda #UP
+	pshu a
+	lda #25
+	pshu a
+	jsr set_object_attribute
+    bra @x	
+@nb cmpa #24  ; on ladder
+	beq @ol
+	ldx #noburn
+	jsr PRINT
+	jsr PRINTCR
+	bra @x
+@ol	ldx #onladder 
+	jsr PRINT
+	jsr PRINTCR
+@x	puls y,x,d
+	rts
+
+onladder .strz "THIS IS REALLY NOT A WISE PLACE TO TRY THAT."
+noburn .strz "THE LEAVES START TO SMOLDER, BUT QUICKLY DIE OUT IN THE HIGH UNDERGOUND HUMIDITY."	
+brnstr .strz "FUELED BY A DRAFT FROM ABOVE, THE LEAVES RAPIDLY BURN, PRODUCING A CLOUD OF ACRID SMOKE, WHICH RISING UP THE SHAFT."	
