@@ -14,7 +14,7 @@ sw_verb_id equ 9
 nw_verb_id equ 10
 up_verb_id equ 11
 down_verb_id equ 12
-out_verb_id equ 13
+out_verb_id equ 14
 drop_verb_id equ 15
 look_at_verb_id equ 16
 put_verb_id equ 17

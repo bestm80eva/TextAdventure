@@ -29,6 +29,10 @@ sentence_table
 	.dw move_player	
 	.db get_id
 	.dw get_sub
+	.db out_verb_id
+	.dw move_player	
+	.db enter_verb_id
+	.dw enter_sub
 	.db drop_verb_id
 	.dw drop_sub
 	.db look_at_verb_id

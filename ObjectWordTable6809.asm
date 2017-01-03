@@ -41,5 +41,8 @@ obj_word_table
 	.db 35,49,50,255   ;   CHARRED PAPERS
 	.db 36,51,255,255   ;   LIGHTER
 	.db 37,52,255,255   ;   WATER
+	.db 38,53,255,255   ;   HELMET
+	.db 39,54,255,255   ;   MACHINE
+	.db 40,55,255,255   ;   BATTERY
 	.db 255
-obj_table_size	.db 38
+obj_table_size	.db 41

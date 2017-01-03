@@ -109,4 +109,10 @@ dictionary
 	.strz "LIGHTER" ; 51
 	.db 5
 	.strz "WATER" ; 52
+	.db 6
+	.strz "HELMET" ; 53
+	.db 7
+	.strz "MACHINE" ; 54
+	.db 7
+	.strz "BATTERY" ; 55
 	.db 0
