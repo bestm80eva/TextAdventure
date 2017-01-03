@@ -323,9 +323,9 @@ get_obj_id
 	lda #$ff		; ff is 'not found'
 	pshu a		; push return value onto stack
 	pshu b		; save id param onto stack (local var)
-	lda #0
-@ol	pshs a		; push outer loop counter
-	lda #1 		; inner loop counter (1 to skip id byte)
+;	lda #0
+;@ol	pshs a		; push outer loop counter
+@ol	lda #1 		; inner loop counter (1 to skip id byte)
 @il	ldb a,y		; get word #
 ;	cmpb #$ff	; is it empty?
 ;	beq @sk		; skip if yes
@@ -333,17 +333,21 @@ get_obj_id
 	bne @sk			
     ldb ,y		; get the id
 	stb 1,u	; store id of word in return var 
-	puls a		; pop outer loop counter
+;	puls a		; pop outer loop counter
 	bra @x
 @sk inca 
 	cmpa #4		; (id byte + 3 cells) 
 	bne @il
 	leay 4,y 	; advance to next row
-	puls a		; pop outer loop counter
-	inca 		; inc outer loop counter
-	cmpa obj_table_size	; see if we hit end of table
-	bne @ol
-@x  pulu a 		; remove our local var from stack
+	lda ,y
+	cmpa #$ff
+	beq @x
+;	puls a		; pop outer loop counter
+;	inca 		; inc outer loop counter	
+;	cmpa obj_table_size	; see if we hit end of table
+;	bne @ol
+	bra @ol
+@x  pulu a 		; user param on stack
 	puls y,x,a
 	rts
 
