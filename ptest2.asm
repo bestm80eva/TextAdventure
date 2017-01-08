@@ -280,14 +280,14 @@ tokenize
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;get_verb_id
+;get_verbs_id
 ;
 ;return id# of verb in word1 or -1 (ff)
 ;table format
 ;id,lenght,text+null
 ;0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
-get_verb_id
+get_verbs_id
 	pshs a,x,y
 	ldx #verb_table
 	ldy #word1
@@ -431,7 +431,7 @@ encode_sentence
 	cmpa #0
 	lbeq print_ret_pardon
 	jsr clear_sentence
-	jsr get_verb_id		;
+	jsr get_verbs_id		;
 	pulu a				; clear return val
 	cmpa #$ff
 	lbeq print_ret_bad_verb	;

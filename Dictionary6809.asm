@@ -81,38 +81,58 @@ dictionary
 	.strz "LADDER" ; 37
 	.db 4
 	.strz "HILL" ; 38
-	.db 6
-	.strz "LEAVES" ; 39
-	.db 5
-	.strz "TABLE" ; 40
-	.db 9
-	.strz "DOCUMENTS" ; 41
-	.db 9
-	.strz "PAPERCLIP" ; 42
 	.db 4
-	.strz "LOCK" ; 43
+	.strz "PILE" ; 39
+	.db 6
+	.strz "LEAVES" ; 40
+	.db 5
+	.strz "TABLE" ; 41
+	.db 9
+	.strz "DOCUMENTS" ; 42
+	.db 9
+	.strz "PAPERCLIP" ; 43
+	.db 4
+	.strz "WIRE" ; 44
+	.db 4
+	.strz "CLIP" ; 45
+	.db 4
+	.strz "LOCK" ; 46
 	.db 10
-	.strz "FLASHLIGHT" ; 44
+	.strz "FLASHLIGHT" ; 47
 	.db 5
-	.strz "WHITE" ; 45
+	.strz "LIGHT" ; 48
 	.db 4
-	.strz "CUBE" ; 46
-	.db 6
-	.strz "FILTHY" ; 47
-	.db 6
-	.strz "TOILET" ; 48
-	.db 7
-	.strz "CHARRED" ; 49
-	.db 6
-	.strz "PAPERS" ; 50
-	.db 7
-	.strz "LIGHTER" ; 51
+	.strz "LAMP" ; 49
 	.db 5
-	.strz "WATER" ; 52
+	.strz "WHITE" ; 50
+	.db 4
+	.strz "CUBE" ; 51
+	.db 4
+	.strz "SALT" ; 52
 	.db 6
-	.strz "HELMET" ; 53
+	.strz "FILTHY" ; 53
+	.db 6
+	.strz "TOILET" ; 54
+	.db 4
+	.strz "BOWL" ; 55
 	.db 7
-	.strz "MACHINE" ; 54
+	.strz "CHARRED" ; 56
+	.db 6
+	.strz "PAPERS" ; 57
+	.db 4
+	.strz "GUNK" ; 58
+	.db 9
+	.strz "CIGARETTE" ; 59
 	.db 7
-	.strz "BATTERY" ; 55
+	.strz "LIGHTER" ; 60
+	.db 5
+	.strz "WATER" ; 61
+	.db 5
+	.strz "STEEL" ; 62
+	.db 6
+	.strz "HELMET" ; 63
+	.db 7
+	.strz "MACHINE" ; 64
+	.db 7
+	.strz "BATTERY" ; 65
 	.db 0

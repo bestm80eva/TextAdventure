@@ -18,7 +18,10 @@ do_events
 @l  lda #0						;set turns w/o light back to 0
 	sta turns_without_light
 @d  nop ; end else	
-	jsr disolve_salt_sub
+
+;	jsr disolve_salt_sub
+	include event_jumps_6809.asm
+
 	puls y,d,x
 	rts
 

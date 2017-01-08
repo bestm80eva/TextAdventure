@@ -186,10 +186,10 @@ is_self_or_child_of
 ;maps verb ids to direction codes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 direction_map
-	.db north_verb_id,NORTH
-	.db south_verb_id,SOUTH
-	.db east_verb_id,EAST
-	.db west_verb_id,WEST
+	.db n_verb_id,NORTH
+	.db s_verb_id,SOUTH
+	.db e_verb_id,EAST
+	.db w_verb_id,WEST
 	.db ne_verb_id,NORTHEAST
 	.db se_verb_id,SOUTHEAST
 	.db sw_verb_id,SOUTHWEST

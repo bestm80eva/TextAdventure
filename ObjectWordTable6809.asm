@@ -30,19 +30,24 @@ obj_word_table
 	.db 24,36,37,255   ;   ON LADDER
 	.db 25,14,10,35   ;   TOP OF SHAFT
 	.db 26,14,10,38   ;   TOP OF HILL
-	.db 27,39,255,255   ;   LEAVES
-	.db 28,40,255,255   ;   TABLE
-	.db 29,41,255,255   ;   DOCUMENTS
-	.db 30,42,255,255   ;   PAPERCLIP
-	.db 31,43,255,255   ;   LOCK
-	.db 32,44,255,255   ;   FLASHLIGHT
-	.db 33,45,46,255   ;   WHITE CUBE
-	.db 34,47,48,255   ;   FILTHY TOILET
-	.db 35,49,50,255   ;   CHARRED PAPERS
-	.db 36,51,255,255   ;   LIGHTER
-	.db 37,52,255,255   ;   WATER
-	.db 38,53,255,255   ;   HELMET
-	.db 39,54,255,255   ;   MACHINE
-	.db 40,55,255,255   ;   BATTERY
+	.db 27,39,10,40   ;   PILE OF LEAVES
+	.db 28,41,255,255   ;   TABLE
+	.db 29,42,255,255   ;   DOCUMENTS
+	.db 30,43,255,255   ;   PAPERCLIP
+	.db 31,46,255,255   ;   LOCK
+	.db 32,47,255,255   ;   FLASHLIGHT
+	.db 33,50,51,255   ;   WHITE CUBE
+	.db 34,53,54,255   ;   FILTHY TOILET
+	.db 35,56,57,255   ;   CHARRED PAPERS
+	.db 36,59,60,255   ;   CIGARETTE LIGHTER
+	.db 37,61,255,255   ;   WATER
+	.db 38,62,63,255   ;   STEEL HELMET
+	.db 39,64,255,255   ;   MACHINE
+	.db 40,65,255,255   ;   BATTERY
+	.db 30,44,45,255   ;   synonyms for PAPERCLIP
+	.db 32,48,49,255   ;   synonyms for FLASHLIGHT
+	.db 33,52,255,255   ;   synonyms for WHITE CUBE
+	.db 34,55,255,255   ;   synonyms for FILTHY TOILET
+	.db 35,58,255,255   ;   synonyms for CHARRED PAPERS
 	.db 255
 obj_table_size	.db 41

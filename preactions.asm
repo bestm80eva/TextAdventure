@@ -72,46 +72,8 @@ look_at_preaction
 
 msg1 .strz "AS YOU SQUEEZE THROUGHT THE GAP, THE ROCKS GIVE WAY AND YOU FALL MANY FEET TO THE DAMP GROUND AT THE BOTTOM."	
 
-burn_leaves_sub
-	pshs d,x,y
-	nop ; does the player have the lighter?
-	nop ; is the player holding the leaves?
-	jsr get_player_room
-	pulu a
-	cmpa #23  ; base of shaft
-	bne @nb
-	ldx #brnstr
-	jsr PRINT
-	jsr PRINTCR
-	nop ; move leaves offscreen
-	lda #27
-	pshu a
-	lda #HOLDER_ID
-	pshu a
-	lda #0
-	pshu a
-	jsr set_object_attribute
-	nop ; connect 'on ladder' up to 
-	lda #24 ; object`
-	pshu a
-	lda #UP
-	pshu a
-	lda #25
-	pshu a
-	jsr set_object_attribute
-    bra @x	
-@nb cmpa #24  ; on ladder
-	beq @ol
-	ldx #noburn
-	jsr PRINT
-	jsr PRINTCR
-	bra @x
-@ol	ldx #onladder 
-	jsr PRINT
-	jsr PRINTCR
-@x	puls y,x,d
-	rts
+
 
 onladder .strz "THIS IS REALLY NOT A WISE PLACE TO TRY THAT."
-noburn .strz "THE LEAVES START TO SMOLDER, BUT QUICKLY DIE OUT IN THE HIGH UNDERGOUND HUMIDITY."	
-brnstr .strz "FUELED BY A DRAFT FROM ABOVE, THE LEAVES RAPIDLY BURN, PRODUCING A CLOUD OF ACRID SMOKE, WHICH RISES UP THE SHAFT."	
+;noburn .strz "THE LEAVES START TO SMOLDER, BUT QUICKLY DIE OUT IN THE HIGH UNDERGOUND HUMIDITY."	
+;brnstr .strz "FUELED BY A DRAFT FROM ABOVE, THE LEAVES RAPIDLY BURN, PRODUCING A CLOUD OF ACRID SMOKE, WHICH RISES UP THE SHAFT."	

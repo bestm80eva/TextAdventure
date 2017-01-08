@@ -10,7 +10,7 @@ KBBUF	equ $02dd	; keyboard buffer
 	org 0xE00
 start
 
-	include verb_ids.asm
+;	include verb_ids.asm
 	include objdefs.asm
 main
 	ldu #0x7FFF ; setup user stack
@@ -63,13 +63,15 @@ main
 	include NogoTable6809.asm
 	; include descriptions.asm
 	include sentence_table.asm
-	include verb_table.asm
+	;include verb_table.asm
+	include verbTable6809.asm
 	include prep_table.asm
 	;include nogo_table.asm
 	include preactions_table.asm
 	include instead_table.asm
 	include postactions_table.asm
 	include events.asm
+	include events6809.asm ; machine generated
 	include vars.asm
 	
 

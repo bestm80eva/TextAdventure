@@ -13,11 +13,13 @@ NO_OBJECT equ 255
 ANY_OBJECT equ 254
 
 preactions_table
-	;.db look_at_verb_id,ANY_OBJECT,255,255
+	;.db examine_verb_id,ANY_OBJECT,255,255
 	;.dw look_at_preaction
-	.db west_verb_id,NO_OBJECT,NO_OBJECT,NO_OBJECT
+	.db w_verb_id,NO_OBJECT,NO_OBJECT,NO_OBJECT
 	.dw west_preaction
 	.db burn_verb_id,27,NO_OBJECT,NO_OBJECT
 	.dw burn_leaves_sub
+	.db pick_verb_id,31,NO_OBJECT,NO_OBJECT
+	.dw pick_lock_sub
 	.db 255
 	

@@ -7,17 +7,17 @@ sentence_table
 	.dw look_sub
 	.db inventory_verb_id
 	.dw inventory_sub
-	.db north_verb_id
+	.db n_verb_id
 	.dw move_player
 	.db ne_verb_id
 	.dw move_player
 	.db nw_verb_id
 	.dw move_player	
-	.db south_verb_id
+	.db s_verb_id
 	.dw move_player
-	.db east_verb_id
+	.db e_verb_id
 	.dw move_player
-	.db west_verb_id
+	.db w_verb_id
 	.dw move_player
 	.db se_verb_id
 	.dw move_player	
@@ -27,7 +27,7 @@ sentence_table
 	.dw move_player	
 	.db down_verb_id
 	.dw move_player	
-	.db get_id
+	.db get_verb_id
 	.dw get_sub
 	.db out_verb_id
 	.dw move_player	
@@ -35,7 +35,7 @@ sentence_table
 	.dw enter_sub
 	.db drop_verb_id
 	.dw drop_sub
-	.db look_at_verb_id
+	.db examine_verb_id
 	.dw look_at_sub
 	.db put_verb_id
 	.dw put_sub
@@ -44,7 +44,7 @@ sentence_table
 	.db close_verb_id
 	.dw close_sub	
 	.db open_verb_id
-	.dw open_sub
+	.dw open_sub 
 	.db close_verb_id
 	.dw close_sub
 	.db smell_verb_id
