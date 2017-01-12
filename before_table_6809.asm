@@ -10,5 +10,9 @@ preactions_table
 	.dw burn_leaves_sub
 	.db 3,255,255,255	;west   
 	.dw before_west_sub
+	.db 31,32,255,255	;turn on flashlight  
+	.dw flashlight_on_sub
+	.db 32,32,255,255	;turn off flashlight  
+	.dw flashlight_off_sub
 	.db 255
 

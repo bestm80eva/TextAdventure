@@ -25,7 +25,7 @@ bee_sound_event
 	mul
 	tfr d,x
 	leax obj_table,x
-	leax 12,x  ; up 
+	leax 12,x  ; up
 	lda ,x
 	cmpa ,s ; compare to right side
 	pshu cc ; save flags

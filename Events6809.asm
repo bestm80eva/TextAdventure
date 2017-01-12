@@ -7,3 +7,5 @@
 	include pick_lock_sub_6809.asm
 	include burn_leaves_sub_6809.asm
 	include get_gunk_sub_6809.asm
+	include flashlight_on_sub_6809.asm
+	include flashlight_off_sub_6809.asm

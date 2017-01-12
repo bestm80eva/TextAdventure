@@ -14,12 +14,7 @@ parse
 	jsr compress_verb
 	rts
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-process_cmd
-	rts
-	
+ 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;nulls out the 50 characters in the
 ;5x10 buffer for the words in the
@@ -84,7 +79,7 @@ find_end
 ; registers an unaffected
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 compress_verb
-	pshs a,x,y
+	pshs d,x,y
 	ldx #word2
 	ldy #prep_table
 	jsr word_in_table
@@ -110,7 +105,10 @@ compress_verb
 	leax 1,x		; go to next byte
 	cmpx #(WORD_SIZE*(WORD_SPACES-1))
 	bne @lp			
-@x	puls a,y,x
+	lda word_count				;dec word_count
+	deca 
+	sta word_count
+@x	puls d,y,x
 	rts
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -213,7 +211,7 @@ word_in_table
 ;returns ff or the user index on the stack
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 get_word_index
-	pshs a			;save a
+	pshs d,x,y			;save a
 	lda #0			;assume not found
 	pshu a			; push return code
 @lp	leay 1,y 		;increment y to skip length byte
@@ -233,7 +231,7 @@ get_word_index
 	bne	@lp			;if no, keep checking
 	lda #$ff			;not found...
 	sta 0,u			;put ff into our return var
-@x	puls a
+@x	puls y,x,d
 	rts
 		
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -283,6 +281,7 @@ tokenize
 ;get_verbs_id
 ;
 ;return id# of verb in word1 or -1 (ff)
+;
 ;table format
 ;id,lenght,text+null
 ;0
@@ -417,6 +416,7 @@ set_word_addr
 	rts
 	
 ;assumes sentence has already been parsed
+;and verb has been compressed
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
 ;if (prep found) {
 ;	find do and io
@@ -447,7 +447,7 @@ encode_sentence
 	deca				;isolate nouns
 	pshs a				;save word index
 	jsr lookup_word
-	puls a				;restor it
+	puls a				;restore it
 	nop					;need to load address of word
 	pulu b				;get return from loopup word
 	jsr set_word_addr   ;print word at word#1 * 32
@@ -525,8 +525,8 @@ lookup_word
 	jsr a_times_32		;get word offset
 	ldx #word1
 	leax a,x
-	ldy #dictionary		;need to get i.o., too	
-	jsr get_word_index	;check dictionary
+	ldy #dictionary		;need to get i.o., too	 
+	jsr get_word_index	;check dictionary and leave it on the user stack
 	rts
 	
 a_times_32

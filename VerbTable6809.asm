@@ -34,6 +34,8 @@ yell_verb_id equ 27
 jump_verb_id equ 28
 pick_verb_id equ 29
 burn_verb_id equ 30
+turn_on_verb_id equ 31
+turn_off_verb_id equ 32
 
 
 verb_table
@@ -241,4 +243,10 @@ verb_table
 	.db 30
 	.db 4
 	.strz "BURN"
+	.db 31
+	.db 7
+	.strz "TURN ON"
+	.db 32
+	.db 8
+	.strz "TURN OFF"
 	.db 0,0

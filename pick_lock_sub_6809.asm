@@ -10,7 +10,7 @@ pick_lock_sub
 	mul
 	tfr d,x
 	leax obj_table,x
-	leax 1,x  ; holder 
+	leax 1,x  ; holder
 	lda ,x
 	cmpa ,s ; compare to right side
 	pshu cc ; save flags
