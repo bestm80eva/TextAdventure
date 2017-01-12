@@ -3,6 +3,14 @@
 ;these are NOT subroutines.  calling subroutines should
 ;long branch to these addresses.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+print_ret_no_have
+	ldx #nohave
+	jsr PRINT		 ;close the sentence
+	jsr PRINTCR		;newline
+	puls y,x,d
+	rts
+
+
 print_ret_bad_noun
 	pshs x
 	ldx #bad_noun
@@ -34,7 +42,7 @@ print_ret_not_portable
 	rts
 	
 print_ret_not_visible
-	ldx #badobj
+	ldx #nosee 
 	jsr PRINT
 	jsr PRINTCR
 	puls y,x,d

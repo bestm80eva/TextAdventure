@@ -33,17 +33,17 @@ run_actions
 @x	puls y,x,d
 	rts
 
-west_preaction
-		pshs d,x,y
-		jsr get_player_room
-		pulu a
-		cmpa #9
-		bne @x
-		ldx #msg1
-		jsr PRINT
-		jsr PRINTCR
-@x		puls y,x,d
-		rts
+;west_preaction
+;		pshs d,x,y
+;		jsr get_player_room
+;		pulu a
+;		cmpa #9
+;		bne @x
+;		ldx #msg1
+;		jsr PRINT
+;		jsr PRINTCR
+;@x		puls y,x,d
+;		rts
 
 ;verify the object isn't 255
 ;verify there is light
@@ -70,7 +70,7 @@ look_at_preaction
 	lbra print_ret_not_visible
 @s2	rts  ; return back to run preactions
 
-msg1 .strz "AS YOU SQUEEZE THROUGHT THE GAP, THE ROCKS GIVE WAY AND YOU FALL MANY FEET TO THE DAMP GROUND AT THE BOTTOM."	
+;msg1 .strz "AS YOU SQUEEZE THROUGHT THE GAP, THE ROCKS GIVE WAY AND YOU FALL MANY FEET TO THE DAMP GROUND AT THE BOTTOM."	
 
 
 

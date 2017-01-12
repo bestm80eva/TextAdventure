@@ -5,31 +5,23 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;drop sub
+;moves an object to the player's room
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 drop_sub
 	pshs d,x,y
-	lda #PLAYER
-	pshu a
 	lda sentence+1
-	pshu a
-	jsr is_visible_child_of
+	ldb #OBJ_ENTRY_SIZE
+	mul
+	tfr d,x
+	leax obj_table,x
+	leax HOLDER_ID,x
+	jsr get_player_room
 	pulu a
-	cmpa #PLAYER
-	bne @n
-	lda sentence+1	 ;push obj to move
-	pshu a
-	ldx #obj_table	 ;push player's room onto stack
-	leax OBJ_ENTRY_SIZE,x
-	lda HOLDER_ID,x
-	pshu a
-	jsr move_object
+	sta ,x
 	ldx #dropped
 	jsr PRINT
 	jsr PRINTCR
 	bra @x
-@n	ldx #nosee
-	jsr PRINT
-	jsr PRINTCR
 @x	puls y,x,d
 	rts
 	

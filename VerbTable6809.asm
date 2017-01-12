@@ -116,8 +116,8 @@ verb_table
 	.db 5
 	.strz "GO UP"
 	.db 8
-	.db 4
-	.strz "DOWN"
+	.db 1
+	.strz "U"
 	.db 9
 	.db 4
 	.strz "DOWN"
@@ -125,8 +125,8 @@ verb_table
 	.db 7
 	.strz "GO DOWN"
 	.db 9
-	.db 4
-	.strz "DOWN"
+	.db 1
+	.strz "D"
 	.db 10
 	.db 5
 	.strz "ENTER"

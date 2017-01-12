@@ -486,8 +486,22 @@ encode_sentence
 	jsr get_obj_id		;get the object it belongs to
 	pulu a
 	sta sentence+1		;store id of d.o.
+@dn	nop ; run check rules
+	ldx #check_table
+@lp	lda ,x
+	cmpa #255
+	beq @bf
+	cmpa sentence  ; get verb
+	bne @c
+	jsr [1,x] ; jump to the subroutine
+	pulu b    ;check status
+	cmpb #0
+	bne @c
+	bra @x
+@c	leax 3,x	;skip 3 bytes (the size of an entry)
+	bra @lp
 	nop ; run 'before' rules
-@dn	ldx #preactions_table
+@bf	ldx #preactions_table
  	jsr run_actions
 	ldx #actions_table
 	pulu a

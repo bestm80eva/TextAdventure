@@ -17,11 +17,12 @@ pick_lock_sub
 	leas 1,s ; pop right side
 	pulu cc ; restore flags
 	lbne @a
-	nop ; print("AFTER SEVERAL ATTEMPTS, YOU MANAGE TO UNLOCK AND OPEN THE DOOR.\n")
+	nop ; printl("AFTER SEVERAL ATTEMPTS, YOU MANAGE TO UNLOCK AND OPEN THE DOOR.")
 	ldx #description_table
-	lda #51 ; AFTER SEVERAL ATTEMPTS, YOU MANAGE TO UNLOCK AND OPEN THE DOOR.\n
+	lda #53 ; AFTER SEVERAL ATTEMPTS, YOU MANAGE TO UNLOCK AND OPEN THE DOOR.
 	pshu a
 	jsr print_table_entry
+	jsr PRINTCR
 	nop ; door.open=true
 	nop ; set door.open=1
 	lda #14 ; door
@@ -37,6 +38,22 @@ pick_lock_sub
 	anda ,s   ; clear the bit
 	leas 1,s ; pop stack
 	ora #32   ; set the open bit
+	sta ,x  ; store it
+	nop ; door.openable=true
+	nop ; set door.openable=1
+	lda #14 ; door
+	ldb #OBJ_ENTRY_SIZE
+	mul
+	tfr d,x
+	leax obj_table,x
+	leax PROPERTY_BYTE_1,x
+	lda ,x  ; get property byte
+	ldb #16 ; get the mask for openable
+	comb 16 ; invert it
+	pshs b
+	anda ,s   ; clear the bit
+	leas 1,s ; pop stack
+	ora #16   ; set the openable bit
 	sta ,x  ; store it
 	nop ; door.locked=false
 	nop ; set door.locked=0
@@ -70,11 +87,12 @@ pick_lock_sub
 	sta ,x  ; store it
 	bra @b ; skip else 
 @a	nop ; close (paperclip.holder == player)
-	nop ; {	print("YOU HAVE NOTHING TO DO THAT WITH.")
+	nop ; {	printl("YOU HAVE NOTHING TO DO THAT WITH.")
 	ldx #description_table
-	lda #52 ; YOU HAVE NOTHING TO DO THAT WITH.
+	lda #54 ; YOU HAVE NOTHING TO DO THAT WITH.
 	pshu a
 	jsr print_table_entry
+	jsr PRINTCR
 @b	nop ; end else
 	puls y,x,d
 	rts

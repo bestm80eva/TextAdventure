@@ -47,11 +47,12 @@ burn_leaves_sub
 	leas 1,s ; pop right side
 	pulu cc ; restore flags
 	lbne @c
-	nop ; print("FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.")
+	nop ; printl("FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.")
 	ldx #description_table
-	lda #53 ; FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.
+	lda #55 ; FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.
 	pshu a
 	jsr print_table_entry
+	jsr PRINTCR
 	nop ; on ladder.up=top of shaft
 	lda #24 ; on ladder
 	ldb #OBJ_ENTRY_SIZE
@@ -87,35 +88,39 @@ burn_leaves_sub
 	leas 1,s ; pop right side
 	pulu cc ; restore flags
 	lbne @e
-	nop ; print("YOU CAN'T DO THAT WHILE ON A LADDER")
+	nop ; printl("YOU CAN'T DO THAT WHILE ON A LADDER")
 	ldx #description_table
-	lda #54 ; YOU CAN'T DO THAT WHILE ON A LADDER
+	lda #56 ; YOU CAN'T DO THAT WHILE ON A LADDER
 	pshu a
 	jsr print_table_entry
+	jsr PRINTCR
 	bra @f ; skip else 
 @e	nop ; close (player.holder == on ladder)
-	nop ; {				print("THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.")
+	nop ; {				printl("THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.")
 	ldx #description_table
-	lda #55 ; THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.
+	lda #57 ; THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.
 	pshu a
 	jsr print_table_entry
+	jsr PRINTCR
 @f	nop ; end else
 @d	nop ; end else
 	bra @g ; skip else 
 @b	nop ; close (pile of leaves.holder != player)
-	nop ; {		print("LIGHTING A PILE OF LEAVES WHICH YOU ARE CARRYING WOULD BE UNWISE.")
+	nop ; {		printl("LIGHTING A PILE OF LEAVES WHICH YOU ARE CARRYING WOULD BE UNWISE.")
 	ldx #description_table
-	lda #56 ; LIGHTING A PILE OF LEAVES WHICH YOU ARE CARRYING WOULD BE UNWISE.
+	lda #58 ; LIGHTING A PILE OF LEAVES WHICH YOU ARE CARRYING WOULD BE UNWISE.
 	pshu a
 	jsr print_table_entry
+	jsr PRINTCR
 @g	nop ; end else
 	bra @h ; skip else 
 @a	nop ; close (cigarette lighter.holder == player)
-	nop ; {	print("YOU HAVE NO IGNITION SOURCE.")
+	nop ; {	printl("YOU HAVE NO IGNITION SOURCE.")
 	ldx #description_table
-	lda #57 ; YOU HAVE NO IGNITION SOURCE.
+	lda #59 ; YOU HAVE NO IGNITION SOURCE.
 	pshu a
 	jsr print_table_entry
+	jsr PRINTCR
 @h	nop ; end else
 	puls y,x,d
 	rts

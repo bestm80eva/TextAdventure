@@ -17,11 +17,12 @@ disolve_salt_event
 	leas 1,s ; pop right side
 	pulu cc ; restore flags
 	lbne @a
-	nop ; print("THE LARGE BLOCK OF SALT DISOLVES IN THE WATER.")
+	nop ; printl("THE LARGE BLOCK OF SALT DISOLVES IN THE WATER.")
 	ldx #description_table
 	lda #50 ; THE LARGE BLOCK OF SALT DISOLVES IN THE WATER.
 	pshu a
 	jsr print_table_entry
+	jsr PRINTCR
 	nop ; white cube.holder=offscreen
 	lda #33 ; white cube
 	ldb #OBJ_ENTRY_SIZE

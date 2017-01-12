@@ -38,7 +38,9 @@ main
 @quit lds sys_stack_save
 @x	rts
 
-	include ptest2.asm	
+	include parser.asm	
+	include random.asm
+	include mod.asm
 	include routines.asm
 	include preactions.asm
 	include printrets.asm
@@ -52,7 +54,7 @@ main
 	include smell.asm
  	include listen.asm
 	include enter_sub.asm
-	include instead.asm
+	;include instead.asm
 	include before_rules.asm
 	include after_rules.asm
 	;include dictionary.asm
@@ -61,17 +63,16 @@ main
 	include ObjectWordTable6809.asm
 	include DescriptionTable6809.asm
 	include NogoTable6809.asm
-	; include descriptions.asm
 	include sentence_table.asm
-	;include verb_table.asm
 	include verbTable6809.asm
-	include prep_table.asm
-	;include nogo_table.asm
-	include preactions_table.asm
+	include PrepTable6809.asm
+	include checks.asm
+	include before_table_6809.asm
 	include instead_table.asm
 	include postactions_table.asm
 	include events.asm
 	include events6809.asm ; machine generated
+	include CheckRules6809.asm
 	include vars.asm
 	
 
