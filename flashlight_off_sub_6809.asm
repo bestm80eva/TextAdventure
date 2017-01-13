@@ -17,6 +17,7 @@ flashlight_off_sub
 	asra ; right justify bit
 	asra ; right justify bit
 	asra ; right justify bit
+	asra ; right justify bit
 	cmpa ,s ; compare to right side
 	pshu cc ; save flags
 	leas 1,s ; pop right side

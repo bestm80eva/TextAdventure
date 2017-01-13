@@ -17,4 +17,6 @@ prep_table
 	.strz "UNDER" ; 5
 	.db 2
 	.strz "ON" ; 6
+	.db 3
+	.strz "OFF" ; 7
 	.db 0

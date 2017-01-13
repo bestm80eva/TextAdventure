@@ -36,6 +36,7 @@ pick_verb_id equ 29
 burn_verb_id equ 30
 turn_on_verb_id equ 31
 turn_off_verb_id equ 32
+flush_verb_id equ 33
 
 
 verb_table
@@ -249,4 +250,7 @@ verb_table
 	.db 32
 	.db 8
 	.strz "TURN OFF"
+	.db 33
+	.db 5
+	.strz "FLUSH"
 	.db 0,0

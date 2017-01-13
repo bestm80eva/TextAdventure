@@ -11,6 +11,12 @@ file_name=$(echo $1| cut -d'.' -f 1)
 list_file=$file_name.list
 bin_file=$file_name.bin
 
+echo "copying .asm from Visual Studio..."
+cp /cygdrive/c/Users/Evan/Documents/Visual\ Studio\ 2013/MovTable/XMLto6809/bin/Debug/*.asm .
+
+
+
+
 echo "lwasm  --6809 $1 --list=$list_file --output=$bin_file"
 lwasm  --6809 $1 --list=$list_file --output=$bin_file
 

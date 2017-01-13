@@ -9,3 +9,4 @@
 	include get_gunk_sub_6809.asm
 	include flashlight_on_sub_6809.asm
 	include flashlight_off_sub_6809.asm
+	include flush_toilet_sub_6809.asm

@@ -55,8 +55,8 @@ main
  	include listen.asm
 	include enter_sub.asm
 	;include instead.asm
-	include before_rules.asm
-	include after_rules.asm
+	;include before_rules.asm
+	;include after_rules.asm
 	;include dictionary.asm
 	include Dictionary6809.asm
 	include ObjectTable6809.asm
@@ -69,7 +69,8 @@ main
 	include checks.asm
 	include before_table_6809.asm
 	include instead_table.asm
-	include postactions_table.asm
+	;include postactions_table.asm
+	include after_table_6809.asm
 	include events.asm
 	include events6809.asm ; machine generated
 	include CheckRules6809.asm

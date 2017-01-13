@@ -5,18 +5,6 @@
 open_sub
 	pshs d,x,y
 	lda sentence+1
-	cmpa #$ff
-	lbeq print_ret_bad_open
-	jsr get_player_room
-	pulu a
-	pshu a 
-	lda sentence+1
-	pshu a
-	jsr is_visible_child_of
-	pulu a
-	cmpa #0
-	lbeq print_ret_not_visible
-	lda sentence+1
 	ldb #OBJ_ENTRY_SIZE    
 	mul
 	tfr d,x
@@ -44,7 +32,6 @@ open_sub
 	
 close_sub
 	pshs d,x,y
-	nop	; is it visible?
 	lda sentence+1
 	ldb #OBJ_ENTRY_SIZE
 	mul

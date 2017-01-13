@@ -29,6 +29,8 @@ check_table
 	.dw check_dobj_supplied
 	.db 10 ; enter
 	.dw check_see_dobj
+	.db 33 ; flush
+	.dw check_see_dobj
 	.db 12 ; get
 	.dw check_dobj_supplied
 	.db 12 ; get
