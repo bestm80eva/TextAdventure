@@ -13,7 +13,6 @@
 	include yell_sub_6809.asm
 	include unbolt_cupola_sub_6809.asm
 	include unbolt_unboltable_sub_6809.asm
-	include burn_sub_6809.asm
 	include jump_sub_6809.asm
 	include turn_on_sub_6809.asm
 	include kill_player_sub_6809.asm

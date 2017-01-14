@@ -94,7 +94,7 @@ unused="0"/>
 <object id="1" holder="2" name="PLAYER">
 <description>YOU'RE A WONDERFUL PERSON. YOU SHOULDN'T CARE WHAT YOU LOOK LIKE.</description>
 <initialdescription/>
-<synonyms names="me,self"/>
+<synonyms names="ME,SELF"/>
 <directions n="0"
 s="0"
 e="0"
@@ -1741,7 +1741,7 @@ unused="0"/>
 </checks>
 <sentences>
 <sentence verb="burn" do="pile of leaves" prep="" io="" type="before" sub="burn_leaves"/>
-<sentence verb="burn" do="*" prep="" io="" type="instead" sub="burn"/>
+<sentence verb="burn" do="*" prep="" io="" type="instead" sub="burn_unburnable"/>
 <sentence verb="drop" do="nose" prep="" io="" type="instead" sub="drop_undropable"/>
 <sentence verb="flush" do="filthy toilet" prep="" io="" type="after" sub="flush_toilet"/>
 <sentence verb="flush" do="*" prep="" io="" type="after" sub="flush_unflushable"/>
@@ -1889,9 +1889,6 @@ else
 
 <routine name="unbolt_unboltable" type="instead">
 	println("YOU CAN'T UNBOLT THAT.");
-</routine>
-<routine name="burn">
-	println("YOU CAN'T BURN THAT.");
 </routine>
 <routine name="jump">
 if (player.holder==top of shaft)

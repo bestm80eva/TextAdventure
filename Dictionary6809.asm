@@ -8,9 +8,9 @@ dictionary
 	.db 6
 	.strz "PLAYER" ; 1
 	.db 2
-	.strz "me" ; 2
+	.strz "ME" ; 2
 	.db 4
-	.strz "self" ; 3
+	.strz "SELF" ; 3
 	.db 6
 	.strz "FOREST" ; 4
 	.db 4

@@ -166,20 +166,6 @@ get_sub
 @x	puls y,x,d
 	rts
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;returns 1 if top of stack is a
-;child of the object of the 2nd
-;arg on stack
-;NOT WRITTEN YET!!!!!
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-is_self_or_child_of
-	pshs d,x,y
-	pulu b ; the parent id
-	pulu a ; the child id
-	puls y,x,d
-	lda #0
-	pshu a
-	rts
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;maps verb ids to direction codes
