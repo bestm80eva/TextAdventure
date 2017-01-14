@@ -1,0 +1,1885 @@
+<xml>
+<project>
+<preps>
+<prep>in</prep> 
+<prep>on</prep> 
+<prep>at</prep> 
+<prep>under</prep> 
+<prep>into</prep> 
+<prep>inside</prep>
+<prep>through</prep>
+<prep>out</prep>
+<prep>behind</prep>
+<prep>off</prep>
+</preps>
+<verbs>
+<builtinverbs>
+<verb>n,go north,north</verb>
+<verb>s,go south,south</verb>
+<verb>e,go east,east</verb>
+<verb>w,go west,west</verb>
+<verb>ne,go northeast,northeast</verb>
+<verb>se,go southeast,southeast</verb>
+<verb>sw,go southwest,southwest</verb>
+<verb>nw,go northwest,northwest</verb>
+<verb>up,go up,u</verb>
+<verb>down,go down,d</verb>
+<verb>enter,go in,go into,go inside</verb>
+<verb>out</verb>
+<verb>get,take,grab,pick up</verb>
+<verb>inventory,i</verb>
+<verb>drop</verb>
+<verb>look,l</verb>
+<verb>examine,x,look at</verb>
+<verb>look in,inspect,search</verb>
+<verb>open</verb>
+<verb>close,shut</verb>
+<verb>eat</verb>
+<verb>drink</verb>
+<verb>put,place</verb>
+<verb>quit</verb>
+<verb>smell,sniff</verb>
+<verb>listen</verb>
+</builtinverbs>
+<userverbs>
+<verb>fill</verb>
+<verb>pour</verb>
+<verb>wear</verb>
+<verb>yell,shout,scream</verb>
+<verb>jump</verb>
+<verb>pick</verb>
+<verb>burn</verb>
+<verb>turn on</verb>
+<verb>turn off</verb>
+<verb>flush</verb>
+<verb>swim</verb>
+<verb>unbolt</verb>
+</userverbs>
+</verbs> 
+<objects>
+<object id="0" holder="0" name="OFFSCREEN">
+<description>OFFSCREEN</description>
+<initialdescription>YOU SHOULDN'T BE HERE.</initialdescription>
+<directions n="1"
+s="2" 
+e="3"
+w="4"
+ne="5"
+se="6"
+sw="7"
+nw="8"
+up="9"
+down="10"
+in = "255"
+out="12"
+mass="13"/>
+<flags scenery="0"
+portable="0"
+container="0"
+supporter="0"
+transparent="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="1" holder="2" name="PLAYER">
+<description>YOU'RE A WONDERFUL PERSON. YOU SHOULDN'T CARE WHAT YOU LOOK LIKE.</description>
+<initialdescription/>
+<directions n="0"
+s="0"
+e="0"
+w="0"
+ne="0"
+se="0"
+sw="0"
+nw="0"
+up="0"
+down="0"
+in = "255"
+out="0"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="2" name = "FOREST PATH" holder="0">
+<description>THIS IS THE START OF A PATH THAT WINDS NORTH INTO THE FOREST.</description>
+<initialdescription/>
+<directions n="5"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<nogo>
+<s>THE FOREST IS TOO THICK.</s>
+<w>THE FOREST IS TOO THICK.</w>
+<ne>THE FOREST IS TOO THICK.</ne>
+<nw>THE FOREST IS TOO THICK.</nw>
+<e>THE FOREST IS TOO THICK.</e>
+<se>THE FOREST IS TOO THICK.</se>
+<sw>THE FOREST IS TOO THICK.</sw>
+</nogo>
+<flags
+scenery="0"
+transparent="0"
+portable="0"
+container="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="1"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"
+/>
+</object>
+<object id="3" name="GUARD HUT" holder="2">
+<description>THE HUT IS BARELY LARGE ENOUGH TO PROTECT ONE OR TWO SENTRIES FROM THE ELEMENTS.</description>
+<initialdescription>A DILAPIDATED GUARD HUT STANDS NEARBY.</initialdescription>
+<directions
+n="255"
+s="255"
+e="255"
+w="2"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "4"
+out="2"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="1"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="4" name="INSIDE HUT" holder="0">
+<description>YOU ARE INSIDE THE SMALL GUARD HUT. THE OPEN DOORWAY LEADS OUTSIDE TO THE WEST.</description>
+<initialdescription/>
+<nogo>
+<n>THE ONLY EXIT IS TO THE WEST.</n>
+<s>THE ONLY EXIT IS TO THE WEST.</s>
+<e>THE ONLY EXIT IS TO THE WEST.</e>
+<ne>THE ONLY EXIT IS TO THE WEST.</ne>
+<nw>THE ONLY EXIT IS TO THE WEST.</nw>
+<se>THE ONLY EXIT IS TO THE WEST.</se>
+<sw>THE ONLY EXIT IS TO THE WEST.</sw>
+<up>THE ONLY EXIT IS TO THE WEST.</up>
+</nogo>
+
+<directions
+n="255"
+s="255"
+e="255"
+w="2"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="2"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="1"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="5" name="TUNNEL ENTRACE" holder="0">
+<description>YOU ARE AT THE MOUTH OF A LARGE, COLLAPSED TUNNEL CUT INTO A STEEP HILLSIDE TO THE NORTH. A DIRT PATH RUNS EAST AND WEST AROUND THE ESCARPMENT AND WINDS SOUTH INTO THE THICK FOREST.</description>
+<initialdescription></initialdescription>
+<nogo>
+<n>THE COLLAPSED TUNNEL IS IMPASSIBLE.</n>
+<ne>THE HILLSIDE IS TOO STEEP.</ne>
+<nw>THE HILLSIDE IS TOO STEEP.</nw>
+<se>DENSE UNDERBRUSH BLOCKS YOUR WAY.</se>
+<sw>DENSE UNDERBRUSH BLOCKS YOUR WAY.</sw>
+<up>THE HILLSIDE IS TOO STEEP.</up>
+</nogo>
+<directions
+n="255"
+s="2"
+e="6"
+w="7"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="1"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+
+<object id="6" name="SOUTHEAST OF HILLSIDE" holder="0">
+<description>YOU ARE ON A DIRT PATH CURVING AROUND THE BASE OF A ROCKY HILLSIDE. THE PATH EXTENDS WEST AND NORTHEAST.</description>
+<initialdescription></initialdescription>
+<nogo>
+<n>THE HILLSIDE IS TOO STEEP.</n>
+<e>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</e>
+<nw>THE HILLSIDE IS TOO STEEP.</nw>
+<se>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</se>
+<sw>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</sw>
+<up>THE HILLSIDE IS TOO STEEP.</up>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="5"
+ne="8"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="1"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="7" name="SOUTHWEST OF HILLSIDE" holder="0">
+<description>YOU ARE ON A DIRT PATH CURVING AROUND THE BASE OF A ROCKY HILLSIDE. THE PATH EXTENDS BACK TO THE EAST.</description>
+<initialdescription></initialdescription>
+<nogo>
+<n>THE PATH DEADENDS HERE AT THE HILLSIDE.</n>
+<w>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</w>
+<ne>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</ne>
+<nw>THE HILLSIDE IS TOO STEEP.</nw>
+<s>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</s>
+<se>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</se>
+<sw>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</sw>
+<up>THE HILLSIDE IS TOO STEEP.</up>
+</nogo>
+<directions
+n="255"
+s="255"
+e="5"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="1"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="8" name="EASTERN HILLSIDE" holder="0">
+<description>YOU ARE ON THE EASTERN EDGE OF A ROCKY HILLSIDE.  A LARGE,DARK TUNNEL EXTENDS WESTWARD INTO THE HILLSIDE.  ALTHOUGH IT APPEARS ATTEMPTS WERE MADE TO DEMOLISH IT, IT MAY BE POSSIBLE TO CLIMB OVER THE DEBRIS. A DIRT PATH EXTENDS SOUTHWEST.</description>
+<initialdescription></initialdescription>
+<nogo>
+<n>THE PATH DEADENDS HERE AT THE HILLSIDE.</n>
+<e>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</e>
+<ne>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</ne>
+<nw>THE HILLSIDE IS TOO STEEP.</nw>
+<se>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</se>
+<up>THE HILLSIDE IS TOO STEEP.</up>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="9"
+ne="255"
+se="255"
+sw="6"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="1"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="9" name="TOP OF DEBRIS" holder="0">
+<description>YOU ARE ONTOP OF A LARGE ROCK PILE JUST INSIDE THE MOUTH OF A LARGE TUNNEL. TO THE WEST, THE PILE DROPS PRECIPITOUSLY INTO THE DARKESS.</description>
+<initialdescription></initialdescription>
+<nogo>
+<up>YOU HIT YOUR HEAD THE ROOF OF THE TUNNEL.</up>
+</nogo>
+<directions
+n="255"
+s="255"
+e="8"
+w="10"
+ne="255"
+se="255"
+sw="6"
+nw="255"
+up="255"
+down="8"
+in = "255"
+out="8"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="1"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="10" name="EAST TUNNEL" holder="0">
+<description>YOU ARE AT THE EASTERN END OF AN EAST-WEST TUNNEL. TO THE EAST, A HUGE DEBRIS PILE, THE RESULT OF INTENTIONAL DEMOLITION, COMPLETELY BLOCKS THE EXIT.</description>
+<initialdescription></initialdescription>
+<nogo>
+<up>THE DEBRIS PILE IS TOO STEEP.</up>
+<e>THE GIANT DEBRIS PILE BLOCKS THE EXIT.</e>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="11"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="11" name="TUNNEL JUNCTION" holder="0">
+<description>YOU ARE AT A TUNNEL JUNCTION. TUNNELS EXTEND EAST, WEST, AND SOUTH.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="12"
+e="10"
+w="17"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="12" name="SMALL OFFICE" holder="0">
+<description>THIS IS A SMALL OFFICE AREA. DOORWAYS LEADS NORTH AND SOUTH.  A STORAGE CLOSEST IS TO THE EAST.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="11"
+s="13"
+e="14"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="13" name="BATHROOM" holder="0">
+<description>THIS IS A DANK LAVATORY. A DOORWAY LEADS NORTH.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="12"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="14" name="DOOR" holder="12">
+<description>THE DOOR SPORTS A LARGE LOCK.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="12"
+s="255"
+e="15"
+w="12"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="1"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="1"
+lockable="1"
+flammable="0"
+lightable="0"
+door="1"
+unused="0"/>
+</object>
+<object id="15" name="STORAGE ROOM" holder="0">
+<description>THIS IS A CRAMPED STORAGE CLOSET. A DOOR LEADS WEST.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="12"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="16" name="DOWNWARD SLOPING TUNNEL" holder="0">
+<description>THIS IS A LONG EAST-WEST TUNNEL THAT SLOPES DOWNWARD TOWARD THE WEST. A SMALLER TUNNEL EXTENDS TO THE NORTH.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="20"
+s="255"
+e="17"
+w="21"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="17" name="FOUR WAY JUNCTION" holder="0">
+<description>THIS IS A FOUR WAY JUNCTION.  PASSAGES LEAD NORTH, SOUTH, EAST AND WEST.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="19"
+s="18"
+e="11"
+w="16"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="18" name="SOUTH TUNNEL" holder="0">
+<description>THIS IS A LARGE, NORTH-SOUTH TUNNEL THAT ENDS ABRUPTLY WHERE IT HAS COLLAPSED.  SCORCH MARKS WOULD SUGGEST THE TUNNEL ENTRANCE WAS DESTROYED DELIBERATELY. THE ONLY EXIT IS TO THE NORTH.</description>
+<initialdescription></initialdescription>
+<nogo>
+<s>THE TUNNEL STOPS ABRUPTLY WHERE IT WAS INTENTIONALLY DYNAMITED.</s>
+</nogo>
+<directions
+n="17"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="19" name="VAST WORKHALL" holder="0">
+<description>YOU HAVE ENTERED A VAST SUBTERANEAN WORKHALL CARVED OUT OF THE NATIVE LIMESTONE. IT WAS APPARENTLY GUTTED OF EQUIPMENT BEFORE IT WAS ABANDONED. THERE IS AN EXIT TO THE SOUTH.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="17"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="20" name="PUMP ROOM" holder="0">
+<description>THIS IS A SMALL CHAMBER HOUSING WHAT APPEARS TO BE A LARGE, ELECTRICALLY POWERED, WATER PUMP.  THE ONLY EXIT IS TO THE SOUTH.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="16"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="21" name="FLOODED TUNNEL" holder="0">
+<description>THIS IS A LOW POINT IN THE MAIN E-W TUNNEL.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="17"
+e="16"
+w="255"
+ne="255"
+se="255"
+sw="22"
+nw="23"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="22" name="STORAGE CHAMBER" holder="0">
+<description>THIS IS A SMALL CHAMBER.  THE ONLY EXIT IS TO THE NORTHEAST.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="21"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="23" name="BASE OF SHAFT" holder="0">
+<description>THIS IS THE BASE OF A VENTILATION SHAFT. RUNGS ANCHORED INTO THE CONCRETE LEAD UP, WHILE AN EXIT LEADS TO THE SOUTHEAST.</description>
+<initialdescription></initialdescription>
+<nogo>
+<n>THE ONLY EXITS ARE UP AND SOUTHEAST.</n>
+<s>THE ONLY EXITS ARE UP AND SOUTHEAST.</s>
+<e>THE ONLY EXITS ARE UP AND SOUTHEAST.</e>
+<w>THE ONLY EXITS ARE UP AND SOUTHEAST.</w>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="21"
+sw="255"
+nw="255"
+up="24"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="24" name="ON LADDER" holder="0">
+<description>YOU ARE ON A LADDER HALF-WAY UP A VENTILATION SHAFT.</description>
+<initialdescription></initialdescription>
+<nogo>
+<up>AS YOU ATTEMPT TO CLIMB THE LADDER, WASPS BEGIN TO SWARM AROUND YOU, FORCING YOU BACK DOWN.</up>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="23"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="25" name="TOP OF SHAFT" holder="0">
+<description>YOU ARE AT THE TOP OF A VENTILATION SHAFT. A METAL CUPOLA, HELD IN PLACE BY LARGE BOLTS, CAPS THE SHAFT.</description>
+<initialdescription></initialdescription>
+<nogo>
+<up>THE METAL CUPOLA IS IN YOUR WAY.</up>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255 "
+down="24"
+in = "255"
+out="26"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="26" name="TOP OF HILL" holder="0">
+<description>YOU ARE STANDING ATOP A HIGH ESCARPMENT. IN THE DISTANCE, THE SPIRES ON THE GOTHIC CATHEDRAL OF PRAGUE ARE JUST BARELY VISIBLE.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="25"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="27" name="PILE OF LEAVES" holder="10">
+<description></description>
+<initialdescription>A PILE OF DAMP LEAVES, BLOWN IN BY THE WIND, LIES ON THE GROUND.</initialdescription>
+<nogo>
+<down></down>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="1"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="1"
+lightable="1"
+door="0"
+unused="0"/>
+</object>
+<object id="28" name="TABLE" holder="12">
+<description></description>
+<initialdescription>THERE IS A LARGE TABLE IN THE CENTER OF THE ROOM.</initialdescription>
+<nogo>
+<down></down>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="1"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="29" name="DOCUMENTS" holder="12">
+<description>THE DOCUMENTS APPEAR TO BE IN GERMAN. A STAMP MARK SHOWS THE DATE OF MARCH,1945. DETERIORATION HAS RENDERED THE REST OF THE DOCUMENTS ILLEGIBLE.</description>
+<initialdescription>SOME MOLDY DOCUMENTS LIE ON THE TABLE.</initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="1"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="30" name="PAPERCLIP" holder="0">
+<description></description>
+<initialdescription></initialdescription>
+<synonyms names="WIRE,CLIP"/>
+<nogo>
+<down></down>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="1"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="31" name="LOCK" holder="12">
+<description>THE METAL LOCK INSET INTO THE DOOR.</description>
+<initialdescription></initialdescription>
+<nogo>
+<down></down>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="1"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="32" name="FLASHLIGHT" holder="4">
+<description>THE FLASHLIGHT IS RUSTED SHUT, BUT OTHERWISE OK.</description>
+<initialdescription>A DISCARDED FLASHLIGHT LIES ON THE GROUND.</initialdescription>
+<synonyms names="LIGHT,LAMP"/>
+<nogo>
+<down></down>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="1"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="1"
+door="0"
+unused="0"/>
+</object>
+<object id="33" name="WHITE CUBE" holder="15">
+<description>THE CUBE IS ABOUT ONE FOOT ON EACH SIDE.  EMBOSSED IN THE SIDE IS THE WORD 'NATRIUM'.</description>
+<initialdescription>A LARGE WHITE CUBE SITS ON A SHELF.</initialdescription>
+<synonyms names="SALT"/>
+<nogo>
+<down></down>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="1"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="34" name="FILTHY TOILET" holder="13">
+<description>THE INSIDE OF THE BOWL IS CHARRED. IT APPEARS IT WAS USED AS A PLACE TO BURN DOCUMENTS.</description>
+<initialdescription>A FILTHY TOILET SITS IN THE CORNER.</initialdescription>`
+<synonyms names="BOWL"/>
+<nogo>
+<down></down>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="1"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="35" name="CHARRED PAPERS" holder="34">
+<description>THE CHARRED PAPERS HAVE TURNED INTO A UNPLEASANT GUNK AS A RESULT OF THE CAVE'S HIGH HUMIDITY.</description>
+<synonyms names="GUNK"/>
+<initialdescription></initialdescription>
+<nogo>
+<down></down>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="1"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="36" name="CIGARETTE LIGHTER" holder="19">
+<description>THE METAL LIGHTER IS ADORNED WITH A RAISED EAGLE HOLDING A WREATH.</description>
+<initialdescription>A FORGOTTEN CIGARETTE LIGHTER LIES ON THE GROUND.</initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="1"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="37" name="WATER" holder="21">
+<description></description>
+<initialdescription>RISING WATER BLOCKS THE WESTERN END OF THE TUNNEL.</initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="1"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="38" name="STEEL HELMET" holder="18">
+<description>THE GERMAN HELMET IS HEAVILY RUSTED.  THE INSIDE WEBBING HAS DETERIORATED.</description>
+<initialdescription>A RUSTING HELMET LIES ON THE GROUND.</initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="1"
+container="1"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="39" name="MACHINE" holder="20">
+<description></description>
+<initialdescription>A LARGE MACHINE WITH NUMEROUS PIPES RUNNING THROUGH IT OCCUPIES MOST OF THE ROOM.</initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="40" name="BATTERY" holder="20">
+<description>THERE IS A SMALL HOLE IN THE TOP.  A WINDOW ON THE SIDE REVEALS IT IS OUT OF ELECTROLYTE.</description>
+<initialdescription>A LARGE, WET CELL BATTERY, WIRED TO THE MACHINERY, LIES ON THE FLOOR.</initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="41" name="CUPOLA" holder="25">
+<description>THE CUPOLA IS A SMALL, RAISED STEEL DOME.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="255"/>
+<flags scenery="1"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+
+<object id="42" name="WRENCH" holder="2">
+<description></description>
+<initialdescription>A RUSTED WRENCH LIES ON THE FLOOR.</initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="1"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+
+
+</objects>
+<checks>
+<check verb="burn" check="check_dobj_supplied"/>
+<check verb="burn" check="check_see_dobj"/>
+<check verb="close" check="check_dobj_supplied"/>
+<check verb="close" check="check_see_dobj"/>
+<check verb="drink" check="check_dobj_supplied"/>
+<check verb="drink" check="check_see_dobj"/>
+<check verb="drop" check="check_dobj_supplied"/>
+<check verb="drop" check="check_see_dobj"/>
+<check verb="drop" check="check_have_dobj"/>
+<check verb="eat" check="check_dobj_supplied"/>
+<check verb="eat" check="check_see_dobj"/>
+<check verb="enter" check="check_dobj_supplied"/>
+<check verb="enter" check="check_see_dobj"/>
+<check verb="examine" check="check_see_dobj"/>
+<check verb="examine" check="check_dobj_supplied"/>
+<check verb="flush" check="check_see_dobj"/>
+<check verb="get" check="check_dobj_supplied"/>
+<check verb="get" check="check_see_dobj"/>
+<check verb="get" check="check_dont_have_dobj"/>
+<check verb="open" check="check_dobj_supplied"/>
+<check verb="open" check="check_see_dobj"/>
+<check verb="pick" check="check_dobj_supplied"/>
+<check verb="pick" check="check_see_dobj"/>
+<check verb="put" check="check_dobj_supplied"/>
+<check verb="put" check="check_see_dobj"/>
+<check verb="put" check="check_prep_supplied"/>
+<check verb="put" check="check_iobj_supplied"/>
+<check verb="turn on" check="check_dobj_supplied"/>
+<check verb="turn on" check="check_see_dobj"/>
+<check verb="turn on" check="check_have_dobj"/>
+<check verb="unbolt" check="check_dobj_supplied"/>
+<check verb="unbolt" check="check_see_dobj"/>
+</checks>
+<sentences>
+<sentence verb="pick" do="lock" prep="" io="" type="before" sub="pick_lock"/>
+<sentence verb="burn" do="pile of leaves" prep="" io="" type="before" sub="burn_leaves"/>
+<sentence verb="burn" do="" prep="" io="" type="instead" sub="burn"/>
+<sentence verb="west" do="" prep="" io="" type="before" sub="before_west"/>
+<sentence verb="turn on" do="flashlight" prep="" io="" type="before" sub="flashlight_on"/>
+<sentence verb="turn off" do="flashlight" prep="" io="" type="before" sub="flashlight_off"/>
+<sentence verb="get" do="charred papers" prep="" io="" type="instead" sub="get_gunk"/>
+<sentence verb="flush" do="filthy toilet" prep="" io="" type="after" sub="flush_toilet"/>
+<sentence verb="unbolt" do="cupola" prep="" io="" type="instead" sub="unbolt_cupola"/>
+<sentence verb="unbolt" do="" prep="" io="" type="instead" sub="unbolt_unboltable"/>
+</sentences>
+<routines>
+<routine name="before_west">
+if (player.holder == TOP OF DEBRIS)
+{
+	printl("AS YOU SQUIRM THROUGH THE NARROW GAP, THE ROCKS GIVE WAY CAUSING YOU TO FALL MANY FEET TO THE TUNNEL FLOOR.");
+}
+</routine>
+<routine name="pick_lock">
+if (paperclip.holder == player) 
+{
+	printl("AFTER SEVERAL ATTEMPTS, YOU MANAGE TO UNLOCK AND OPEN THE DOOR.");
+	door.open=true;
+	door.openable=true;
+	door.locked=false;
+	door.lockable=false;
+}
+else
+{
+	printl("YOU HAVE NOTHING TO DO THAT WITH.");
+}
+</routine>
+<routine name="burn_leaves">
+if (cigarette lighter.holder == player)
+{
+	if (pile of leaves.holder != player)
+	{
+		if (player.holder == base of shaft)
+		{
+			printl("FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.");
+			
+			on ladder.up=top of shaft;
+			pile of leaves.holder=offscreen;	
+		}
+		else if (player.holder == on ladder)
+		{
+				printl("YOU CAN'T DO THAT WHILE ON A LADDER");
+		}
+		else
+		{
+				printl("THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.");		
+		}
+	}
+	else
+	{
+		printl("LIGHTING A PILE OF LEAVES WHICH YOU ARE CARRYING WOULD BE UNWISE.");
+	}
+}
+else
+{
+	printl("YOU HAVE NO IGNITION SOURCE.");
+}
+</routine>
+<routine name="get_gunk">
+printl("AS YOU RELUCTANTLY PICK UP THE PAPPERS, THEY DISINTEGRATE INTO GUNK, LEAVING YOU WITH A BLACKENED PAPERCLIP.");
+charred papers.holder=offscreen;
+paperclip.holder=player;
+</routine>
+<routine name="flashlight_on">
+if (flashlight.lit==1)
+{
+	printl("IT'S ALREADY ON.");
+	flashlight.lit=0;
+}
+else
+{
+	printl("CLICK.");
+	flashlight.lit=1;
+	look();
+}
+</routine>
+<routine name="flashlight_off">
+if (flashlight.lit==0)
+{
+	printl("IT'S ALREADY OFF.");
+	flashlight.lit=0;
+	look();
+}
+else
+{
+	printl("CLICK.");
+	flashlight.lit=0;
+}
+</routine>
+<routine name="flush_toilet">
+if (paperclip.holder==offscreen)
+{
+		printl("THE REMAINING WATER IN THE TANK WASHES AWAY THE PAPER LEAVING A PAPERCLIP AT THE BOTTOM OF THE BOWL`.");
+		paperclip.holder=filthy toilet;
+		charred papers.holder=offscreen;
+}
+else
+{
+	println("NOTHING HAPPENS.");
+}
+</routine>
+<routine name="yell">
+println("AAAAARRRRRRR.");
+</routine>
+<routine name="unbolt_cupola">
+if (wrench.holder == player)
+{
+	if (player.holder == top of shaft)
+	{
+			if (cupola.holder==top of shaft)
+			{
+				printl("WITH SOME DIFFICULTY, YOU MANAGE TO REMOVE THE BOLTS. AS YOU PUSH THE CUPOLA UP, IT FALLS OUT OF THE WAY.");
+				cupola.holder=top of hill;
+				cupola.initial_description="THERE IS A HEAVY, METAL CUPOLA ON THE GROUND.";
+				cupola.description="THE HEAVY METAL LID HAS STARTED RUSTING WITH AGE.";
+				top of shaft.description="YOU ARE AT THE TOP OF A VENTILATION SHAFT. ABOVE, AN OPEN HOLE LEADS OUTSIDE.";
+				cupola.scenery=0;
+				top of shaft.up = top of hill;
+			}
+			else
+			{
+				println("YOU'VE ALREADY DONE THAT.");
+			}
+	}
+	else
+	{
+		printl("YOU CAN'T DO THAT HERE.");
+	}
+}
+else
+{
+	printl("YOU DON'T HAVE ANYTHING TO DO THAT WITH.");
+}
+</routine>
+
+<routine name="unbolt_unboltable" type="instead">
+	println("YOU CAN'T UNBOLT THAT.");
+</routine>
+<routine name="burn" type="instead">
+	println("THAT WOULD BE POINTLESS.");
+</routine>
+
+<routine name="turn_on">
+println("YOU CAN'T TURN THAT ON.");
+</routine>
+</routines>
+<events>
+<event name="disolve_salt">
+if (white cube.holder==water) 
+{ 
+	printl("THE LARGE BLOCK OF SALT DISOLVES IN THE WATER."); 
+	white cube.holder=offscreen;
+}
+</event>
+<event name="bee_sound">
+if (player.holder==on ladder) 
+{ 
+	if (on ladder.up != top of shaft)
+	{
+		printl("HIGH ABOVE, YOU CAN HEAR BUZZING."); 
+	}
+}
+</event>
+
+</events>
+<builtinvars>
+<var name="score" value="0"/>
+<var name="health" value="0"/>
+</builtinvars>
+<uservars>
+<var name="saltwater" value="0"/>
+<var name="charged" value="0"/>
+</uservars>
+</project>
+</xml>
