@@ -44,10 +44,12 @@ obj_word_table
 	.db 38,62,63,255   ;   STEEL HELMET
 	.db 39,64,255,255   ;   MACHINE
 	.db 40,65,255,255   ;   BATTERY
+	.db 41,66,255,255   ;   CUPOLA
+	.db 42,67,255,255   ;   WRENCH
 	.db 30,44,45,255   ;   synonyms for PAPERCLIP
 	.db 32,48,49,255   ;   synonyms for FLASHLIGHT
 	.db 33,52,255,255   ;   synonyms for WHITE CUBE
 	.db 34,55,255,255   ;   synonyms for FILTHY TOILET
 	.db 35,58,255,255   ;   synonyms for CHARRED PAPERS
 	.db 255
-obj_table_size	.db 41
+obj_table_size	.db 43

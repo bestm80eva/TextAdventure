@@ -135,4 +135,8 @@ dictionary
 	.strz "MACHINE" ; 64
 	.db 7
 	.strz "BATTERY" ; 65
+	.db 6
+	.strz "CUPOLA" ; 66
+	.db 6
+	.strz "WRENCH" ; 67
 	.db 0

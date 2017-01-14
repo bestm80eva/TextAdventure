@@ -68,7 +68,7 @@ main
 	include PrepTable6809.asm
 	include checks.asm
 	include before_table_6809.asm
-	include instead_table.asm
+	include instead_table_6809.asm
 	;include postactions_table.asm
 	include after_table_6809.asm
 	include events.asm

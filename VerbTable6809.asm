@@ -37,6 +37,7 @@ burn_verb_id equ 30
 turn_on_verb_id equ 31
 turn_off_verb_id equ 32
 flush_verb_id equ 33
+unbolt_verb_id equ 34
 
 
 verb_table
@@ -253,4 +254,7 @@ verb_table
 	.db 33
 	.db 5
 	.strz "FLUSH"
+	.db 34
+	.db 6
+	.strz "UNBOLT"
 	.db 0,0

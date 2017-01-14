@@ -49,7 +49,7 @@ burn_leaves_sub
 	lbne @c
 	nop ; printl("FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.")
 	ldx #description_table
-	lda #55 ; FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.
+	lda #57 ; FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -90,7 +90,7 @@ burn_leaves_sub
 	lbne @e
 	nop ; printl("YOU CAN'T DO THAT WHILE ON A LADDER")
 	ldx #description_table
-	lda #56 ; YOU CAN'T DO THAT WHILE ON A LADDER
+	lda #58 ; YOU CAN'T DO THAT WHILE ON A LADDER
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -98,7 +98,7 @@ burn_leaves_sub
 @e	nop ; close (player.holder == on ladder)
 	nop ; {				printl("THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.")
 	ldx #description_table
-	lda #57 ; THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.
+	lda #59 ; THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -108,7 +108,7 @@ burn_leaves_sub
 @b	nop ; close (pile of leaves.holder != player)
 	nop ; {		printl("LIGHTING A PILE OF LEAVES WHICH YOU ARE CARRYING WOULD BE UNWISE.")
 	ldx #description_table
-	lda #58 ; LIGHTING A PILE OF LEAVES WHICH YOU ARE CARRYING WOULD BE UNWISE.
+	lda #60 ; LIGHTING A PILE OF LEAVES WHICH YOU ARE CARRYING WOULD BE UNWISE.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -117,7 +117,7 @@ burn_leaves_sub
 @a	nop ; close (cigarette lighter.holder == player)
 	nop ; {	printl("YOU HAVE NO IGNITION SOURCE.")
 	ldx #description_table
-	lda #59 ; YOU HAVE NO IGNITION SOURCE.
+	lda #61 ; YOU HAVE NO IGNITION SOURCE.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

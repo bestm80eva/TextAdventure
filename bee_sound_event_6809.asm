@@ -32,9 +32,9 @@ bee_sound_event
 	leas 1,s ; pop right side
 	pulu cc ; restore flags
 	lbeq @b
-	nop ; printl("HIGH ABOVE, YOU CAN HEAR THE BUZZING.")
+	nop ; printl("HIGH ABOVE, YOU CAN HEAR BUZZING.")
 	ldx #description_table
-	lda #51 ; HIGH ABOVE, YOU CAN HEAR THE BUZZING.
+	lda #53 ; HIGH ABOVE, YOU CAN HEAR BUZZING.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
