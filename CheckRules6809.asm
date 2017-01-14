@@ -45,6 +45,14 @@ check_table
 	.dw check_dobj_supplied
 	.db 29 ; pick
 	.dw check_see_dobj
+	.db 22 ; put
+	.dw check_dobj_supplied
+	.db 22 ; put
+	.dw check_see_dobj
+	.db 22 ; put
+	.dw check_prep_supplied
+	.db 22 ; put
+	.dw check_iobj_supplied
 	.db 34 ; unbolt
 	.dw check_dobj_supplied
 	.db 34 ; unbolt

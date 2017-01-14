@@ -24,15 +24,15 @@ main
 @lp	jsr GETLINE		; get user command
 	jsr parse
 	jsr PRINTCR
-	ldx #KBBUF-1
-	jsr PRINT		; print buffer
-	jsr PRINTCR
-	ldx #word1-1	; print 1st word
-	jsr PRINT
-	jsr PRINTCR
-	ldx #word2-1	; print 2nd word
-	jsr PRINT
-	jsr PRINTCR
+;	ldx #KBBUF-1
+;	jsr PRINT		; print buffer
+;	jsr PRINTCR
+;	ldx #word1-1	; print 1st word
+;	jsr PRINT
+;	jsr PRINTCR
+;	ldx #word2-1	; print 2nd word
+;	jsr PRINT
+;	jsr PRINTCR
 	jsr encode_sentence
 	bra @lp
 @quit lds sys_stack_save

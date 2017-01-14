@@ -10,20 +10,6 @@ START
 	jsr copy_data ; just for testing
 	jsr parse
 	jsr compress_verb
-;	ldx #wrd1
-;	ldy #wrd1
-;	jsr streq
-;	pulu a
-;	sta equal1
-;	ldx #wrd1
-;	ldy #wrd2
-;	jsr streq
-;	pulu a
-;	sta equal2	
-;	ldx #wrd1
-;	ldy #article_table
-;	jsr word_in_table
-;	pulu a
 @lp	bra @lp
 	rts
 

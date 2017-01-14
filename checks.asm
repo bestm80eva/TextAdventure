@@ -32,7 +32,6 @@ check_dobj_supplied
 		bne @x
 		ldx #nodobj	; print "YOU NEED TO SAY ..."
 		jsr PRINT
-		ldx #verb_table		; print the verb
 		ldx #word1
 		jsr PRINT
 		ldx #period		; print remainder
@@ -43,6 +42,54 @@ check_dobj_supplied
 @x		puls y,x,d
 		rts
 nodobj 	.strz "YOU NEED TO SAY WHAT YOU WANT TO "	
+
+;return a 1 or 0 on user stack
+check_prep_supplied
+		pshs d,x,y
+		lda #1		;put a 1 on stack
+		pshu a
+		lda sentence+2	; prep
+		cmpa #NO_OBJECT
+		bne @x
+		ldx #nodobj	; print "TRY FORMAT ...."
+		jsr PRINT
+		jsr PRINTCR
+		lda #0		; return a 0
+		sta ,u
+@x		puls y,x,d
+		rts
+		
+noprep 	.strz "TRY THE FORMAT: VERB NOUN PREPOSITION NOUN"
+
+
+check_iobj_supplied
+		pshs d,x,y
+		lda #1		;put a 1 on stack
+		pshu a
+		lda sentence+3	; iobj
+		cmpa #NO_OBJECT
+		bne @x
+		ldx #nodobj	; print "YOU NEED TO SAY ..."
+		jsr PRINT
+		ldx #word1 ;verb
+		jsr PRINT
+		ldx #the
+		jsr PRINT
+		ldx #word2 ; "d.o."
+		jsr PRINT
+		ldx #space
+		jsr PRINT
+		ldx #word3  ; prep
+		jsr PRINT
+		ldx #period		
+		jsr PRINT
+		jsr PRINTCR
+		lda #0		; return a 0
+		sta ,u
+@x		puls y,x,d
+		rts
+		
+noiobj 	.strz "YOU NEED TO SAY WHAT YOU WANT TO "	
 
 ;used by 'get'
 ;makes sure the player doesn't have an object
