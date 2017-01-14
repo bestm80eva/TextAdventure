@@ -12,6 +12,7 @@
 <prep>out</prep>
 <prep>behind</prep>
 <prep>off</prep>
+<prep>with</prep>
 </preps>
 <verbs>
 <builtinverbs>
@@ -29,6 +30,7 @@
 <verb>out</verb>
 <verb>get,take,grab,pick up</verb>
 <verb>inventory,i</verb>
+<verb>kill</verb>
 <verb>drop</verb>
 <verb>look,l</verb>
 <verb>examine,x,look at</verb>
@@ -41,6 +43,7 @@
 <verb>quit</verb>
 <verb>smell,sniff</verb>
 <verb>listen</verb>
+<verb>wait</verb>
 </builtinverbs>
 <userverbs>
 <verb>fill</verb>
@@ -92,7 +95,7 @@ door="0"
 unused="0"/>
 </object>
 <object id="1" holder="2" name="PLAYER">
-<description>YOU'RE A WONDERFUL PERSON. YOU SHOULDN'T CARE WHAT YOU LOOK LIKE.</description>
+<description>YOUR CLOTHES ARE BIT DIRTY FROM YOUR LONG HIKE THROUGH THE WOODS. ASIDE FROM THAT, YOU'RE FINE.</description>
 <initialdescription/>
 <synonyms names="ME,SELF"/>
 <directions n="0"
@@ -1725,6 +1728,8 @@ unused="0"/>
 <check verb="get" check="check_dobj_supplied"/>
 <check verb="get" check="check_see_dobj"/>
 <check verb="get" check="check_dont_have_dobj"/>
+<check verb="kill" check="check_dobj_supplied"/>
+<check verb="kill" check="check_see_dobj"/>
 <check verb="open" check="check_dobj_supplied"/>
 <check verb="open" check="check_see_dobj"/>
 <check verb="pick" check="check_dobj_supplied"/>
@@ -1746,6 +1751,8 @@ unused="0"/>
 <sentence verb="flush" do="filthy toilet" prep="" io="" type="after" sub="flush_toilet"/>
 <sentence verb="flush" do="*" prep="" io="" type="after" sub="flush_unflushable"/>
 <sentence verb="get" do="charred papers" prep="" io="" type="instead" sub="get_gunk"/>
+<sentence verb="kill" do="player" prep="" io="" type="instead" sub="kill_self"/>
+<sentence verb="kill" do="*" prep="" io="" type="instead" sub="strange_humor"/>
 <sentence verb="pick" do="lock" prep="" io="" type="before" sub="pick_lock"/>
 <sentence verb="pick" do="nose" prep="" io="" type="before" sub="pick_nose"/>
 <sentence verb="pick" do="*" prep="" io="" type="before" sub="pick_unpickable"/>
@@ -1754,6 +1761,7 @@ unused="0"/>
 <sentence verb="jump" do="" prep="" io="" type="instead" sub="jump"/>
 <sentence verb="unbolt" do="cupola" prep="" io="" type="instead" sub="unbolt_cupola"/>
 <sentence verb="unbolt" do="*" prep="" io="" type="instead" sub="unbolt_unboltable"/>
+<sentence verb="wait" do="" prep="" io="" type="instead" sub="wait"/>
 <sentence verb="west" do="" prep="" io="" type="before" sub="before_west"/>
 </sentences>
 <routines>
@@ -1916,7 +1924,13 @@ player.holder=2;
 flashlight.holder=1;
 look();
 </routine>
+<routine name="wait">
+printl("TIME PASSES..."); 	
+</routine>
 <routine name="drop_undropable">
+printl("YOU HAVE A STRANGE SENSE OF HUMOR."); 	
+</routine>
+<routine name="strange_humor">
 printl("YOU HAVE A STRANGE SENSE OF HUMOR."); 	
 </routine>
 <routine name="flush_unflushable">
@@ -1930,6 +1944,9 @@ printl("ARE YOU SOME SORT OF ARSONIST?");
 </routine>
 <routine name="pick_unpickable">
 printl("YOU CAN'T PICK THAT."); 	
+</routine>
+<routine name="kill_self">
+printl("THERE ARE SEVERAL ENTERTAINING WAYS TO DIE IN THIS ADVENTURE...NO NEED TO SPEED THINGS ALONG."); 	
 </routine>
 </routines>
 

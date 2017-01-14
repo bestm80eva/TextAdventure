@@ -16,8 +16,11 @@
 	include jump_sub_6809.asm
 	include turn_on_sub_6809.asm
 	include kill_player_sub_6809.asm
+	include wait_sub_6809.asm
 	include drop_undropable_sub_6809.asm
+	include strange_humor_sub_6809.asm
 	include flush_unflushable_sub_6809.asm
 	include pick_nose_sub_6809.asm
 	include burn_unburnable_sub_6809.asm
 	include pick_unpickable_sub_6809.asm
+	include kill_self_sub_6809.asm

@@ -30,6 +30,7 @@ run_actions
 	jsr [4,x]
 	lda #1		;put a 1 on return stack
 	sta ,u
+	bra @x
 @c  leax 6,x	; entries are 6 bytes
 	bra @lp
 @x	puls y,x,d
