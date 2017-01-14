@@ -29,15 +29,18 @@ put_verb_id equ 22
 quit_verb_id equ 23
 smell_verb_id equ 24
 listen_verb_id equ 25
-wear_verb_id equ 26
-yell_verb_id equ 27
-jump_verb_id equ 28
-pick_verb_id equ 29
-burn_verb_id equ 30
-turn_on_verb_id equ 31
-turn_off_verb_id equ 32
-flush_verb_id equ 33
-unbolt_verb_id equ 34
+fill_verb_id equ 26
+pour_verb_id equ 27
+wear_verb_id equ 28
+yell_verb_id equ 29
+jump_verb_id equ 30
+pick_verb_id equ 31
+burn_verb_id equ 32
+turn_on_verb_id equ 33
+turn_off_verb_id equ 34
+flush_verb_id equ 35
+swim_verb_id equ 36
+unbolt_verb_id equ 37
 
 
 verb_table
@@ -226,35 +229,44 @@ verb_table
 	.strz "LISTEN"
 	.db 26
 	.db 4
-	.strz "WEAR"
+	.strz "FILL"
 	.db 27
 	.db 4
-	.strz "YELL"
-	.db 27
-	.db 5
-	.strz "SHOUT"
-	.db 27
-	.db 6
-	.strz "SCREAM"
+	.strz "POUR"
 	.db 28
 	.db 4
-	.strz "JUMP"
+	.strz "WEAR"
 	.db 29
 	.db 4
-	.strz "PICK"
+	.strz "YELL"
+	.db 29
+	.db 5
+	.strz "SHOUT"
+	.db 29
+	.db 6
+	.strz "SCREAM"
 	.db 30
 	.db 4
-	.strz "BURN"
+	.strz "JUMP"
 	.db 31
+	.db 4
+	.strz "PICK"
+	.db 32
+	.db 4
+	.strz "BURN"
+	.db 33
 	.db 7
 	.strz "TURN ON"
-	.db 32
+	.db 34
 	.db 8
 	.strz "TURN OFF"
-	.db 33
+	.db 35
 	.db 5
 	.strz "FLUSH"
-	.db 34
+	.db 36
+	.db 4
+	.strz "SWIM"
+	.db 37
 	.db 6
 	.strz "UNBOLT"
 	.db 0,0

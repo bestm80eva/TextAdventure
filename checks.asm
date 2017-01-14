@@ -58,6 +58,22 @@ check_prep_supplied
 		sta ,u
 @x		puls y,x,d
 		rts
+
+;return a 1 or 0 on user stack
+check_dobj_not_scenery
+		pshs d,x,y
+		lda #1		;put a 1 on stack
+		pshu a
+		lda sentence+2	; prep
+		cmpa #NO_OBJECT
+		bne @x
+		ldx #nodobj	; print "TRY FORMAT ...."
+		jsr PRINT
+		jsr PRINTCR
+		lda #0		; return a 0
+		sta ,u
+@x		puls y,x,d
+		rts
 		
 noprep 	.strz "TRY THE FORMAT: VERB NOUN PREPOSITION NOUN"
 

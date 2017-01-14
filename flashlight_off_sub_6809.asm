@@ -25,7 +25,7 @@ flashlight_off_sub
 	lbne @a
 	nop ; printl("IT'S ALREADY OFF.")
 	ldx #description_table
-	lda #65 ; IT'S ALREADY OFF.
+	lda #67 ; IT'S ALREADY OFF.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -44,11 +44,13 @@ flashlight_off_sub
 	anda ,s   ; clear the bit
 	leas 1,s ; pop stack
 	sta ,x  ; store it
+	nop ; look()
+	jsr look_sub
 	bra @b ; skip else 
 @a	nop ; close (flashlight.lit==0)
 	nop ; {	printl("CLICK.")
 	ldx #description_table
-	lda #64 ; CLICK.
+	lda #66 ; CLICK.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

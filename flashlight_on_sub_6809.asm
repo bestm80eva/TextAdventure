@@ -25,7 +25,7 @@ flashlight_on_sub
 	lbne @a
 	nop ; printl("IT'S ALREADY ON.")
 	ldx #description_table
-	lda #63 ; IT'S ALREADY ON.
+	lda #65 ; IT'S ALREADY ON.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -48,7 +48,7 @@ flashlight_on_sub
 @a	nop ; close (flashlight.lit==1)
 	nop ; {	printl("CLICK.")
 	ldx #description_table
-	lda #64 ; CLICK.
+	lda #66 ; CLICK.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -68,6 +68,8 @@ flashlight_on_sub
 	leas 1,s ; pop stack
 	ora #32   ; set the lit bit
 	sta ,x  ; store it
+	nop ; look()
+	jsr look_sub
 @b	nop ; end else
 	puls y,x,d
 	rts

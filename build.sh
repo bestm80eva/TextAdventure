@@ -14,7 +14,7 @@ bin_file=$file_name.bin
 echo "copying .asm from Visual Studio..."
 cp /cygdrive/c/Users/Evan/Documents/Visual\ Studio\ 2013/MovTable/XMLto6809/bin/Debug/*.asm .
 
-
+cp /cygdrive/c/Users/Evan/Documents/Visual\ Studio\ 2013/MovTable/XMLto6809/bin/Debug/f3xml.xml .
 
 
 echo "lwasm  --6809 $1 --list=$list_file --output=$bin_file"

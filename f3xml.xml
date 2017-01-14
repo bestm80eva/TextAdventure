@@ -1,5 +1,6 @@
 <xml>
 <project>
+<welcome></welcome>
 <preps>
 <prep>in</prep> 
 <prep>on</prep> 
@@ -93,6 +94,7 @@ unused="0"/>
 <object id="1" holder="2" name="PLAYER">
 <description>YOU'RE A WONDERFUL PERSON. YOU SHOULDN'T CARE WHAT YOU LOOK LIKE.</description>
 <initialdescription/>
+<synonyms names="me,self"/>
 <directions n="0"
 s="0"
 e="0"
@@ -1665,7 +1667,42 @@ lightable="0"
 door="0"
 unused="0"/>
 </object>
-
+<object id="43" name="NOSE" holder="1">
+<description>YOUR NOSE IS FINE. STOP WORRYING ABOUT IT.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="1"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
 
 </objects>
 <checks>
@@ -1703,16 +1740,21 @@ unused="0"/>
 <check verb="unbolt" check="check_see_dobj"/>
 </checks>
 <sentences>
-<sentence verb="pick" do="lock" prep="" io="" type="before" sub="pick_lock"/>
 <sentence verb="burn" do="pile of leaves" prep="" io="" type="before" sub="burn_leaves"/>
-<sentence verb="burn" do="" prep="" io="" type="instead" sub="burn"/>
-<sentence verb="west" do="" prep="" io="" type="before" sub="before_west"/>
+<sentence verb="burn" do="*" prep="" io="" type="instead" sub="burn"/>
+<sentence verb="drop" do="nose" prep="" io="" type="instead" sub="drop_undropable"/>
+<sentence verb="flush" do="filthy toilet" prep="" io="" type="after" sub="flush_toilet"/>
+<sentence verb="flush" do="*" prep="" io="" type="after" sub="flush_unflushable"/>
+<sentence verb="get" do="charred papers" prep="" io="" type="instead" sub="get_gunk"/>
+<sentence verb="pick" do="lock" prep="" io="" type="before" sub="pick_lock"/>
+<sentence verb="pick" do="nose" prep="" io="" type="before" sub="pick_nose"/>
+<sentence verb="pick" do="*" prep="" io="" type="before" sub="pick_unpickable"/>
 <sentence verb="turn on" do="flashlight" prep="" io="" type="before" sub="flashlight_on"/>
 <sentence verb="turn off" do="flashlight" prep="" io="" type="before" sub="flashlight_off"/>
-<sentence verb="get" do="charred papers" prep="" io="" type="instead" sub="get_gunk"/>
-<sentence verb="flush" do="filthy toilet" prep="" io="" type="after" sub="flush_toilet"/>
+<sentence verb="jump" do="" prep="" io="" type="instead" sub="jump"/>
 <sentence verb="unbolt" do="cupola" prep="" io="" type="instead" sub="unbolt_cupola"/>
-<sentence verb="unbolt" do="" prep="" io="" type="instead" sub="unbolt_unboltable"/>
+<sentence verb="unbolt" do="*" prep="" io="" type="instead" sub="unbolt_unboltable"/>
+<sentence verb="west" do="" prep="" io="" type="before" sub="before_west"/>
 </sentences>
 <routines>
 <routine name="before_west">
@@ -1758,7 +1800,9 @@ if (cigarette lighter.holder == player)
 	}
 	else
 	{
-		printl("LIGHTING A PILE OF LEAVES WHICH YOU ARE CARRYING WOULD BE UNWISE.");
+		printl("THE LEAVES (WHICH YOU ARE CARRYING) IGNTIE. UNFORTUNATELY, THE FIRE RAPIDLY SPREADS TO YOU.");
+		printl("NEXT TIME TRY DROPPING THE LEAVES.");
+		kill_player();
 	}
 }
 else
@@ -1846,14 +1890,52 @@ else
 <routine name="unbolt_unboltable" type="instead">
 	println("YOU CAN'T UNBOLT THAT.");
 </routine>
-<routine name="burn" type="instead">
-	println("THAT WOULD BE POINTLESS.");
+<routine name="burn">
+	println("YOU CAN'T BURN THAT.");
 </routine>
-
+<routine name="jump">
+if (player.holder==top of shaft)
+{
+	println("FOR SOME INEXPLICABLE REASON YOU DECIDE TO JUMP OFF THE LADDER.");
+	println("UNFORTUNATELY, THE ROCK FLOOR AT THE BOTTOM OF THE SHAFT ISN'T QUITE AS FORGIVING AS YOU HAD ANTICIPATED.");
+	kill_player();
+}
+else if (player.holder==on ladder)
+{
+	println("YOU LAND WITH A THUD AT THE BOTTOM OF THE SHAFT.");
+	player.holder = base of shaft;
+}
+else 
+{
+	println("WHEEEE!");
+}
+</routine>
 <routine name="turn_on">
 println("YOU CAN'T TURN THAT ON.");
 </routine>
+<routine name="kill_player">
+println("***YOU HAVE DIED***");
+player.holder=2;
+flashlight.holder=1;
+look();
+</routine>
+<routine name="drop_undropable">
+printl("YOU HAVE A STRANGE SENSE OF HUMOR."); 	
+</routine>
+<routine name="flush_unflushable">
+printl("YOU HAVE A STRANGE FASCINATION WITH FLUSHING THINGS."); 	
+</routine>
+<routine name="pick_nose">
+printl("THERE ARE BETTER WAYS TO WASTE TIME."); 	
+</routine>
+<routine name="burn_unburnable">
+printl("ARE YOU SOME SORT OF ARSONIST?"); 	
+</routine>
+<routine name="pick_unpickable">
+printl("YOU CAN'T PICK THAT."); 	
+</routine>
 </routines>
+
 <events>
 <event name="disolve_salt">
 if (white cube.holder==water) 

@@ -17,11 +17,13 @@ run_actions
 	beq @x
 	ldb #0
 @l2	lda b,x  ;get a byte from table
+	cmpa #ANY_OBJECT ; skip "*"
+	beq @sk 
 	ldy #sentence
 	leay b,y
 	cmpa 0,y ;compare it to sentence
 	bne @c   ;if no match, continue
-	incb
+@sk	incb
 	cmpb #4  ;done?
 	bne @l2  ;loop
 	nop ; if got here sentence matches
@@ -45,35 +47,8 @@ run_actions
 ;@x		puls y,x,d
 ;		rts
 
-;verify the object isn't 255
-;verify there is light
-;verify the object is visible
-look_at_preaction
-	nop ; check syntax
-	lda sentence+1
-	cmpa #255
-	bne @s
-	leas 4,s ; pop return addresses off stack
-	lbra print_ret_bad_examine
-@s	nop ; check visible
-	lda sentence+1
-	jsr get_player_room
-	pulu a
-	pshu a 
-	lda sentence+1
-	pshu a
-	jsr is_visible_child_of
-	pulu a
-	cmpa #0
-	bne @s2
-	leas 4,s ; pop return address off stack
-	lbra print_ret_not_visible
-@s2	rts  ; return back to run preactions
-
-;msg1 .strz "AS YOU SQUEEZE THROUGHT THE GAP, THE ROCKS GIVE WAY AND YOU FALL MANY FEET TO THE DAMP GROUND AT THE BOTTOM."	
 
 
-
-onladder .strz "THIS IS REALLY NOT A WISE PLACE TO TRY THAT."
+;onladder .strz "THIS IS REALLY NOT A WISE PLACE TO TRY THAT."
 ;noburn .strz "THE LEAVES START TO SMOLDER, BUT QUICKLY DIE OUT IN THE HIGH UNDERGOUND HUMIDITY."	
 ;brnstr .strz "FUELED BY A DRAFT FROM ABOVE, THE LEAVES RAPIDLY BURN, PRODUCING A CLOUD OF ACRID SMOKE, WHICH RISES UP THE SHAFT."	

@@ -19,7 +19,7 @@ pick_lock_sub
 	lbne @a
 	nop ; printl("AFTER SEVERAL ATTEMPTS, YOU MANAGE TO UNLOCK AND OPEN THE DOOR.")
 	ldx #description_table
-	lda #55 ; AFTER SEVERAL ATTEMPTS, YOU MANAGE TO UNLOCK AND OPEN THE DOOR.
+	lda #56 ; AFTER SEVERAL ATTEMPTS, YOU MANAGE TO UNLOCK AND OPEN THE DOOR.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -89,7 +89,7 @@ pick_lock_sub
 @a	nop ; close (paperclip.holder == player)
 	nop ; {	printl("YOU HAVE NOTHING TO DO THAT WITH.")
 	ldx #description_table
-	lda #56 ; YOU HAVE NOTHING TO DO THAT WITH.
+	lda #57 ; YOU HAVE NOTHING TO DO THAT WITH.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

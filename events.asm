@@ -13,6 +13,7 @@ do_events
 	inca 
 	sta turns_without_light
 	cmpa #5
+	cmpa #5
 	lbeq no_light_death  ; will return
 	bra @d
 @l  lda #0						;set turns w/o light back to 0
@@ -56,6 +57,12 @@ no_light_death
 	ldx #nld
 	jsr PRINT
 	jsr PRINTCR
+	jsr kill_player
+	puls y,d,x
+	rts
+
+kill_player
+	pshs d,x,y
 	ldx #died
 	jsr PRINT
 	jsr PRINTCR
@@ -65,7 +72,7 @@ no_light_death
 	leax HOLDER_ID,x
 	sta ,x 
 	jsr look_sub
-	puls y,d,x
+	puls y,x,d
 	rts
 	
 died .strz "***YOU HAVE DIED***"	
