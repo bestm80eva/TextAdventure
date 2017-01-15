@@ -73,76 +73,102 @@ dictionary
 	.strz "PUMP" ; 33
 	.db 7
 	.strz "FLOODED" ; 34
-	.db 7
-	.strz "CHAMBER" ; 35
-	.db 4
-	.strz "BASE" ; 36
 	.db 5
-	.strz "SHAFT" ; 37
+	.strz "LARGE" ; 35
+	.db 7
+	.strz "CHAMBER" ; 36
+	.db 4
+	.strz "BASE" ; 37
+	.db 5
+	.strz "SHAFT" ; 38
 	.db 2
-	.strz "ON" ; 38
+	.strz "ON" ; 39
 	.db 6
-	.strz "LADDER" ; 39
+	.strz "LADDER" ; 40
 	.db 4
-	.strz "HILL" ; 40
+	.strz "HILL" ; 41
 	.db 4
-	.strz "PILE" ; 41
+	.strz "PILE" ; 42
 	.db 6
-	.strz "LEAVES" ; 42
+	.strz "LEAVES" ; 43
 	.db 5
-	.strz "TABLE" ; 43
+	.strz "TABLE" ; 44
+	.db 6
+	.strz "RUBBER" ; 45
+	.db 5
+	.strz "STAMP" ; 46
 	.db 9
-	.strz "DOCUMENTS" ; 44
-	.db 9
-	.strz "PAPERCLIP" ; 45
+	.strz "PAPERCLIP" ; 47
 	.db 4
-	.strz "WIRE" ; 46
+	.strz "WIRE" ; 48
 	.db 4
-	.strz "CLIP" ; 47
+	.strz "CLIP" ; 49
 	.db 4
-	.strz "LOCK" ; 48
+	.strz "LOCK" ; 50
 	.db 10
-	.strz "FLASHLIGHT" ; 49
+	.strz "FLASHLIGHT" ; 51
 	.db 5
-	.strz "LIGHT" ; 50
+	.strz "LIGHT" ; 52
 	.db 4
-	.strz "LAMP" ; 51
+	.strz "LAMP" ; 53
 	.db 5
-	.strz "WHITE" ; 52
+	.strz "WHITE" ; 54
 	.db 4
-	.strz "CUBE" ; 53
+	.strz "CUBE" ; 55
 	.db 4
-	.strz "SALT" ; 54
+	.strz "SALT" ; 56
 	.db 6
-	.strz "FILTHY" ; 55
+	.strz "FILTHY" ; 57
 	.db 6
-	.strz "TOILET" ; 56
+	.strz "TOILET" ; 58
 	.db 4
-	.strz "BOWL" ; 57
+	.strz "BOWL" ; 59
 	.db 7
-	.strz "CHARRED" ; 58
+	.strz "CHARRED" ; 60
 	.db 6
-	.strz "PAPERS" ; 59
+	.strz "PAPERS" ; 61
 	.db 4
-	.strz "GUNK" ; 60
+	.strz "GUNK" ; 62
 	.db 9
-	.strz "CIGARETTE" ; 61
+	.strz "CIGARETTE" ; 63
 	.db 7
-	.strz "LIGHTER" ; 62
+	.strz "LIGHTER" ; 64
 	.db 5
-	.strz "WATER" ; 63
+	.strz "WATER" ; 65
 	.db 5
-	.strz "STEEL" ; 64
+	.strz "STEEL" ; 66
 	.db 6
-	.strz "HELMET" ; 65
+	.strz "HELMET" ; 67
 	.db 7
-	.strz "MACHINE" ; 66
+	.strz "MACHINE" ; 68
 	.db 7
-	.strz "BATTERY" ; 67
+	.strz "BATTERY" ; 69
 	.db 6
-	.strz "CUPOLA" ; 68
+	.strz "CUPOLA" ; 70
 	.db 6
-	.strz "WRENCH" ; 69
+	.strz "WRENCH" ; 71
 	.db 4
-	.strz "NOSE" ; 70
+	.strz "NOSE" ; 72
+	.db 3
+	.strz "SUN" ; 73
+	.db 4
+	.strz "VOLT" ; 74
+	.db 5
+	.strz "METER" ; 75
+	.db 9
+	.strz "VOLTMETER" ; 76
+	.db 11
+	.strz "ELECTROLYTE" ; 77
+	.db 6
+	.strz "WOODEN" ; 78
+	.db 5
+	.strz "CRATE" ; 79
+	.db 10
+	.strz "SPLINTERED" ; 80
+	.db 4
+	.strz "WOOD" ; 81
+	.db 4
+	.strz "GOLD" ; 82
+	.db 4
+	.strz "BARS" ; 83
 	.db 0

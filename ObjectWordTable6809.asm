@@ -25,33 +25,40 @@ obj_word_table
 	.db 19,31,32,255   ;   VAST WORKHALL
 	.db 20,33,25,255   ;   PUMP ROOM
 	.db 21,34,9,255   ;   FLOODED TUNNEL
-	.db 22,24,35,255   ;   STORAGE CHAMBER
-	.db 23,36,12,37   ;   BASE OF SHAFT
-	.db 24,38,39,255   ;   ON LADDER
-	.db 25,16,12,37   ;   TOP OF SHAFT
-	.db 26,16,12,40   ;   TOP OF HILL
-	.db 27,41,12,42   ;   PILE OF LEAVES
-	.db 28,43,255,255   ;   TABLE
-	.db 29,44,255,255   ;   DOCUMENTS
-	.db 30,45,255,255   ;   PAPERCLIP
-	.db 31,48,255,255   ;   LOCK
-	.db 32,49,255,255   ;   FLASHLIGHT
-	.db 33,52,53,255   ;   WHITE CUBE
-	.db 34,55,56,255   ;   FILTHY TOILET
-	.db 35,58,59,255   ;   CHARRED PAPERS
-	.db 36,61,62,255   ;   CIGARETTE LIGHTER
-	.db 37,63,255,255   ;   WATER
-	.db 38,64,65,255   ;   STEEL HELMET
-	.db 39,66,255,255   ;   MACHINE
-	.db 40,67,255,255   ;   BATTERY
-	.db 41,68,255,255   ;   CUPOLA
-	.db 42,69,255,255   ;   WRENCH
-	.db 43,70,255,255   ;   NOSE
+	.db 22,35,36,255   ;   LARGE CHAMBER
+	.db 23,37,12,38   ;   BASE OF SHAFT
+	.db 24,39,40,255   ;   ON LADDER
+	.db 25,16,12,38   ;   TOP OF SHAFT
+	.db 26,16,12,41   ;   TOP OF HILL
+	.db 27,42,12,43   ;   PILE OF LEAVES
+	.db 28,44,255,255   ;   TABLE
+	.db 29,45,46,255   ;   RUBBER STAMP
+	.db 30,47,255,255   ;   PAPERCLIP
+	.db 31,50,255,255   ;   LOCK
+	.db 32,51,255,255   ;   FLASHLIGHT
+	.db 33,54,55,255   ;   WHITE CUBE
+	.db 34,57,58,255   ;   FILTHY TOILET
+	.db 35,60,61,255   ;   CHARRED PAPERS
+	.db 36,63,64,255   ;   CIGARETTE LIGHTER
+	.db 37,65,255,255   ;   WATER
+	.db 38,66,67,255   ;   STEEL HELMET
+	.db 39,68,255,255   ;   MACHINE
+	.db 40,69,255,255   ;   BATTERY
+	.db 41,70,255,255   ;   CUPOLA
+	.db 42,71,255,255   ;   WRENCH
+	.db 43,72,255,255   ;   NOSE
+	.db 44,73,255,255   ;   SUN
+	.db 45,74,75,255   ;   VOLT METER
+	.db 46,77,255,255   ;   ELECTROLYTE
+	.db 47,78,79,255   ;   WOODEN CRATE
+	.db 48,80,81,255   ;   SPLINTERED WOOD
+	.db 49,82,83,255   ;   GOLD BARS
 	.db 1,2,3,255   ;   synonyms for PLAYER
-	.db 30,46,47,255   ;   synonyms for PAPERCLIP
-	.db 32,50,51,255   ;   synonyms for FLASHLIGHT
-	.db 33,54,255,255   ;   synonyms for WHITE CUBE
-	.db 34,57,255,255   ;   synonyms for FILTHY TOILET
-	.db 35,60,255,255   ;   synonyms for CHARRED PAPERS
+	.db 30,48,49,255   ;   synonyms for PAPERCLIP
+	.db 32,52,53,255   ;   synonyms for FLASHLIGHT
+	.db 33,56,255,255   ;   synonyms for WHITE CUBE
+	.db 34,59,255,255   ;   synonyms for FILTHY TOILET
+	.db 35,62,255,255   ;   synonyms for CHARRED PAPERS
+	.db 45,76,255,255   ;   synonyms for VOLT METER
 	.db 255
-obj_table_size	.db 44
+obj_table_size	.db 50

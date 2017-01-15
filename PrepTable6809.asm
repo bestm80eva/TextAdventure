@@ -19,4 +19,8 @@ prep_table
 	.strz "ON" ; 6
 	.db 3
 	.strz "OFF" ; 7
+	.db 4
+	.strz "INTO" ; 8
+	.db 4
+	.strz "WITH" ; 9
 	.db 0

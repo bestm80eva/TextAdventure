@@ -19,7 +19,7 @@ disolve_salt_event
 	lbne @a
 	nop ; printl("THE LARGE BLOCK OF SALT DISOLVES IN THE WATER.")
 	ldx #description_table
-	lda #53 ; THE LARGE BLOCK OF SALT DISOLVES IN THE WATER.
+	lda #62 ; THE LARGE BLOCK OF SALT DISOLVES IN THE WATER.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

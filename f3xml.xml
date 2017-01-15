@@ -32,10 +32,13 @@
 <verb>inventory,i</verb>
 <verb>kill</verb>
 <verb>drop</verb>
+<verb>light</verb>
 <verb>look,l</verb>
 <verb>examine,x,look at</verb>
 <verb>look in,inspect,search</verb>
 <verb>open</verb>
+<verb>lock</verb>
+<verb>unlock</verb>
 <verb>close,shut</verb>
 <verb>eat</verb>
 <verb>drink</verb>
@@ -342,7 +345,7 @@ unused="0"/>
 <nogo>
 <n>THE PATH DEADENDS HERE AT THE HILLSIDE.</n>
 <w>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</w>
-<ne>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</ne>
+<ne>THE HILLSIDE IS TOO STEEP.</ne>
 <nw>THE HILLSIDE IS TOO STEEP.</nw>
 <s>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</s>
 <se>THE TANGLED WOODS ARE IMPASSIBLE IN THAT DIRECTION.</se>
@@ -629,7 +632,7 @@ portable="0"
 container="0"
 transparent="0"
 supporter="0"
-openable="0"
+openable="1"
 open="0"
 edible="0"
 drinkable="0"
@@ -862,6 +865,9 @@ unused="0"/>
 <description>THIS IS A LOW POINT IN THE MAIN E-W TUNNEL.</description>
 <initialdescription></initialdescription>
 <nogo>
+<nw>THE RISING WATER BLOCKS YOUR PATH.</nw>
+<w>THE RISING WATER BLOCKS YOUR PATH.</w>
+<sw>THE RISING WATER BLOCKS YOUR PATH.</sw>
 </nogo>
 <directions
 n="255"
@@ -870,8 +876,8 @@ e="16"
 w="255"
 ne="255"
 se="255"
-sw="22"
-nw="23"
+sw="255"
+nw="255"
 up="255"
 down="255"
 in = "255"
@@ -894,8 +900,8 @@ lightable="0"
 door="0"
 unused="0"/>
 </object>
-<object id="22" name="STORAGE CHAMBER" holder="0">
-<description>THIS IS A SMALL CHAMBER.  THE ONLY EXIT IS TO THE NORTHEAST.</description>
+<object id="22" name="LARGE CHAMBER" holder="0">
+<description>THIS IS A LARGE CHAMBER.  THE ONLY EXIT IS TO THE NORTHEAST.</description>
 <initialdescription></initialdescription>
 <nogo>
 </nogo>
@@ -1154,9 +1160,9 @@ lightable="0"
 door="0"
 unused="0"/>
 </object>
-<object id="29" name="DOCUMENTS" holder="12">
-<description>THE DOCUMENTS APPEAR TO BE IN GERMAN. A STAMP MARK SHOWS THE DATE OF MARCH,1945. DETERIORATION HAS RENDERED THE REST OF THE DOCUMENTS ILLEGIBLE.</description>
-<initialdescription>SOME MOLDY DOCUMENTS LIE ON THE TABLE.</initialdescription>
+<object id="29" name="RUBBER STAMP" holder="12">
+<description>THE DATE ON THE STAMP IS SET TO MARCH 10TH, 1945.</description>
+<initialdescription>A RUBBER STAMP, USED FOR POSTMARKING MAIL, LIES ON THE TABLE.</initialdescription>
 <nogo>
 </nogo>
 <directions
@@ -1706,6 +1712,223 @@ lightable="0"
 door="0"
 unused="0"/>
 </object>
+<object id="44" name="SUN" holder="2">
+<description>THE SUN IS HIDDEN BEHIND THE GRAY OVERCAST.</description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="1"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="45" name="VOLT METER" holder="20">
+<description>THE NEEDLE INDICATES ZERO VOLTAGE.</description>
+<initialdescription>A VOLTMETER, WIRED TO THE BATTERY, IS AFFIXED TO THE WALL.</initialdescription>
+<synonyms names="VOLTMETER"/>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="46" name="ELECTROLYTE" holder="0">
+<description></description>
+<initialdescription></initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="47" name="WOODEN CRATE" holder="22">
+<description>THE WOODEN CRATE IS NAILED SHUT.</description>
+<initialdescription>A LARGE WOODEN CRATE OCCUPIES SITS IN THE CENTER OF THE CHAMBER.</initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="1"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="48" name="SPLINTERED WOOD" holder="0">
+<description>THE FORMER WOODEN CRATE IS NOW SMASHED.</description>
+<initialdescription>A PILE OF BROKEN WOOD (FORMERLY A CRATE), IS HERE.</initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="49" name="GOLD BARS" holder="48">
+<description>OOOOH! SHINY!</description>
+<initialdescription>SHINY GOLD BARS LIE ON TOP OF THE SMASHED CRATE.</initialdescription>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="0"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+edible="0"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
 
 </objects>
 <checks>
@@ -1715,6 +1938,7 @@ unused="0"/>
 <check verb="close" check="check_see_dobj"/>
 <check verb="drink" check="check_dobj_supplied"/>
 <check verb="drink" check="check_see_dobj"/>
+<check verb="drink" check="check_have_dobj"/>
 <check verb="drop" check="check_dobj_supplied"/>
 <check verb="drop" check="check_see_dobj"/>
 <check verb="drop" check="check_have_dobj"/>
@@ -1724,12 +1948,16 @@ unused="0"/>
 <check verb="enter" check="check_see_dobj"/>
 <check verb="examine" check="check_see_dobj"/>
 <check verb="examine" check="check_dobj_supplied"/>
+<check verb="fill" check="check_see_dobj"/>f
 <check verb="flush" check="check_see_dobj"/>
 <check verb="get" check="check_dobj_supplied"/>
 <check verb="get" check="check_see_dobj"/>
 <check verb="get" check="check_dont_have_dobj"/>
 <check verb="kill" check="check_dobj_supplied"/>
 <check verb="kill" check="check_see_dobj"/>
+<check verb="light" check="check_dobj_supplied"/>
+<check verb="light" check="check_see_dobj"/>
+<check verb="light" check="check_have_dobj"/>
 <check verb="open" check="check_dobj_supplied"/>
 <check verb="open" check="check_see_dobj"/>
 <check verb="pick" check="check_dobj_supplied"/>
@@ -1743,24 +1971,40 @@ unused="0"/>
 <check verb="turn on" check="check_have_dobj"/>
 <check verb="unbolt" check="check_dobj_supplied"/>
 <check verb="unbolt" check="check_see_dobj"/>
+<check verb="unlock" check="check_dobj_supplied"/>
+<check verb="unlock" check="check_see_dobj"/>
 </checks>
 <sentences>
-<sentence verb="burn" do="pile of leaves" prep="" io="" type="before" sub="burn_leaves"/>
+<sentence verb="burn" do="pile of leaves" prep="" io="" type="instead" sub="burn_leaves"/>
 <sentence verb="burn" do="*" prep="" io="" type="instead" sub="burn_unburnable"/>
+<sentence verb="drop" do="wooden crate" prep="" io="" type="after" sub="after_drop_crate"/>
 <sentence verb="drop" do="nose" prep="" io="" type="instead" sub="drop_undropable"/>
+<sentence verb="fill" do="steel helmet" prep="" io="" type="before" sub="fill_helmet"/>
+<sentence verb="fill" do="steel helmet" prep="with" io="water" type="before" sub="fill_helmet"/>
+<sentence verb="fill" do="battery" prep="with" io="electrolyte" type="before" sub="fill_battery"/>
 <sentence verb="flush" do="filthy toilet" prep="" io="" type="after" sub="flush_toilet"/>
 <sentence verb="flush" do="*" prep="" io="" type="after" sub="flush_unflushable"/>
+<sentence verb="get" do="water" prep="" io="" type="instead" sub="fill_helmet"/>
 <sentence verb="get" do="charred papers" prep="" io="" type="instead" sub="get_gunk"/>
+<sentence verb="get" do="water" prep="with" io="steel helmet" type="instead" sub="fill_helmet"/>
 <sentence verb="kill" do="player" prep="" io="" type="instead" sub="kill_self"/>
 <sentence verb="kill" do="*" prep="" io="" type="instead" sub="strange_humor"/>
 <sentence verb="pick" do="lock" prep="" io="" type="before" sub="pick_lock"/>
+<sentence verb="pick" do="lock" prep="with" io="paperclip" type="before" sub="pick_lock"/>
 <sentence verb="pick" do="nose" prep="" io="" type="before" sub="pick_nose"/>
 <sentence verb="pick" do="*" prep="" io="" type="before" sub="pick_unpickable"/>
+<sentence verb="pour" do="electrolyte" prep="into" io="battery" type="before" sub="fill_battery"/>
+<sentence verb="pour" do="steel helmet" prep="into" io="battery" type="before" sub="fill_battery"/>
+<sentence verb="pour" do="*" prep="" io="" type="" sub="confused_msg"/>
 <sentence verb="turn on" do="flashlight" prep="" io="" type="before" sub="flashlight_on"/>
 <sentence verb="turn off" do="flashlight" prep="" io="" type="before" sub="flashlight_off"/>
 <sentence verb="jump" do="" prep="" io="" type="instead" sub="jump"/>
 <sentence verb="unbolt" do="cupola" prep="" io="" type="instead" sub="unbolt_cupola"/>
 <sentence verb="unbolt" do="*" prep="" io="" type="instead" sub="unbolt_unboltable"/>
+<sentence verb="unlock" do="door" prep="using" io="paperclip" type="instead" sub="pick_lock"/>
+<sentence verb="unlock" do="door" prep="with" io="paperclip" type="instead" sub="pick_lock"/>
+<sentence verb="unlock" do="door" prep="" io="" type="instead" sub="unlock_door"/>
+<sentence verb="up" do="" prep="" io="" type="instead" sub="instead_up"/>
 <sentence verb="wait" do="" prep="" io="" type="instead" sub="wait"/>
 <sentence verb="west" do="" prep="" io="" type="before" sub="before_west"/>
 </sentences>
@@ -1769,6 +2013,23 @@ unused="0"/>
 if (player.holder == TOP OF DEBRIS)
 {
 	printl("AS YOU SQUIRM THROUGH THE NARROW GAP, THE ROCKS GIVE WAY CAUSING YOU TO FALL MANY FEET TO THE TUNNEL FLOOR.");
+}
+</routine>sen
+<routine name="instead_up">
+if (player.holder == TOP OF SHAFT)
+{
+	if (wooden crate.holder==player)
+	{
+		println("YOU CAN'T FIT THROUGH THE OPENING WHILE CARRYING THE CRATE.");
+	}
+	else
+	{
+		move();
+	}
+}
+else
+{
+	move();
 }
 </routine>
 <routine name="pick_lock">
@@ -1849,10 +2110,37 @@ else
 	flashlight.lit=0;
 }
 </routine>
+<routine name="drink_electrolyte">
+println("THE SALTY CAVE WATER TASTES UNPLEASANT.");
+</routine>
+<routine name="fill_battery">
+if (steel helmet.holder==player)
+{   
+	if (electrolyte.holder == steel helmet)
+	{
+		println("AS THE BATTERY BEGINS CHARGES, THE PUMPS GRADUALY BEING WORKING.");
+		battery.description="THE BATTERY IS FULL OF ELECTROLYTE.";
+		water.holder=offscreen;
+		electrolyte.holder=battery;
+		flooded tunnel.nw=base of shaft;
+		flooded tunnel.sw=large chamber;
+		volt meter.description = "THE NEEDLE INDICATES CURRENT IS FLOWING.";
+		flooded tunnel.description = "THIS IS A LOW POINT AT THE END OF AN E-W TUNNEL. THE MAIN TUNNEL LEADS EAST. SMALLER PASSAGES LEAD NORTHWEST AND SOUTHWEST.";
+	}
+	else
+	{
+		println("THE HELMET IS EMPTY.");
+	}
+}
+else
+{
+	println("YOU DON'T HAVE THE HELMET.");
+}
+</routine>
 <routine name="flush_toilet">
 if (paperclip.holder==offscreen)
 {
-		printl("THE REMAINING WATER IN THE TANK WASHES AWAY THE PAPER LEAVING A PAPERCLIP AT THE BOTTOM OF THE BOWL`.");
+		printl("THE REMAINING WATER IN THE TANK WASHES AWAY THE PAPER LEAVING A PAPERCLIP AT THE BOTTOM OF THE BOWL.");
 		paperclip.holder=filthy toilet;
 		charred papers.holder=offscreen;
 }
@@ -1894,8 +2182,32 @@ else
 	printl("YOU DON'T HAVE ANYTHING TO DO THAT WITH.");
 }
 </routine>
-
-<routine name="unbolt_unboltable" type="instead">
+<routine name="fill_helmet">
+if (player.holder == flooded tunnel)
+{
+	if (water.holder == flooded tunnel)
+	{
+		if (electrolyte.holder != steel helmet)
+		{
+			println("THE HELMET IS NOW FILLED WITH SALT WATER.");
+			electrolyte.holder = steel helmet;
+		}
+		else
+		{
+			println("THE HELMET IS ALREADY FULL.");
+		}
+	}
+	else
+	{
+		println("THERE IS NO WATER HERE.");
+	}
+}
+else
+{
+	println("THERE IS NO WATER HERE.");
+}
+</routine>
+<routine name="unbolt_unboltable">
 	println("YOU CAN'T UNBOLT THAT.");
 </routine>
 <routine name="jump">
@@ -1927,6 +2239,15 @@ look();
 <routine name="wait">
 printl("TIME PASSES..."); 	
 </routine>
+<routine name="after_drop_crate">
+if (player.holder == top of shaft)
+{
+	println("THE CRATE FALLS DOWN THE SHAFT AND SMASHES AT THE BOTTOM.");
+	wooden crate.holder=offscreen;
+	splintered wood.holder=base of shaft;
+	gold bars.holder=base of shaft;
+}
+</routine>
 <routine name="drop_undropable">
 printl("YOU HAVE A STRANGE SENSE OF HUMOR."); 	
 </routine>
@@ -1948,6 +2269,9 @@ printl("YOU CAN'T PICK THAT.");
 <routine name="kill_self">
 printl("THERE ARE SEVERAL ENTERTAINING WAYS TO DIE IN THIS ADVENTURE...NO NEED TO SPEED THINGS ALONG."); 	
 </routine>
+<routine name="unlock_door">
+	printl("THE KEY HAS LONG SINCE BEEN LOST."); 
+</routine>
 </routines>
 
 <events>
@@ -1967,6 +2291,7 @@ if (player.holder==on ladder)
 	}
 }
 </event>
+
 
 </events>
 <builtinvars>

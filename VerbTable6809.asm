@@ -19,30 +19,33 @@ get_verb_id equ 12
 inventory_verb_id equ 13
 kill_verb_id equ 14
 drop_verb_id equ 15
-look_verb_id equ 16
-examine_verb_id equ 17
-look_in_verb_id equ 18
-open_verb_id equ 19
-close_verb_id equ 20
-eat_verb_id equ 21
-drink_verb_id equ 22
-put_verb_id equ 23
-quit_verb_id equ 24
-smell_verb_id equ 25
-listen_verb_id equ 26
-wait_verb_id equ 27
-fill_verb_id equ 28
-pour_verb_id equ 29
-wear_verb_id equ 30
-yell_verb_id equ 31
-jump_verb_id equ 32
-pick_verb_id equ 33
-burn_verb_id equ 34
-turn_on_verb_id equ 35
-turn_off_verb_id equ 36
-flush_verb_id equ 37
-swim_verb_id equ 38
-unbolt_verb_id equ 39
+light_verb_id equ 16
+look_verb_id equ 17
+examine_verb_id equ 18
+look_in_verb_id equ 19
+open_verb_id equ 20
+lock_verb_id equ 21
+unlock_verb_id equ 22
+close_verb_id equ 23
+eat_verb_id equ 24
+drink_verb_id equ 25
+put_verb_id equ 26
+quit_verb_id equ 27
+smell_verb_id equ 28
+listen_verb_id equ 29
+wait_verb_id equ 30
+fill_verb_id equ 31
+pour_verb_id equ 32
+wear_verb_id equ 33
+yell_verb_id equ 34
+jump_verb_id equ 35
+pick_verb_id equ 36
+burn_verb_id equ 37
+turn_on_verb_id equ 38
+turn_off_verb_id equ 39
+flush_verb_id equ 40
+swim_verb_id equ 41
+unbolt_verb_id equ 42
 
 
 verb_table
@@ -176,105 +179,114 @@ verb_table
 	.db 4
 	.strz "DROP"
 	.db 16
+	.db 5
+	.strz "LIGHT"
+	.db 17
 	.db 4
 	.strz "LOOK"
-	.db 16
+	.db 17
 	.db 1
 	.strz "L"
-	.db 17
+	.db 18
 	.db 7
 	.strz "EXAMINE"
-	.db 17
+	.db 18
 	.db 1
 	.strz "X"
-	.db 17
+	.db 18
 	.db 7
 	.strz "LOOK AT"
-	.db 18
+	.db 19
 	.db 7
 	.strz "LOOK IN"
-	.db 18
+	.db 19
 	.db 7
 	.strz "INSPECT"
-	.db 18
+	.db 19
 	.db 6
 	.strz "SEARCH"
-	.db 19
+	.db 20
 	.db 4
 	.strz "OPEN"
-	.db 20
+	.db 21
+	.db 4
+	.strz "LOCK"
+	.db 22
+	.db 6
+	.strz "UNLOCK"
+	.db 23
 	.db 5
 	.strz "CLOSE"
-	.db 20
+	.db 23
 	.db 4
 	.strz "SHUT"
-	.db 21
+	.db 24
 	.db 3
 	.strz "EAT"
-	.db 22
+	.db 25
 	.db 5
 	.strz "DRINK"
-	.db 23
+	.db 26
 	.db 3
 	.strz "PUT"
-	.db 23
+	.db 26
 	.db 5
 	.strz "PLACE"
-	.db 24
-	.db 4
-	.strz "QUIT"
-	.db 25
-	.db 5
-	.strz "SMELL"
-	.db 25
-	.db 5
-	.strz "SNIFF"
-	.db 26
-	.db 6
-	.strz "LISTEN"
 	.db 27
 	.db 4
-	.strz "WAIT"
+	.strz "QUIT"
 	.db 28
-	.db 4
-	.strz "FILL"
+	.db 5
+	.strz "SMELL"
+	.db 28
+	.db 5
+	.strz "SNIFF"
 	.db 29
-	.db 4
-	.strz "POUR"
+	.db 6
+	.strz "LISTEN"
 	.db 30
 	.db 4
-	.strz "WEAR"
+	.strz "WAIT"
 	.db 31
 	.db 4
-	.strz "YELL"
-	.db 31
-	.db 5
-	.strz "SHOUT"
-	.db 31
-	.db 6
-	.strz "SCREAM"
+	.strz "FILL"
 	.db 32
 	.db 4
-	.strz "JUMP"
+	.strz "POUR"
 	.db 33
 	.db 4
-	.strz "PICK"
+	.strz "WEAR"
 	.db 34
 	.db 4
-	.strz "BURN"
+	.strz "YELL"
+	.db 34
+	.db 5
+	.strz "SHOUT"
+	.db 34
+	.db 6
+	.strz "SCREAM"
 	.db 35
+	.db 4
+	.strz "JUMP"
+	.db 36
+	.db 4
+	.strz "PICK"
+	.db 37
+	.db 4
+	.strz "BURN"
+	.db 38
 	.db 7
 	.strz "TURN ON"
-	.db 36
+	.db 39
 	.db 8
 	.strz "TURN OFF"
-	.db 37
+	.db 40
 	.db 5
 	.strz "FLUSH"
-	.db 38
+	.db 41
 	.db 4
 	.strz "SWIM"
-	.db 39
+	.db 42
 	.db 6
 	.strz "UNBOLT"
 	.db 0,0

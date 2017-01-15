@@ -49,7 +49,7 @@ burn_leaves_sub
 	lbne @c
 	nop ; printl("FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.")
 	ldx #description_table
-	lda #58 ; FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.
+	lda #68 ; FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -90,7 +90,7 @@ burn_leaves_sub
 	lbne @e
 	nop ; printl("YOU CAN'T DO THAT WHILE ON A LADDER")
 	ldx #description_table
-	lda #59 ; YOU CAN'T DO THAT WHILE ON A LADDER
+	lda #69 ; YOU CAN'T DO THAT WHILE ON A LADDER
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -98,7 +98,7 @@ burn_leaves_sub
 @e	nop ; close (player.holder == on ladder)
 	nop ; {				printl("THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.")
 	ldx #description_table
-	lda #60 ; THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.
+	lda #70 ; THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -108,13 +108,13 @@ burn_leaves_sub
 @b	nop ; close (pile of leaves.holder != player)
 	nop ; {		printl("THE LEAVES (WHICH YOU ARE CARRYING) IGNTIE. UNFORTUNATELY, THE FIRE RAPIDLY SPREADS TO YOU.")
 	ldx #description_table
-	lda #61 ; THE LEAVES (WHICH YOU ARE CARRYING) IGNTIE. UNFORTUNATELY, THE FIRE RAPIDLY SPREADS TO YOU.
+	lda #71 ; THE LEAVES (WHICH YOU ARE CARRYING) IGNTIE. UNFORTUNATELY, THE FIRE RAPIDLY SPREADS TO YOU.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
 	nop ; printl("NEXT TIME TRY DROPPING THE LEAVES.")
 	ldx #description_table
-	lda #62 ; NEXT TIME TRY DROPPING THE LEAVES.
+	lda #72 ; NEXT TIME TRY DROPPING THE LEAVES.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -125,7 +125,7 @@ burn_leaves_sub
 @a	nop ; close (cigarette lighter.holder == player)
 	nop ; {	printl("YOU HAVE NO IGNITION SOURCE.")
 	ldx #description_table
-	lda #63 ; YOU HAVE NO IGNITION SOURCE.
+	lda #73 ; YOU HAVE NO IGNITION SOURCE.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
