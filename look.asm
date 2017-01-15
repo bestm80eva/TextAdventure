@@ -15,7 +15,6 @@ look_sub
 	jsr get_player_room
 	pulu a 
 	nop	; now get the holder's description attr
-	pshu a  ; push space for return val
 	pshu a	; push holder id
 	lda #DESC_ID 	; holder attr #
 	pshu a	;

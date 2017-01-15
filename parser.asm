@@ -546,18 +546,17 @@ a_times_32
 get_object_attribute
 	pshs d,x,y
 	lda 1,u	; id
-	ldb 0,u	; property
-	ldx #obj_table
-@lp	cmpa #0			;loop to correct offset
-	beq @d
-	leax OBJ_ENTRY_SIZE,x
-	deca
-	bra @lp
-@d	leax b,x		;skip over to correct byte
+	ldb #OBJ_ENTRY_SIZE
+	mul
+	tfr d,x
+	leax obj_table,x
+	lda #0	 		
+	ldb 0,u ; prop id
+	tfr d,y	
+	leax b,x			;add attr offset to x
 	lda ,x			;get the value
-	sta 2,u			;return it on the user stack
-	pulu a			; delete param
-	pulu a 			; delete param
+	pulu b			; delete param (leave 2nd on stack for return val)
+	sta ,u
 	puls y,x,d
 	rts	
 

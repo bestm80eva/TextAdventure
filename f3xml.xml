@@ -2080,7 +2080,7 @@ else
 }
 </routine>
 <routine name="get_gunk">
-printl("AS YOU RELUCTANTLY PICK UP THE PAPPERS, THEY DISINTEGRATE INTO GUNK, LEAVING YOU WITH A BLACKENED PAPERCLIP.");
+printl("AS YOU RELUCTANTLY PICK UP THE PAPPERS, THEY DISINTEGRATE, LEAVING YOU WITH A BLACKENED PAPERCLIP.");
 charred papers.holder=offscreen;
 paperclip.holder=player;
 </routine>
@@ -2123,6 +2123,7 @@ if (steel helmet.holder==player)
 		water.holder=offscreen;
 		electrolyte.holder=battery;
 		flooded tunnel.nw=base of shaft;
+		flooded tunnel.w="YOU CAN'T GO THAT WAY.";
 		flooded tunnel.sw=large chamber;
 		volt meter.description = "THE NEEDLE INDICATES CURRENT IS FLOWING.";
 		flooded tunnel.description = "THIS IS A LOW POINT AT THE END OF AN E-W TUNNEL. THE MAIN TUNNEL LEADS EAST. SMALLER PASSAGES LEAD NORTHWEST AND SOUTHWEST.";
