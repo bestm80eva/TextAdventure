@@ -467,7 +467,7 @@ encode_sentence
 	cmpb #$ff			;was it found
 	lbeq print_ret_bad_noun	;
 	;tfr a,b				;lookup routine uses b as its param
-	pulu a
+	;pulu a			; what was this for??????? HIGHLY SUSPICIOUS
 	jsr get_obj_id		;get the object it belongs to
 	pulu a
 	sta sentence+3		;store io
@@ -503,8 +503,9 @@ encode_sentence
 	nop ; run 'before' rules
 @bf	ldx #preactions_table
  	jsr run_actions
-	ldx #actions_table
 	pulu a
+	nop ; check the return code?
+	ldx #actions_table
 	jsr run_actions
 	pulu a
 	cmpa #1 ; if handled skip default handling
