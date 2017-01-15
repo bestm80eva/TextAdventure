@@ -22,7 +22,6 @@ look_sub
 	pulu a  ; get description id#2	
 	nop		; now print that id
 	ldx #description_table
-	pshu x
 	pshu a 
 	jsr print_table_entry	; print the description for the room
 	jsr PRINTCR
