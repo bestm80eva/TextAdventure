@@ -537,50 +537,7 @@ a_times_32
 	lsla				;x32 to get the offset of the word
 	rts
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;get_object_attribute
-;params are on user stack
-;top  param is attr to get 
-;next param is obj id
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-get_object_attribute
-	pshs d,x,y
-	lda 1,u	; id
-	ldb #OBJ_ENTRY_SIZE
-	mul
-	tfr d,x
-	leax obj_table,x
-	lda #0	 		
-	ldb 0,u ; prop id
-	tfr d,y	
-	leax b,x			;add attr offset to x
-	lda ,x			;get the value
-	pulu b			; delete param (leave 2nd on stack for return val)
-	sta ,u
-	puls y,x,d
-	rts	
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;set_object_attribute
-;params are on user stack
-;top param is new value
-;next param is attr to set 
-;next is object
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-set_object_attribute
-	pshs d,x,y
-	lda 2,u	;id	
-	ldb 1,u ;attr #
-	ldx #obj_table
-@lp	cmpa #0			;loop to correct offset
-	beq @d
-	leax OBJ_ENTRY_SIZE,x
-	deca
-	bra @lp
-@d	lda 0,u			;get value to store			
-	sta b,x			;store it
-	puls y,x,d
-	rts
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;create_property_mask

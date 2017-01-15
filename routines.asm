@@ -122,9 +122,8 @@ get_move_direction
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;move_object
-;param 1 is the object to move
-;param 2 (top of u) is the object to move it to 
-; (the new parent)
+;param 1 (top of u) is the object/room to move it to 
+;param 2 is the object to move
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 move_object
 	pshs d,x,y
@@ -198,6 +197,52 @@ unset_initial_description
 	leax INITIAL_DESC_ID,x
 	lda #255
 	sta ,x
+	puls y,x,d
+	rts
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;get_object_attribute
+;params are on user stack
+;top  param is attr to get 
+;next param is obj id
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+get_object_attribute
+	pshs d,x,y
+	lda 1,u	; id
+	ldb #OBJ_ENTRY_SIZE
+	mul
+	tfr d,x
+	leax obj_table,x
+	lda #0	 		
+	ldb 0,u ; prop id
+	tfr d,y	
+	leax b,x			;add attr offset to x
+	lda ,x			;get the value
+	pulu b			; delete param (leave 2nd on stack for return val)
+	sta ,u
+	puls y,x,d
+	rts	
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;set_object_attribute
+;params are on user stack
+;top param is new value
+;next param is attr to set 
+;next is object
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+set_object_attribute
+	pshs d,x,y
+	lda 2,u	;id	
+	ldb #OBJ_ENTRY_SIZE
+	mul
+	tfr d,x
+	leax obj_table,x
+	ldb 1,u ; get attr #
+	leax b,x ; get offset
+	ldb ,u
+	stb ,x  ; write new value
+	leau 3,u ; pop all 3 params
 	puls y,x,d
 	rts
 	
