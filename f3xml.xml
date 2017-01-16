@@ -1946,9 +1946,9 @@ unused="0"/>
 <check verb="eat" check="check_see_dobj"/>
 <check verb="enter" check="check_dobj_supplied"/>
 <check verb="enter" check="check_see_dobj"/>
-<check verb="examine" check="check_see_dobj"/>
 <check verb="examine" check="check_dobj_supplied"/>
-<check verb="fill" check="check_see_dobj"/>f
+<check verb="examine" check="check_see_dobj"/>
+<check verb="fill" check="check_see_dobj"/>
 <check verb="flush" check="check_see_dobj"/>
 <check verb="get" check="check_dobj_supplied"/>
 <check verb="get" check="check_see_dobj"/>
