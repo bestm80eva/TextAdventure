@@ -153,5 +153,5 @@ obj_table
 	.db 0    ;  flags 9 - 16
 	.db 49,48,61,60,255,255,255,255,255,255,255,255,255,255,255,255,0   ; GOLD BARS
 	.db 0    ;  flags 1 - 8
-	.db 0    ;  flags 9 - 16
+	.db PORTABLE_MASK ; flags 9-16
 	.db 255

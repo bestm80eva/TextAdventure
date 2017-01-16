@@ -1051,7 +1051,7 @@ door="0"
 unused="0"/>
 </object>
 <object id="26" name="TOP OF HILL" holder="0">
-<description>YOU ARE STANDING ATOP A HIGH ESCARPMENT. IN THE DISTANCE, THE SPIRES ON THE GOTHIC CATHEDRAL OF PRAGUE ARE JUST BARELY VISIBLE.</description>
+<description>YOU ARE STANDING ATOP A HIGH ESCARPMENT. IN THE DISTANCE, THE GOTHIC SPIRES OF PRAGUE ARE JUST BARELY VISIBLE. AN AIRSHAFT LEADS DOWN INTO AN ABANDONED FACTORY COMPLEX.</description>
 <initialdescription></initialdescription>
 <nogo>
 </nogo>
@@ -1894,7 +1894,7 @@ door="0"
 unused="0"/>
 </object>
 <object id="49" name="GOLD BARS" holder="48">
-<description>OOOOH! SHINY!</description>
+<description>OOOOH...SHINY!</description>
 <initialdescription>SHINY GOLD BARS LIE ON TOP OF THE SMASHED CRATE.</initialdescription>
 <nogo>
 </nogo>
@@ -1913,7 +1913,7 @@ in = "255"
 out="255"
 mass="0"/>
 <flags scenery="0"
-portable="0"
+portable="1"
 container="0"
 transparent="0"
 supporter="0"
