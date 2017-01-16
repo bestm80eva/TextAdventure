@@ -23,6 +23,7 @@ print_room
 	stx 136 ; top left
 	jsr get_player_room ;get obj and leave it on stack
 	jsr print_obj_name
+	jsr invert_room
 	puls y		; restore cursor pos
 	sty 136
 	puls y,x,d
@@ -37,7 +38,7 @@ invert_room
 	ldb a,x
 	cmpb #32 ; don't invert blank
 	beq @s
-	addb #32 ;invert char
+	subb #64 ;invert char
 	stb a,x ;store it back to mem
 @s  inca	
  	bra @lp
