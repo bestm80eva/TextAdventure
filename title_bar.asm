@@ -11,11 +11,12 @@ draw_bar
 	beq @d	;break
 	bra @lp ; loop
 @d  nop
-	jsr print_room
+	jsr print_room_name
+	jsr print_score
 	puls y,x,d
 	rts
 	
-print_room
+print_room_name
 	pshs d,x,y
 	ldy 136 ; COCO cursor
 	pshs y	; save cursor pos
@@ -44,5 +45,18 @@ invert_room
  	bra @lp
 @x	puls y,x,d
 	rts
-	
-	
+
+;write "/100"
+;then print the score next to it	
+print_score
+	pshs d,x,y
+	lda #47  ; inverse "/"
+	sta 1024+27
+	lda #49   ; inverse "1"
+	sta 1024+28
+	lda #48  ; inverse "0"
+	sta 1024+29
+	sta 1024+30
+	sta 1024+31
+@x	puls y,x,d
+	rts
