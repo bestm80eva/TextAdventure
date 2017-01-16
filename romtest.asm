@@ -48,6 +48,7 @@ main
  	include listen.asm
 	include enter_sub.asm
 	include title_bar.asm
+	include math.asm
 	;include instead.asm
 	;include before_rules.asm
 	;include after_rules.asm
