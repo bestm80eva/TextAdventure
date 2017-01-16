@@ -14,8 +14,7 @@ start
 	include objdefs.asm
 main
 	ldu #0x7FFF ; setup user stack
-	clr DEVNUM 	; set device to screen (not needed? )
-	tfr u,x 
+	clr DEVNUM 	; set device to screen (not needed? ) 
 	sts sys_stack_save
 	jsr cls
 	ldx #welcome
@@ -34,7 +33,6 @@ quit lds sys_stack_save
 
 	include parser.asm	
 	include random.asm
-	include mod.asm
 	include routines.asm
 	include preactions.asm
 	include printrets.asm

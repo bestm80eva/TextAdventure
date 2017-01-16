@@ -10,6 +10,16 @@
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;user stack contains divisor (16 bit)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
+randmod
+	pshs d,x,y
+	jsr rand	; puts number on stack	
+	jsr mod2b   ; leaves number on stack
+	puls y,x,d
+	rts
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;LSR RANDOM NUMBER GENERATOR
 ;ALL REGISTERS ARE PRESERVED

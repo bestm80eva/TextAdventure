@@ -4,15 +4,31 @@
 ;b contains mod
 mod8
 	pshs x,y
-	pshs b
-@lp	cmpa ,s
+	pshu b
+@lp	cmpa ,u
 	bmi @x
-	suba ,s ; subtract value
+	suba ,u ; subtract value
 	bra @lp
-@x  leas 1,s ; remove val we pushed
+@x  leau 1,u ; remove val we pushed
 	puls y,x
 	rts
 
+;16 bit mod
+;top of stack is number
+;under it is divisor
+;the result is returned on the stack
+mod2b
+	pshs d,x,y
+	pulu d ; get number
+@lp cmpd ,u
+	blt @x
+	subd ,u
+	bra @lp
+@x	pulu x	; pop divisor
+	pshu d ; put result on stack
+	puls y,x,d
+	rts
+		
 ;divide a by b
 ;result in a
 div8
