@@ -16,7 +16,7 @@ main
 	ldu #0x7FFF ; setup user stack
 	clr DEVNUM 	; set device to screen (not needed? )
 	tfr u,x 
-	stx sys_stack_save
+	sts sys_stack_save
 	jsr cls
 	ldx #welcome
 	jsr PRINT
@@ -29,7 +29,7 @@ main
 	jsr encode_sentence
 	jsr draw_bar
 	bra @lp
-@quit lds sys_stack_save
+quit lds sys_stack_save
 @x	rts
 
 	include parser.asm	

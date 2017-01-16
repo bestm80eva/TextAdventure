@@ -6,7 +6,7 @@ quit_sub
 	ldx #bye
 	jsr PRINT
 	jsr PRINTCR
-	lbra @quit ; reset stacks and exit
+	lbra quit ; reset stacks and exit
 	rts
 	
 bye .strz "BYE."	
