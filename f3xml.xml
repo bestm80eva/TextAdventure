@@ -1,6 +1,8 @@
 <xml>
 <project>
-<welcome>WELCOME TO RICHARD III, BY EVAN WRIGHT 2017</welcome>
+<welcome>WELCOME TO THE RICHARD MINES</welcome>
+<author>AUTHOR: EVAN WRIGHT</author>
+<version>VERSION 1.0, 2017</version>
 <preps>
 <prep>in</prep> 
 <prep>on</prep> 

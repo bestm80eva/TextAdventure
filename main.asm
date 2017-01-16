@@ -99,6 +99,6 @@ table_index .db 0
 user_stack_save .dw 0x0000
 sys_stack_save .dw 0x0000
 
-welcome .strz "WELCOME TO TEST-PROJECT LAND. 2016, EVAN C. WRIGHT"
-
+	include Welcome6809.asm
+	
 	end start

@@ -32,9 +32,9 @@ check_table
 	.db 10 ; enter
 	.dw check_see_dobj
 	.db 18 ; examine
-	.dw check_see_dobj
-	.db 18 ; examine
 	.dw check_dobj_supplied
+	.db 18 ; examine
+	.dw check_see_dobj
 	.db 31 ; fill
 	.dw check_see_dobj
 	.db 40 ; flush
