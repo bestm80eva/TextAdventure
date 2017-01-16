@@ -17,6 +17,7 @@ main
 	clr DEVNUM 	; set device to screen (not needed? )
 	tfr u,x 
 	stx sys_stack_save
+	jsr cls
 	ldx #welcome
 	jsr PRINT
 	jsr PRINTCR
@@ -49,10 +50,7 @@ main
 	include enter_sub.asm
 	include title_bar.asm
 	include math.asm
-	;include instead.asm
-	;include before_rules.asm
-	;include after_rules.asm
-	;include dictionary.asm
+	include cls.asm
 	include Dictionary6809.asm
 	include ObjectTable6809.asm
 	include ObjectWordTable6809.asm
@@ -64,7 +62,6 @@ main
 	include checks.asm
 	include before_table_6809.asm
 	include instead_table_6809.asm
-	;include postactions_table.asm
 	include after_table_6809.asm
 	include events.asm
 	include events6809.asm ; machine generated
@@ -102,6 +99,7 @@ last_char .db 0
 table_index .db 0
 user_stack_save .dw 0x0000
 sys_stack_save .dw 0x0000
+
 welcome .strz "WELCOME TO TEST-PROJECT LAND. 2016, EVAN C. WRIGHT"
 
 	end start
