@@ -21,7 +21,7 @@ main
 	jsr PRINT
 	jsr PRINTCR
 	jsr look_sub 
-	jsr draw_bar;
+	jsr draw_bar
 @lp	jsr GETLINE		; get user command
 	jsr parse
 	jsr PRINTCR
