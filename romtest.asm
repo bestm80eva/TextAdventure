@@ -21,19 +21,12 @@ main
 	jsr PRINT
 	jsr PRINTCR
 	jsr look_sub 
+	jsr draw_bar;
 @lp	jsr GETLINE		; get user command
 	jsr parse
 	jsr PRINTCR
-;	ldx #KBBUF-1
-;	jsr PRINT		; print buffer
-;	jsr PRINTCR
-;	ldx #word1-1	; print 1st word
-;	jsr PRINT
-;	jsr PRINTCR
-;	ldx #word2-1	; print 2nd word
-;	jsr PRINT
-;	jsr PRINTCR
 	jsr encode_sentence
+	jsr draw_bar
 	bra @lp
 @quit lds sys_stack_save
 @x	rts
@@ -54,6 +47,7 @@ main
 	include smell.asm
  	include listen.asm
 	include enter_sub.asm
+	include title_bar.asm
 	;include instead.asm
 	;include before_rules.asm
 	;include after_rules.asm
