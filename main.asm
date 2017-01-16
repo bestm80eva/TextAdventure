@@ -51,6 +51,7 @@ main
 	include title_bar.asm
 	include math.asm
 	include cls.asm
+	include quit.asm
 	include Dictionary6809.asm
 	include ObjectTable6809.asm
 	include ObjectWordTable6809.asm

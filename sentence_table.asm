@@ -53,4 +53,6 @@ sentence_table
 	.dw listen_sub
 	.db enter_verb_id
 	.dw enter_sub
+	.db quit_verb_id
+	.dw quit_sub
 	.db 255
