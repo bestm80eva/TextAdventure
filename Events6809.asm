@@ -26,7 +26,13 @@
 	include strange_humor_sub_6809.asm
 	include flush_unflushable_sub_6809.asm
 	include pick_nose_sub_6809.asm
+	include burn_self_sub_6809.asm
 	include burn_unburnable_sub_6809.asm
 	include pick_unpickable_sub_6809.asm
+	include get_toilet_sub_6809.asm
 	include kill_self_sub_6809.asm
 	include unlock_door_sub_6809.asm
+	include listen_sub_sub_6809.asm
+	include wont_fit_sub_6809.asm
+	include light_lighter_sub_6809.asm
+	include confused_msg_sub_6809.asm

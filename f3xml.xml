@@ -63,6 +63,7 @@
 <verb>flush</verb>
 <verb>swim</verb>
 <verb>unbolt</verb>
+<verb>use</verb>
 </userverbs>
 </verbs> 
 <objects>
@@ -578,6 +579,13 @@ unused="0"/>
 <description>THIS IS A DANK LAVATORY. A DOORWAY LEADS NORTH.</description>
 <initialdescription></initialdescription>
 <nogo>
+<ne>THE ONLY EXIT IS TO THE NOTRH.</ne>
+<nw>THE ONLY EXIT IS TO THE NOTRH.</nw>
+<se>THE ONLY EXIT IS TO THE NOTRH.</se>
+<sw>THE ONLY EXIT IS TO THE NOTRH.</sw>
+<s>THE ONLY EXIT IS TO THE NOTRH.</s>
+<e>THE ONLY EXIT IS TO THE NOTRH.</e>
+<w>THE ONLY EXIT IS TO THE NOTRH.</w>
 </nogo>
 <directions
 n="12"
@@ -591,7 +599,7 @@ nw="255"
 up="255"
 down="255"
 in = "255"
-out="255"
+out="12"
 mass="0"/>
 <flags scenery="0"
 portable="0"
@@ -1978,6 +1986,7 @@ unused="0"/>
 </checks>
 <sentences>
 <sentence verb="burn" do="pile of leaves" prep="" io="" type="instead" sub="burn_leaves"/>
+<sentence verb="burn" do="player" prep="" io="" type="instead" sub="burn_self"/>
 <sentence verb="burn" do="*" prep="" io="" type="instead" sub="burn_unburnable"/>
 <sentence verb="drop" do="wooden crate" prep="" io="" type="after" sub="after_drop_crate"/>
 <sentence verb="drop" do="nose" prep="" io="" type="instead" sub="drop_undropable"/>
@@ -1989,15 +1998,20 @@ unused="0"/>
 <sentence verb="get" do="water" prep="" io="" type="instead" sub="fill_helmet"/>
 <sentence verb="get" do="charred papers" prep="" io="" type="instead" sub="get_gunk"/>
 <sentence verb="get" do="water" prep="with" io="steel helmet" type="instead" sub="fill_helmet"/>
+<sentence verb="get" do="filthy toilet" prep="" io="" type="instead" sub="get_toilet"/>
 <sentence verb="kill" do="player" prep="" io="" type="instead" sub="kill_self"/>
 <sentence verb="kill" do="*" prep="" io="" type="instead" sub="strange_humor"/>
+<sentence verb="open" do="door" prep="with" io="" type="paperclip" sub="pick_lock"/>
 <sentence verb="pick" do="lock" prep="" io="" type="before" sub="pick_lock"/>
 <sentence verb="pick" do="lock" prep="with" io="paperclip" type="before" sub="pick_lock"/>
 <sentence verb="pick" do="nose" prep="" io="" type="before" sub="pick_nose"/>
 <sentence verb="pick" do="*" prep="" io="" type="before" sub="pick_unpickable"/>
 <sentence verb="pour" do="electrolyte" prep="into" io="battery" type="before" sub="fill_battery"/>
 <sentence verb="pour" do="steel helmet" prep="into" io="battery" type="before" sub="fill_battery"/>
-<sentence verb="pour" do="*" prep="" io="" type="" sub="confused_msg"/>
+<sentence verb="pour" do="*" prep="" io="" type="instead" sub="confused_msg"/>
+<sentence verb="put" do="water" prep="in" io="helmet" type="" sub="fill_helmet"/>
+<sentence verb="put" do="white cube" prep="in" io="helmet" type="" sub="wont_fit"/>
+<sentence verb="put" do="wooden create" prep="in" io="helmet" type="" sub="wont_fit"/>
 <sentence verb="turn on" do="flashlight" prep="" io="" type="before" sub="flashlight_on"/>
 <sentence verb="turn off" do="flashlight" prep="" io="" type="before" sub="flashlight_off"/>
 <sentence verb="jump" do="" prep="" io="" type="instead" sub="jump"/>
@@ -2250,6 +2264,11 @@ if (player.holder == top of shaft)
 	splintered wood.holder=base of shaft;
 	gold bars.holder=base of shaft;
 }
+else if (player.holder == on ladder)
+{
+	println("THE CRATE FALLS DOWN THE SHAFT, NEARLY SMASHING.");
+	wooden crate.holder=base of shaft;
+}
 </routine>
 <routine name="drop_undropable">
 printl("YOU HAVE A STRANGE SENSE OF HUMOR."); 	
@@ -2263,17 +2282,35 @@ printl("YOU HAVE A STRANGE FASCINATION WITH FLUSHING THINGS.");
 <routine name="pick_nose">
 printl("THERE ARE BETTER WAYS TO WASTE TIME."); 	
 </routine>
+<routine name="burn_self">
+printl("SELF IMMOLATION NEVER SOLVED ANYTHING."); 	
+</routine>
 <routine name="burn_unburnable">
 printl("ARE YOU SOME SORT OF ARSONIST?"); 	
 </routine>
 <routine name="pick_unpickable">
 printl("YOU CAN'T PICK THAT."); 	
 </routine>
+<routine name="get_toilet">
+printl("THERE ARE FAR BETTER SOUVENIRS TO BE FOUND DOWN HERE."); 	
+</routine>
 <routine name="kill_self">
 printl("THERE ARE SEVERAL ENTERTAINING WAYS TO DIE IN THIS ADVENTURE...NO NEED TO SPEED THINGS ALONG."); 	
 </routine>
 <routine name="unlock_door">
-	printl("THE KEY HAS LONG SINCE BEEN LOST."); 
+printl("THE KEY HAS LONG SINCE BEEN LOST."); 
+</routine>
+<routine name="listen_sub">
+println("YOU HEAR NOTHING UNEXPECTED.");
+</routine>
+<routine name="wont_fit">
+printl("IT WON'T FIT."); 
+</routine>
+<routine name="light_lighter">
+printl("THE LIGHTER SPARKS MOMENTARILY."); 
+</routine>
+<routine name="confused_msg">
+printl("I DON'T KNOW HOW TO DO THAT."); 
 </routine>
 </routines>
 

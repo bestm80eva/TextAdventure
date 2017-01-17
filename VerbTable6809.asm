@@ -46,6 +46,7 @@ turn_off_verb_id equ 39
 flush_verb_id equ 40
 swim_verb_id equ 41
 unbolt_verb_id equ 42
+use_verb_id equ 43
 
 
 verb_table
@@ -289,4 +290,7 @@ verb_table
 	.db 42
 	.db 6
 	.strz "UNBOLT"
+	.db 43
+	.db 3
+	.strz "USE"
 	.db 0,0

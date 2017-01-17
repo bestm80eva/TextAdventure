@@ -50,7 +50,40 @@ after_drop_crate_sub
 	leax 1,x   ;holder
 	lda #23
 	sta ,x
+	bra @b ; skip else 
 @a	nop ; close (player.holder == top of shaft)
+	nop ; test ((player.holder == on ladder))
+	lda #24
+	pshs a    ; push right side
+	lda #1
+	ldb #OBJ_ENTRY_SIZE
+	mul
+	tfr d,x
+	leax obj_table,x
+	leax 1,x  ; holder
+	lda ,x
+	cmpa ,s ; compare to right side
+	pshu cc ; save flags
+	leas 1,s ; pop right side
+	pulu cc ; restore flags
+	lbne @c
+	nop ; println("THE CRATE FALLS DOWN THE SHAFT, NEARLY SMASHING.")
+	ldx #description_table
+	lda #108 ; THE CRATE FALLS DOWN THE SHAFT, NEARLY SMASHING.
+	pshu a
+	jsr print_table_entry
+	jsr PRINTCR
+	nop ; wooden crate.holder=base of shaft
+	lda #47 ; wooden crate
+	ldb #OBJ_ENTRY_SIZE
+	mul
+	tfr d,x
+	leax obj_table,x
+	leax 1,x   ;holder
+	lda #23
+	sta ,x
+@c	nop ; close (player.holder == on ladder)
+@b	nop ; end else
 	puls y,x,d
 	rts
 

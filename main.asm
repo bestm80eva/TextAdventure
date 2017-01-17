@@ -20,6 +20,13 @@ main
 	ldx #welcome
 	jsr PRINT
 	jsr PRINTCR
+	ldx #author
+	jsr PRINT
+	jsr PRINTCR
+	ldx #version
+	jsr PRINT
+	jsr PRINTCR
+	jsr PRINTCR
 	jsr look_sub 
 	jsr draw_bar
 @lp	jsr GETLINE		; get user command
