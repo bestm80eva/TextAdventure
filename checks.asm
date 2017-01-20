@@ -8,10 +8,13 @@ MAX_BACKDROP_ROOMS equ 6 ; (5 actually)
 ;if the check returns 0, pop the stack (unwind it one level)
 ;then rts to complete bail from 
 ;sentence processing
+;returns 1 or 0 on user stack
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 check_see_dobj
 	pshs d,x,y
+	lda #1	; push return val
+	pshu a
 	nop #is it a backdrop?
 	lda sentence+1	
 	ldb #OBJ_ENTRY_SIZE
@@ -26,24 +29,30 @@ check_see_dobj
 	nop ; it was a backdrop - is it visible in the rooms?
 	jsr is_visible_backdrop
 	pulu a
-	cmpa #1 ; was it visible
+	cmpa #1
 	beq @x
 @n	nop #do normal check
 	jsr get_player_room ; leave it on stack
 	lda sentence+1	
 	pshu a
 	jsr is_visible_child_of  ; leave result on stack
-	lda #0
-	cmpa ,u
+	pulu a
+	cmpa #0
 	lbne @x
-	lbra print_ret_not_visible
+	ldx #nosee 
+	jsr PRINT
+	jsr PRINTCR
+	lda #0		; change return code to 0
+	sta ,u
 @x	puls y,x,d
 	rts
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
-;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;puts ret var, dobj, player room on stack
+;then pops off top two params
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 is_visible_backdrop
 	pshs d,x,y
 	lda #0	; push return var
