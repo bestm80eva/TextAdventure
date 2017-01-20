@@ -3,9 +3,9 @@
 flush_toilet_sub
 	pshs d,x,y
 	nop ; test ((paperclip.holder==offscreen))
-	lda #0
+	lda #0 ;offscreen
 	pshs a    ; push right side
-	lda #30
+	lda #30 ; paperclip
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -19,7 +19,7 @@ flush_toilet_sub
 	lbne @a
 	nop ; printl("THE REMAINING WATER IN THE TANK WASHES AWAY THE PAPER LEAVING A PAPERCLIP AT THE BOTTOM OF THE BOWL.")
 	ldx #description_table
-	lda #86 ; THE REMAINING WATER IN THE TANK WASHES AWAY THE PAPER LEAVING A PAPERCLIP AT THE BOTTOM OF THE BOWL.
+	lda #87 ; THE REMAINING WATER IN THE TANK WASHES AWAY THE PAPER LEAVING A PAPERCLIP AT THE BOTTOM OF THE BOWL.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -45,7 +45,7 @@ flush_toilet_sub
 @a	nop ; close (paperclip.holder==offscreen)
 	nop ; {	println("NOTHING HAPPENS.")
 	ldx #description_table
-	lda #87 ; NOTHING HAPPENS.
+	lda #88 ; NOTHING HAPPENS.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

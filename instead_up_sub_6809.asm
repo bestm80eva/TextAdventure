@@ -3,9 +3,9 @@
 instead_up_sub
 	pshs d,x,y
 	nop ; test ((player.holder == TOP OF SHAFT))
-	lda #25
+	lda #25 ; TOP OF SHAFT
 	pshs a    ; push right side
-	lda #1
+	lda #1 ; player
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -18,9 +18,9 @@ instead_up_sub
 	pulu cc ; restore flags
 	lbne @a
 	nop ; test ((wooden crate.holder==player))
-	lda #1
+	lda #1 ;player
 	pshs a    ; push right side
-	lda #47
+	lda #47 ; wooden crate
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -34,7 +34,7 @@ instead_up_sub
 	lbne @b
 	nop ; println("YOU CAN'T FIT THROUGH THE OPENING WHILE CARRYING THE CRATE.")
 	ldx #description_table
-	lda #65 ; YOU CAN'T FIT THROUGH THE OPENING WHILE CARRYING THE CRATE.
+	lda #66 ; YOU CAN'T FIT THROUGH THE OPENING WHILE CARRYING THE CRATE.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

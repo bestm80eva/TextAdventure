@@ -4,7 +4,7 @@ kill_player_sub
 	pshs d,x,y
 	nop ; println("***YOU HAVE DIED***")
 	ldx #description_table
-	lda #105 ; ***YOU HAVE DIED***
+	lda #107 ; ***YOU HAVE DIED***
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

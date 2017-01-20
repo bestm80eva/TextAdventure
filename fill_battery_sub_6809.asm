@@ -3,9 +3,9 @@
 fill_battery_sub
 	pshs d,x,y
 	nop ; test ((steel helmet.holder==player))
-	lda #1
+	lda #1 ;player
 	pshs a    ; push right side
-	lda #38
+	lda #38 ; steel helmet
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -18,9 +18,9 @@ fill_battery_sub
 	pulu cc ; restore flags
 	lbne @a
 	nop ; test ((electrolyte.holder == steel helmet))
-	lda #38
+	lda #38 ; steel helmet
 	pshs a    ; push right side
-	lda #46
+	lda #46 ; electrolyte
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -34,7 +34,7 @@ fill_battery_sub
 	lbne @b
 	nop ; println("AS THE BATTERY BEGINS CHARGES, THE PUMPS GRADUALY BEING WORKING.")
 	ldx #description_table
-	lda #79 ; AS THE BATTERY BEGINS CHARGES, THE PUMPS GRADUALY BEING WORKING.
+	lda #80 ; AS THE BATTERY BEGINS CHARGES, THE PUMPS GRADUALY BEING WORKING.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -45,7 +45,7 @@ fill_battery_sub
 	tfr d,x
 	leax obj_table,x
 	leax 3,x   ;description
-	lda #80
+	lda #81
 	sta ,x
 	nop ; water.holder=offscreen
 	lda #37 ; water
@@ -81,7 +81,7 @@ fill_battery_sub
 	tfr d,x
 	leax obj_table,x
 	leax 7,x   ;w
-	lda #81
+	lda #82
 	sta ,x
 	nop ; flooded tunnel.sw=large chamber
 	lda #21 ; flooded tunnel
@@ -99,7 +99,7 @@ fill_battery_sub
 	tfr d,x
 	leax obj_table,x
 	leax 3,x   ;description
-	lda #82
+	lda #83
 	sta ,x
 	nop ; flooded tunnel.description = "THIS IS A LOW POINT AT THE END OF AN E-W TUNNEL. THE MAIN TUNNEL LEADS EAST. SMALLER PASSAGES LEAD NORTHWEST AND SOUTHWEST."
 	lda #21 ; flooded tunnel
@@ -108,13 +108,13 @@ fill_battery_sub
 	tfr d,x
 	leax obj_table,x
 	leax 3,x   ;description
-	lda #83
+	lda #84
 	sta ,x
 	bra @c ; skip else 
 @b	nop ; close (electrolyte.holder == steel helmet)
 	nop ; {		println("THE HELMET IS EMPTY.")
 	ldx #description_table
-	lda #84 ; THE HELMET IS EMPTY.
+	lda #85 ; THE HELMET IS EMPTY.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -123,7 +123,7 @@ fill_battery_sub
 @a	nop ; close (steel helmet.holder==player)
 	nop ; {	println("YOU DON'T HAVE THE HELMET.")
 	ldx #description_table
-	lda #85 ; YOU DON'T HAVE THE HELMET.
+	lda #86 ; YOU DON'T HAVE THE HELMET.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

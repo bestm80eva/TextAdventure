@@ -5,8 +5,7 @@ flashlight_off_sub
 	nop ; test ((flashlight.lit==0))
 	lda #0
 	pshs a    ; push right side
-	lda #32
-	ldb #OBJ_ENTRY_SIZE
+	lda #32	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
 	leax obj_table,x
@@ -25,7 +24,7 @@ flashlight_off_sub
 	lbne @a
 	nop ; printl("IT'S ALREADY OFF.")
 	ldx #description_table
-	lda #77 ; IT'S ALREADY OFF.
+	lda #78 ; IT'S ALREADY OFF.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -50,7 +49,7 @@ flashlight_off_sub
 @a	nop ; close (flashlight.lit==0)
 	nop ; {	printl("CLICK.")
 	ldx #description_table
-	lda #76 ; CLICK.
+	lda #77 ; CLICK.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

@@ -53,6 +53,8 @@ obj_word_table
 	.db 47,78,79,255   ;   WOODEN CRATE
 	.db 48,80,81,255   ;   SPLINTERED WOOD
 	.db 49,82,83,255   ;   GOLD BARS
+	.db 50,84,255,255   ;   CREVICE
+	.db 51,86,255,255   ;   BOLTS
 	.db 1,2,3,255   ;   synonyms for PLAYER
 	.db 30,48,49,255   ;   synonyms for PAPERCLIP
 	.db 32,52,53,255   ;   synonyms for FLASHLIGHT
@@ -60,5 +62,6 @@ obj_word_table
 	.db 34,59,255,255   ;   synonyms for FILTHY TOILET
 	.db 35,62,255,255   ;   synonyms for CHARRED PAPERS
 	.db 45,76,255,255   ;   synonyms for VOLT METER
+	.db 50,85,255,255   ;   synonyms for CREVICE
 	.db 255
-obj_table_size	.db 50
+obj_table_size	.db 52

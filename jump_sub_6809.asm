@@ -3,9 +3,9 @@
 jump_sub
 	pshs d,x,y
 	nop ; test ((player.holder==top of shaft))
-	lda #25
+	lda #25 ;top of shaft
 	pshs a    ; push right side
-	lda #1
+	lda #1 ; player
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -19,13 +19,13 @@ jump_sub
 	lbne @a
 	nop ; println("FOR SOME INEXPLICABLE REASON YOU DECIDE TO JUMP OFF THE LADDER.")
 	ldx #description_table
-	lda #100 ; FOR SOME INEXPLICABLE REASON YOU DECIDE TO JUMP OFF THE LADDER.
+	lda #101 ; FOR SOME INEXPLICABLE REASON YOU DECIDE TO JUMP OFF THE LADDER.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
 	nop ; println("UNFORTUNATELY, THE ROCK FLOOR AT THE BOTTOM OF THE SHAFT ISN'T QUITE AS FORGIVING AS YOU HAD ANTICIPATED.")
 	ldx #description_table
-	lda #101 ; UNFORTUNATELY, THE ROCK FLOOR AT THE BOTTOM OF THE SHAFT ISN'T QUITE AS FORGIVING AS YOU HAD ANTICIPATED.
+	lda #102 ; UNFORTUNATELY, THE ROCK FLOOR AT THE BOTTOM OF THE SHAFT ISN'T QUITE AS FORGIVING AS YOU HAD ANTICIPATED.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -34,9 +34,9 @@ jump_sub
 	bra @b ; skip else 
 @a	nop ; close (player.holder==top of shaft)
 	nop ; test ((player.holder==on ladder))
-	lda #24
+	lda #24 ;on ladder
 	pshs a    ; push right side
-	lda #1
+	lda #1 ; player
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -50,7 +50,7 @@ jump_sub
 	lbne @c
 	nop ; println("YOU LAND WITH A THUD AT THE BOTTOM OF THE SHAFT.")
 	ldx #description_table
-	lda #102 ; YOU LAND WITH A THUD AT THE BOTTOM OF THE SHAFT.
+	lda #103 ; YOU LAND WITH A THUD AT THE BOTTOM OF THE SHAFT.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -67,7 +67,7 @@ jump_sub
 @c	nop ; close (player.holder==on ladder)
 	nop ; {	println("WHEEEE!")
 	ldx #description_table
-	lda #103 ; WHEEEE!
+	lda #104 ; WHEEEE!
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

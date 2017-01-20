@@ -3,9 +3,9 @@
 bee_sound_event
 	pshs d,x,y
 	nop ; test ((player.holder==on ladder))
-	lda #24
+	lda #24 ;on ladder
 	pshs a    ; push right side
-	lda #1
+	lda #1 ; player
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -18,9 +18,9 @@ bee_sound_event
 	pulu cc ; restore flags
 	lbne @a
 	nop ; test ((on ladder.up != top of shaft))
-	lda #25
+	lda #25 ; top of shaft
 	pshs a    ; push right side
-	lda #24
+	lda #24 ; on ladder
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -34,7 +34,7 @@ bee_sound_event
 	lbeq @b
 	nop ; printl("HIGH ABOVE, YOU CAN HEAR BUZZING.")
 	ldx #description_table
-	lda #63 ; HIGH ABOVE, YOU CAN HEAR BUZZING.
+	lda #64 ; HIGH ABOVE, YOU CAN HEAR BUZZING.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

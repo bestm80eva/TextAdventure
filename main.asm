@@ -62,6 +62,7 @@ quit lds sys_stack_save
 	include ObjectWordTable6809.asm
 	include DescriptionTable6809.asm
 	include NogoTable6809.asm
+	include BackDropTable6809.asm
 	include sentence_table.asm
 	include verbTable6809.asm
 	include PrepTable6809.asm

@@ -1,5 +1,6 @@
 
 ;checks
+MAX_BACKDROP_ROOMS equ 6 ; (5 actually)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;loop over table
@@ -11,8 +12,25 @@
 
 check_see_dobj
 	pshs d,x,y
+	nop #is it a backdrop?
+	lda sentence+1	
+	ldb #OBJ_ENTRY_SIZE
+	mul
+	tfr d,x
+	leax obj_table,x
+	leax PROPERTY_BYTE_2,x
+	lda ,x
+	anda #BACKDROP_MASK
+	cmpa #BACKDROP_MASK
+	bne @n
+	nop ; it was a backdrop - is it visible in the rooms?
+	jsr is_visible_backdrop
+	pulu a
+	cmpa #1 ; was it visible
+	beq @x
+@n	nop #do normal check
 	jsr get_player_room ; leave it on stack
-	lda sentence+1
+	lda sentence+1	
 	pshu a
 	jsr is_visible_child_of  ; leave result on stack
 	lda #0
@@ -22,6 +40,40 @@ check_see_dobj
 @x	puls y,x,d
 	rts
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+is_visible_backdrop
+	pshs d,x,y
+	lda #0	; push return var
+	pshu a 
+	lda sentence+1
+	pshu a
+	jsr get_player_room 	; get and leave on stack
+	ldx #backdrop_table
+@lp	lda ,x ; load obj id
+	cmpa #$ff ; hit end?
+	beq @x
+	cmpa 1,u ; is this the object?
+	bne @c 
+	ldb #1  ; found object in table...check for room matches
+@il	cmpb #MAX_BACKDROP_ROOMS ; six entries for an object 
+	beq #@c
+	lda b,x  ; get a room it's visible in
+	cmpa ,u	 ; is it one of the rooms?
+	bne @n	 ; no - continue
+	lda #1    ; put 1 in return var and return
+	sta	2,u	  		 
+	bra @x
+@n	incb 	; continue inner loop
+	bra @il
+@c	leax 6,x ; skip over entry
+	bra @lp
+@x	leau 2,u  ; pop param + local off stack (leaving return on top)
+	puls y,x,d
+	rts
+	
 ;return a 1 or 0 on user stack
 check_dobj_supplied
 		pshs d,x,y
@@ -59,21 +111,6 @@ check_prep_supplied
 @x		puls y,x,d
 		rts
 
-;return a 1 or 0 on user stack
-check_dobj_not_scenery
-		pshs d,x,y
-		lda #1		;put a 1 on stack
-		pshu a
-		lda sentence+2	; prep
-		cmpa #NO_OBJECT
-		bne @x
-		ldx #nodobj	; print "TRY FORMAT ...."
-		jsr PRINT
-		jsr PRINTCR
-		lda #0		; return a 0
-		sta ,u
-@x		puls y,x,d
-		rts
 		
 noprep 	.strz "TRY THE FORMAT: VERB NOUN PREPOSITION NOUN"
 

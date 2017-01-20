@@ -3,9 +3,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 check_table
-	.db 37 ; burn
+	.db 38 ; burn
 	.dw check_dobj_supplied
-	.db 37 ; burn
+	.db 38 ; burn
 	.dw check_see_dobj
 	.db 23 ; close
 	.dw check_dobj_supplied
@@ -35,9 +35,9 @@ check_table
 	.dw check_dobj_supplied
 	.db 18 ; examine
 	.dw check_see_dobj
-	.db 31 ; fill
+	.db 32 ; fill
 	.dw check_see_dobj
-	.db 40 ; flush
+	.db 41 ; flush
 	.dw check_see_dobj
 	.db 12 ; get
 	.dw check_dobj_supplied
@@ -59,9 +59,9 @@ check_table
 	.dw check_dobj_supplied
 	.db 20 ; open
 	.dw check_see_dobj
-	.db 36 ; pick
+	.db 37 ; pick
 	.dw check_dobj_supplied
-	.db 36 ; pick
+	.db 37 ; pick
 	.dw check_see_dobj
 	.db 26 ; put
 	.dw check_dobj_supplied
@@ -71,18 +71,22 @@ check_table
 	.dw check_prep_supplied
 	.db 26 ; put
 	.dw check_iobj_supplied
-	.db 38 ; turn on
+	.db 39 ; turn on
 	.dw check_dobj_supplied
-	.db 38 ; turn on
+	.db 39 ; turn on
 	.dw check_see_dobj
-	.db 38 ; turn on
+	.db 39 ; turn on
 	.dw check_have_dobj
-	.db 42 ; unbolt
+	.db 43 ; unbolt
 	.dw check_dobj_supplied
-	.db 42 ; unbolt
+	.db 43 ; unbolt
 	.dw check_see_dobj
 	.db 22 ; unlock
 	.dw check_dobj_supplied
 	.db 22 ; unlock
 	.dw check_see_dobj
+	.db 34 ; wear
+	.dw check_see_dobj
+	.db 34 ; wear
+	.dw check_have_dobj
 	.db 255

@@ -1,25 +1,11 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;look_at_sub
+;prints the description and any nested contents
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 look_at_sub
 	pshs d,x,y
 	nop ; check for light
-;	lda sentence+1
-;	cmpa #$ff
-;	lbeq print_ret_bad_examine 
-;	jsr is_adjacent_door
-;	pulu a
-;	cmpa #1
-;	beq @s
-;	ldx #obj_table+OBJ_ENTRY_SIZE
-;	lda HOLDER_ID,x
-;	pshu a ; push player's room
-;	lda sentence+1
-;	pshu a ; push object to look at
-;	jsr is_visible_child_of
-;	pulu a
-;	lbeq print_ret_not_visible
 @s	lda sentence+1
 	ldb #OBJ_ENTRY_SIZE
 	mul
@@ -244,6 +230,7 @@ set_object_attribute
 	stb ,x  ; write new value
 	leau 3,u ; pop all 3 params
 	puls y,x,d
+	
 	rts
 	
 new_room .db  255

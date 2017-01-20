@@ -24,14 +24,14 @@ lwasm  --6809 $1 --list=$list_file --output=$bin_file
 if [ -e $bin_file ]
 then
 	#erase old file
-	writecocofile -k richardmines.dsk $bin_file
+	writecocofile -k rmines.dsk $bin_file
 	if [ $? -eq 0 ]
 	then
 		echo "old file erased from image"
 	fi
 	
 	echo "copying file to disk image"
-	writecocofile   -b richardmines.dsk $bin_file
+	writecocofile   -b rmines.dsk $bin_file
 else
 	echo "build stopped."	
 fi	

@@ -19,6 +19,7 @@
 	include unbolt_unboltable_sub_6809.asm
 	include jump_sub_6809.asm
 	include turn_on_sub_6809.asm
+	include use_toilet_sub_6809.asm
 	include kill_player_sub_6809.asm
 	include wait_sub_6809.asm
 	include after_drop_crate_sub_6809.asm
@@ -36,3 +37,8 @@
 	include wont_fit_sub_6809.asm
 	include light_lighter_sub_6809.asm
 	include confused_msg_sub_6809.asm
+	include eat_inedible_sub_6809.asm
+	include wear_helmet_sub_6809.asm
+	include climb_sub_6809.asm
+	include eat_salt_sub_6809.asm
+	include use_unusable_sub_6809.asm

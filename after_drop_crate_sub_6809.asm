@@ -3,9 +3,9 @@
 after_drop_crate_sub
 	pshs d,x,y
 	nop ; test ((player.holder == top of shaft))
-	lda #25
+	lda #25 ; top of shaft
 	pshs a    ; push right side
-	lda #1
+	lda #1 ; player
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -19,7 +19,7 @@ after_drop_crate_sub
 	lbne @a
 	nop ; println("THE CRATE FALLS DOWN THE SHAFT AND SMASHES AT THE BOTTOM.")
 	ldx #description_table
-	lda #107 ; THE CRATE FALLS DOWN THE SHAFT AND SMASHES AT THE BOTTOM.
+	lda #109 ; THE CRATE FALLS DOWN THE SHAFT AND SMASHES AT THE BOTTOM.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -53,9 +53,9 @@ after_drop_crate_sub
 	bra @b ; skip else 
 @a	nop ; close (player.holder == top of shaft)
 	nop ; test ((player.holder == on ladder))
-	lda #24
+	lda #24 ; on ladder
 	pshs a    ; push right side
-	lda #1
+	lda #1 ; player
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -69,7 +69,7 @@ after_drop_crate_sub
 	lbne @c
 	nop ; println("THE CRATE FALLS DOWN THE SHAFT, NEARLY SMASHING.")
 	ldx #description_table
-	lda #108 ; THE CRATE FALLS DOWN THE SHAFT, NEARLY SMASHING.
+	lda #110 ; THE CRATE FALLS DOWN THE SHAFT, NEARLY SMASHING.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

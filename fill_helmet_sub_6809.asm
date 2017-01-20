@@ -3,9 +3,9 @@
 fill_helmet_sub
 	pshs d,x,y
 	nop ; test ((player.holder == flooded tunnel))
-	lda #21
+	lda #21 ; flooded tunnel
 	pshs a    ; push right side
-	lda #1
+	lda #1 ; player
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -18,9 +18,9 @@ fill_helmet_sub
 	pulu cc ; restore flags
 	lbne @a
 	nop ; test ((water.holder == flooded tunnel))
-	lda #21
+	lda #21 ; flooded tunnel
 	pshs a    ; push right side
-	lda #37
+	lda #37 ; water
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -33,9 +33,9 @@ fill_helmet_sub
 	pulu cc ; restore flags
 	lbne @b
 	nop ; test ((electrolyte.holder != steel helmet))
-	lda #38
+	lda #38 ; steel helmet
 	pshs a    ; push right side
-	lda #46
+	lda #46 ; electrolyte
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -49,7 +49,7 @@ fill_helmet_sub
 	lbeq @c
 	nop ; println("THE HELMET IS NOW FILLED WITH SALT WATER.")
 	ldx #description_table
-	lda #96 ; THE HELMET IS NOW FILLED WITH SALT WATER.
+	lda #97 ; THE HELMET IS NOW FILLED WITH SALT WATER.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -66,7 +66,7 @@ fill_helmet_sub
 @c	nop ; close (electrolyte.holder != steel helmet)
 	nop ; {			println("THE HELMET IS ALREADY FULL.")
 	ldx #description_table
-	lda #97 ; THE HELMET IS ALREADY FULL.
+	lda #98 ; THE HELMET IS ALREADY FULL.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -75,7 +75,7 @@ fill_helmet_sub
 @b	nop ; close (water.holder == flooded tunnel)
 	nop ; {		println("THERE IS NO WATER HERE.")
 	ldx #description_table
-	lda #98 ; THERE IS NO WATER HERE.
+	lda #99 ; THERE IS NO WATER HERE.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -84,7 +84,7 @@ fill_helmet_sub
 @a	nop ; close (player.holder == flooded tunnel)
 	nop ; {	println("THERE IS NO WATER HERE.")
 	ldx #description_table
-	lda #98 ; THERE IS NO WATER HERE.
+	lda #99 ; THERE IS NO WATER HERE.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

@@ -3,9 +3,9 @@
 before_west_sub
 	pshs d,x,y
 	nop ; test ((player.holder == TOP OF DEBRIS))
-	lda #9
+	lda #9 ; TOP OF DEBRIS
 	pshs a    ; push right side
-	lda #1
+	lda #1 ; player
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -19,7 +19,7 @@ before_west_sub
 	lbne @a
 	nop ; printl("AS YOU SQUIRM THROUGH THE NARROW GAP, THE ROCKS GIVE WAY CAUSING YOU TO FALL MANY FEET TO THE TUNNEL FLOOR.")
 	ldx #description_table
-	lda #64 ; AS YOU SQUIRM THROUGH THE NARROW GAP, THE ROCKS GIVE WAY CAUSING YOU TO FALL MANY FEET TO THE TUNNEL FLOOR.
+	lda #65 ; AS YOU SQUIRM THROUGH THE NARROW GAP, THE ROCKS GIVE WAY CAUSING YOU TO FALL MANY FEET TO THE TUNNEL FLOOR.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

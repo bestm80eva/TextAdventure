@@ -171,4 +171,10 @@ dictionary
 	.strz "GOLD" ; 82
 	.db 4
 	.strz "BARS" ; 83
+	.db 7
+	.strz "CREVICE" ; 84
+	.db 3
+	.strz "GAP" ; 85
+	.db 5
+	.strz "BOLTS" ; 86
 	.db 0

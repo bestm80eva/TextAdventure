@@ -3,9 +3,9 @@
 burn_leaves_sub
 	pshs d,x,y
 	nop ; test ((cigarette lighter.holder == player))
-	lda #1
+	lda #1 ; player
 	pshs a    ; push right side
-	lda #36
+	lda #36 ; cigarette lighter
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -18,9 +18,9 @@ burn_leaves_sub
 	pulu cc ; restore flags
 	lbne @a
 	nop ; test ((pile of leaves.holder != player))
-	lda #1
+	lda #1 ; player
 	pshs a    ; push right side
-	lda #27
+	lda #27 ; pile of leaves
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -33,9 +33,9 @@ burn_leaves_sub
 	pulu cc ; restore flags
 	lbeq @b
 	nop ; test ((player.holder == base of shaft))
-	lda #23
+	lda #23 ; base of shaft
 	pshs a    ; push right side
-	lda #1
+	lda #1 ; player
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -49,7 +49,7 @@ burn_leaves_sub
 	lbne @c
 	nop ; printl("FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.")
 	ldx #description_table
-	lda #68 ; FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.
+	lda #69 ; FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -74,9 +74,9 @@ burn_leaves_sub
 	bra @d ; skip else 
 @c	nop ; close (player.holder == base of shaft)
 	nop ; test ((player.holder == on ladder))
-	lda #24
+	lda #24 ; on ladder
 	pshs a    ; push right side
-	lda #1
+	lda #1 ; player
 	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
@@ -90,7 +90,7 @@ burn_leaves_sub
 	lbne @e
 	nop ; printl("YOU CAN'T DO THAT WHILE ON A LADDER")
 	ldx #description_table
-	lda #69 ; YOU CAN'T DO THAT WHILE ON A LADDER
+	lda #70 ; YOU CAN'T DO THAT WHILE ON A LADDER
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -98,7 +98,7 @@ burn_leaves_sub
 @e	nop ; close (player.holder == on ladder)
 	nop ; {				printl("THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.")
 	ldx #description_table
-	lda #70 ; THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.
+	lda #71 ; THE LEAVES SMOLDER A BIT, THEN GO OUT DUE TO THE HIGH HUMIDITY.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -108,13 +108,13 @@ burn_leaves_sub
 @b	nop ; close (pile of leaves.holder != player)
 	nop ; {		printl("THE LEAVES (WHICH YOU ARE CARRYING) IGNTIE. UNFORTUNATELY, THE FIRE RAPIDLY SPREADS TO YOU.")
 	ldx #description_table
-	lda #71 ; THE LEAVES (WHICH YOU ARE CARRYING) IGNTIE. UNFORTUNATELY, THE FIRE RAPIDLY SPREADS TO YOU.
+	lda #72 ; THE LEAVES (WHICH YOU ARE CARRYING) IGNTIE. UNFORTUNATELY, THE FIRE RAPIDLY SPREADS TO YOU.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
 	nop ; printl("NEXT TIME TRY DROPPING THE LEAVES.")
 	ldx #description_table
-	lda #72 ; NEXT TIME TRY DROPPING THE LEAVES.
+	lda #73 ; NEXT TIME TRY DROPPING THE LEAVES.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -125,7 +125,7 @@ burn_leaves_sub
 @a	nop ; close (cigarette lighter.holder == player)
 	nop ; {	printl("YOU HAVE NO IGNITION SOURCE.")
 	ldx #description_table
-	lda #73 ; YOU HAVE NO IGNITION SOURCE.
+	lda #74 ; YOU HAVE NO IGNITION SOURCE.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

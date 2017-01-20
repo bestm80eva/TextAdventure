@@ -4,7 +4,7 @@ burn_unburnable_sub
 	pshs d,x,y
 	nop ; printl("ARE YOU SOME SORT OF ARSONIST?")
 	ldx #description_table
-	lda #113 ; ARE YOU SOME SORT OF ARSONIST?
+	lda #115 ; ARE YOU SOME SORT OF ARSONIST?
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

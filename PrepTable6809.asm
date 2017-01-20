@@ -21,6 +21,8 @@ prep_table
 	.strz "OFF" ; 7
 	.db 4
 	.strz "INTO" ; 8
+	.db 2
+	.strz "UP" ; 9
 	.db 4
-	.strz "WITH" ; 9
+	.strz "WITH" ; 10
 	.db 0
