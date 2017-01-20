@@ -177,4 +177,10 @@ dictionary
 	.strz "GAP" ; 85
 	.db 5
 	.strz "BOLTS" ; 86
+	.db 5
+	.strz "ROCKS" ; 87
+	.db 5
+	.strz "WOODS" ; 88
+	.db 5
+	.strz "TREES" ; 89
 	.db 0

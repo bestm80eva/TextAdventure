@@ -2015,6 +2015,82 @@ lightable="0"
 door="0"
 unused="0"/>
 </object>
+<object id="52" name="DEBRIS" holder="0">
+<description>THE DEBRIS PILE CONTISTS OF CONCRETE AND LARGE ROCKS - A RESULT OF THE TUNNEL BEING INTENTIONALLY DYANMITED.</description>
+<initialdescription></initialdescription>
+<backdrop rooms="8,9,5,18"></backdrop>
+<synonyms names="ROCKS,DEBRIS,PILE"/>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="1"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+backdrop="1"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
+<object id="53" name="FOREST" holder="0">
+<description>THE FOREST IS A TANGLED MASS OF THICKETS AND ELDERY DECIDUOUS TREES.</description>
+<initialdescription></initialdescription>
+<backdrop rooms="2,5,6,7,8"></backdrop>
+<synonyms names="WOODS,TREES"/>
+<nogo>
+</nogo>
+<directions
+n="255"
+s="255"
+e="255"
+w="255"
+ne="255"
+se="255"
+sw="255"
+nw="255"
+up="255"
+down="255"
+in = "255"
+out="255"
+mass="0"/>
+<flags scenery="1"
+portable="0"
+container="0"
+transparent="0"
+supporter="0"
+openable="0"
+open="0"
+backdrop="1"
+drinkable="0"
+emittinglight="0"
+locked="0"
+lockable="0"
+flammable="0"
+lightable="0"
+door="0"
+unused="0"/>
+</object>
 </objects>
 <checks>
 <check verb="burn" check="check_dobj_supplied"/>

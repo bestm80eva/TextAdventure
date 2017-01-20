@@ -4,7 +4,7 @@ wait_sub
 	pshs d,x,y
 	nop ; printl("TIME PASSES...")
 	ldx #description_table
-	lda #108 ; TIME PASSES...
+	lda #110 ; TIME PASSES...
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

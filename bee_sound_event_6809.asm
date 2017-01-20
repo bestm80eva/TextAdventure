@@ -34,7 +34,7 @@ bee_sound_event
 	lbeq @b
 	nop ; printl("HIGH ABOVE, YOU CAN HEAR BUZZING.")
 	ldx #description_table
-	lda #64 ; HIGH ABOVE, YOU CAN HEAR BUZZING.
+	lda #66 ; HIGH ABOVE, YOU CAN HEAR BUZZING.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

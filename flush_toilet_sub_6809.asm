@@ -19,7 +19,7 @@ flush_toilet_sub
 	lbne @a
 	nop ; printl("THE REMAINING WATER IN THE TANK WASHES AWAY THE PAPER LEAVING A PAPERCLIP AT THE BOTTOM OF THE BOWL.")
 	ldx #description_table
-	lda #87 ; THE REMAINING WATER IN THE TANK WASHES AWAY THE PAPER LEAVING A PAPERCLIP AT THE BOTTOM OF THE BOWL.
+	lda #89 ; THE REMAINING WATER IN THE TANK WASHES AWAY THE PAPER LEAVING A PAPERCLIP AT THE BOTTOM OF THE BOWL.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -45,7 +45,7 @@ flush_toilet_sub
 @a	nop ; close (paperclip.holder==offscreen)
 	nop ; {	println("NOTHING HAPPENS.")
 	ldx #description_table
-	lda #88 ; NOTHING HAPPENS.
+	lda #90 ; NOTHING HAPPENS.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

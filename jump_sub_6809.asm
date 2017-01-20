@@ -19,13 +19,13 @@ jump_sub
 	lbne @a
 	nop ; println("FOR SOME INEXPLICABLE REASON YOU DECIDE TO JUMP OFF THE LADDER.")
 	ldx #description_table
-	lda #101 ; FOR SOME INEXPLICABLE REASON YOU DECIDE TO JUMP OFF THE LADDER.
+	lda #103 ; FOR SOME INEXPLICABLE REASON YOU DECIDE TO JUMP OFF THE LADDER.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
 	nop ; println("UNFORTUNATELY, THE ROCK FLOOR AT THE BOTTOM OF THE SHAFT ISN'T QUITE AS FORGIVING AS YOU HAD ANTICIPATED.")
 	ldx #description_table
-	lda #102 ; UNFORTUNATELY, THE ROCK FLOOR AT THE BOTTOM OF THE SHAFT ISN'T QUITE AS FORGIVING AS YOU HAD ANTICIPATED.
+	lda #104 ; UNFORTUNATELY, THE ROCK FLOOR AT THE BOTTOM OF THE SHAFT ISN'T QUITE AS FORGIVING AS YOU HAD ANTICIPATED.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -50,7 +50,7 @@ jump_sub
 	lbne @c
 	nop ; println("YOU LAND WITH A THUD AT THE BOTTOM OF THE SHAFT.")
 	ldx #description_table
-	lda #103 ; YOU LAND WITH A THUD AT THE BOTTOM OF THE SHAFT.
+	lda #105 ; YOU LAND WITH A THUD AT THE BOTTOM OF THE SHAFT.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -67,7 +67,7 @@ jump_sub
 @c	nop ; close (player.holder==on ladder)
 	nop ; {	println("WHEEEE!")
 	ldx #description_table
-	lda #104 ; WHEEEE!
+	lda #106 ; WHEEEE!
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

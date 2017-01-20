@@ -34,7 +34,7 @@ instead_up_sub
 	lbne @b
 	nop ; println("YOU CAN'T FIT THROUGH THE OPENING WHILE CARRYING THE CRATE.")
 	ldx #description_table
-	lda #66 ; YOU CAN'T FIT THROUGH THE OPENING WHILE CARRYING THE CRATE.
+	lda #68 ; YOU CAN'T FIT THROUGH THE OPENING WHILE CARRYING THE CRATE.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

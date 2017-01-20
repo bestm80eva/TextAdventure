@@ -41,13 +41,7 @@ print_ret_not_portable
 	puls y,x,d
 	rts
 	
-print_ret_not_visible
-	ldx #nosee 
-	jsr PRINT
-	jsr PRINTCR
-	puls y,x,d
-	rts	
-
+ 
 print_ret_already_open
 	ldx #alreadyopen
 	jsr PRINT

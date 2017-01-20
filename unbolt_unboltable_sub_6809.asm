@@ -4,7 +4,7 @@ unbolt_unboltable_sub
 	pshs d,x,y
 	nop ; println("YOU CAN'T UNBOLT THAT.")
 	ldx #description_table
-	lda #100 ; YOU CAN'T UNBOLT THAT.
+	lda #102 ; YOU CAN'T UNBOLT THAT.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

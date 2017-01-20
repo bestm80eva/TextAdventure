@@ -34,7 +34,7 @@ fill_battery_sub
 	lbne @b
 	nop ; println("AS THE BATTERY BEGINS CHARGES, THE PUMPS GRADUALY BEING WORKING.")
 	ldx #description_table
-	lda #80 ; AS THE BATTERY BEGINS CHARGES, THE PUMPS GRADUALY BEING WORKING.
+	lda #82 ; AS THE BATTERY BEGINS CHARGES, THE PUMPS GRADUALY BEING WORKING.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -45,7 +45,7 @@ fill_battery_sub
 	tfr d,x
 	leax obj_table,x
 	leax 3,x   ;description
-	lda #81
+	lda #83
 	sta ,x
 	nop ; water.holder=offscreen
 	lda #37 ; water
@@ -81,7 +81,7 @@ fill_battery_sub
 	tfr d,x
 	leax obj_table,x
 	leax 7,x   ;w
-	lda #82
+	lda #84
 	sta ,x
 	nop ; flooded tunnel.sw=large chamber
 	lda #21 ; flooded tunnel
@@ -99,7 +99,7 @@ fill_battery_sub
 	tfr d,x
 	leax obj_table,x
 	leax 3,x   ;description
-	lda #83
+	lda #85
 	sta ,x
 	nop ; flooded tunnel.description = "THIS IS A LOW POINT AT THE END OF AN E-W TUNNEL. THE MAIN TUNNEL LEADS EAST. SMALLER PASSAGES LEAD NORTHWEST AND SOUTHWEST."
 	lda #21 ; flooded tunnel
@@ -108,13 +108,13 @@ fill_battery_sub
 	tfr d,x
 	leax obj_table,x
 	leax 3,x   ;description
-	lda #84
+	lda #86
 	sta ,x
 	bra @c ; skip else 
 @b	nop ; close (electrolyte.holder == steel helmet)
 	nop ; {		println("THE HELMET IS EMPTY.")
 	ldx #description_table
-	lda #85 ; THE HELMET IS EMPTY.
+	lda #87 ; THE HELMET IS EMPTY.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -123,7 +123,7 @@ fill_battery_sub
 @a	nop ; close (steel helmet.holder==player)
 	nop ; {	println("YOU DON'T HAVE THE HELMET.")
 	ldx #description_table
-	lda #86 ; YOU DON'T HAVE THE HELMET.
+	lda #88 ; YOU DON'T HAVE THE HELMET.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

@@ -49,7 +49,7 @@ fill_helmet_sub
 	lbeq @c
 	nop ; println("THE HELMET IS NOW FILLED WITH SALT WATER.")
 	ldx #description_table
-	lda #97 ; THE HELMET IS NOW FILLED WITH SALT WATER.
+	lda #99 ; THE HELMET IS NOW FILLED WITH SALT WATER.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -66,7 +66,7 @@ fill_helmet_sub
 @c	nop ; close (electrolyte.holder != steel helmet)
 	nop ; {			println("THE HELMET IS ALREADY FULL.")
 	ldx #description_table
-	lda #98 ; THE HELMET IS ALREADY FULL.
+	lda #100 ; THE HELMET IS ALREADY FULL.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -75,7 +75,7 @@ fill_helmet_sub
 @b	nop ; close (water.holder == flooded tunnel)
 	nop ; {		println("THERE IS NO WATER HERE.")
 	ldx #description_table
-	lda #99 ; THERE IS NO WATER HERE.
+	lda #101 ; THERE IS NO WATER HERE.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -84,7 +84,7 @@ fill_helmet_sub
 @a	nop ; close (player.holder == flooded tunnel)
 	nop ; {	println("THERE IS NO WATER HERE.")
 	ldx #description_table
-	lda #99 ; THERE IS NO WATER HERE.
+	lda #101 ; THERE IS NO WATER HERE.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

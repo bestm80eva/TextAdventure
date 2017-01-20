@@ -19,7 +19,7 @@ after_drop_crate_sub
 	lbne @a
 	nop ; println("THE CRATE FALLS DOWN THE SHAFT AND SMASHES AT THE BOTTOM.")
 	ldx #description_table
-	lda #109 ; THE CRATE FALLS DOWN THE SHAFT AND SMASHES AT THE BOTTOM.
+	lda #111 ; THE CRATE FALLS DOWN THE SHAFT AND SMASHES AT THE BOTTOM.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -69,7 +69,7 @@ after_drop_crate_sub
 	lbne @c
 	nop ; println("THE CRATE FALLS DOWN THE SHAFT, NEARLY SMASHING.")
 	ldx #description_table
-	lda #110 ; THE CRATE FALLS DOWN THE SHAFT, NEARLY SMASHING.
+	lda #112 ; THE CRATE FALLS DOWN THE SHAFT, NEARLY SMASHING.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

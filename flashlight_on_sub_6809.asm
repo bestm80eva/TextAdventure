@@ -24,7 +24,7 @@ flashlight_on_sub
 	lbne @a
 	nop ; printl("IT'S ALREADY ON.")
 	ldx #description_table
-	lda #76 ; IT'S ALREADY ON.
+	lda #78 ; IT'S ALREADY ON.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
@@ -47,7 +47,7 @@ flashlight_on_sub
 @a	nop ; close (flashlight.lit==1)
 	nop ; {	printl("CLICK.")
 	ldx #description_table
-	lda #77 ; CLICK.
+	lda #79 ; CLICK.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR

@@ -55,6 +55,8 @@ obj_word_table
 	.db 49,82,83,255   ;   GOLD BARS
 	.db 50,84,255,255   ;   CREVICE
 	.db 51,86,255,255   ;   BOLTS
+	.db 52,17,255,255   ;   DEBRIS
+	.db 53,4,255,255   ;   FOREST
 	.db 1,2,3,255   ;   synonyms for PLAYER
 	.db 30,48,49,255   ;   synonyms for PAPERCLIP
 	.db 32,52,53,255   ;   synonyms for FLASHLIGHT
@@ -63,5 +65,7 @@ obj_word_table
 	.db 35,62,255,255   ;   synonyms for CHARRED PAPERS
 	.db 45,76,255,255   ;   synonyms for VOLT METER
 	.db 50,85,255,255   ;   synonyms for CREVICE
+	.db 52,87,17,42   ;   synonyms for DEBRIS
+	.db 53,88,89,255   ;   synonyms for FOREST
 	.db 255
-obj_table_size	.db 52
+obj_table_size	.db 54

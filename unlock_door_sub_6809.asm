@@ -4,7 +4,7 @@ unlock_door_sub
 	pshs d,x,y
 	nop ; printl("THE KEY HAS LONG SINCE BEEN LOST.")
 	ldx #description_table
-	lda #119 ; THE KEY HAS LONG SINCE BEEN LOST.
+	lda #121 ; THE KEY HAS LONG SINCE BEEN LOST.
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
