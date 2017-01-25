@@ -53,6 +53,15 @@ burn_leaves_sub
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
+	nop ; add(score,10)
+	pshs a
+	lda score
+	pshu a ; push var value
+	lda #10 ; push val to add
+	adda ,u ; add it 
+	sta score ; store it back
+	pulu a ; remove temp
+	puls a
 	nop ; on ladder.up=top of shaft
 	lda #24 ; on ladder
 	ldb #OBJ_ENTRY_SIZE
@@ -62,6 +71,7 @@ burn_leaves_sub
 	leax 12,x   ;up
 	lda #25
 	sta ,x
+	nop ; leaves_burned=1
 	nop ; pile of leaves.holder=offscreen
 	lda #27 ; pile of leaves
 	ldb #OBJ_ENTRY_SIZE

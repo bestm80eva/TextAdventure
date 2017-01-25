@@ -5,7 +5,8 @@ flashlight_off_sub
 	nop ; test ((flashlight.lit==0))
 	lda #0
 	pshs a    ; push right side
-	lda #32	ldb #OBJ_ENTRY_SIZE
+	lda #32
+	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
 	leax obj_table,x

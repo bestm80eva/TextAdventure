@@ -110,6 +110,15 @@ fill_battery_sub
 	leax 3,x   ;description
 	lda #86
 	sta ,x
+	nop ; add(score,25)
+	pshs a
+	lda score
+	pshu a ; push var value
+	lda #25 ; push val to add
+	adda ,u ; add it 
+	sta score ; store it back
+	pulu a ; remove temp
+	puls a
 	bra @c ; skip else 
 @b	nop ; close (electrolyte.holder == steel helmet)
 	nop ; {		println("THE HELMET IS EMPTY.")

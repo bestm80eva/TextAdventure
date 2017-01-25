@@ -5,7 +5,8 @@ flashlight_on_sub
 	nop ; test ((flashlight.lit==1))
 	lda #1
 	pshs a    ; push right side
-	lda #32	ldb #OBJ_ENTRY_SIZE
+	lda #32
+	ldb #OBJ_ENTRY_SIZE
 	mul
 	tfr d,x
 	leax obj_table,x
@@ -28,21 +29,6 @@ flashlight_on_sub
 	pshu a
 	jsr print_table_entry
 	jsr PRINTCR
-	nop ; flashlight.lit=0
-	nop ; set flashlight.lit=0
-	lda #32 ; flashlight
-	ldb #OBJ_ENTRY_SIZE
-	mul
-	tfr d,x
-	leax obj_table,x
-	leax PROPERTY_BYTE_2,x
-	lda ,x  ; get property byte
-	ldb #32 ; get the mask for lit
-	comb 32 ; invert it
-	pshs b
-	anda ,s   ; clear the bit
-	leas 1,s ; pop stack
-	sta ,x  ; store it
 	bra @b ; skip else 
 @a	nop ; close (flashlight.lit==1)
 	nop ; {	printl("CLICK.")

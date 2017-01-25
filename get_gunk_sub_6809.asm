@@ -26,6 +26,15 @@ get_gunk_sub
 	leax 1,x   ;holder
 	lda #1
 	sta ,x
+	nop ; add(score,5)
+	pshs a
+	lda score
+	pshu a ; push var value
+	lda #5 ; push val to add
+	adda ,u ; add it 
+	sta score ; store it back
+	pulu a ; remove temp
+	puls a
 	puls y,x,d
 	rts
 

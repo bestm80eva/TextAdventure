@@ -2224,6 +2224,7 @@ if (paperclip.holder == player)
 	door.openable=true;
 	door.locked=false;
 	door.lockable=false;
+	add(score,10);
 }
 else
 {
@@ -2238,8 +2239,9 @@ if (cigarette lighter.holder == player)
 		if (player.holder == base of shaft)
 		{
 			printl("FUELED BY THE DRAFT FROM ABOVE, THE LEAVES EVAPORATE IN CLOUD OF ACRID SMOKE WHICH RISES QUICKLY UP THE SHAFT.");
-			
+			add(score,10);
 			on ladder.up=top of shaft;
+			leaves_burned=1;
 			pile of leaves.holder=offscreen;	
 		}
 		else if (player.holder == on ladder)
@@ -2267,12 +2269,12 @@ else
 printl("AS YOU RELUCTANTLY PICK UP THE PAPPERS, THEY DISINTEGRATE, LEAVING YOU WITH A BLACKENED PAPERCLIP.");
 charred papers.holder=offscreen;
 paperclip.holder=player;
+add(score,5);
 </routine>
 <routine name="flashlight_on">
 if (flashlight.lit==1)
 {
 	printl("IT'S ALREADY ON.");
-	flashlight.lit=0;
 }
 else
 {
@@ -2311,6 +2313,7 @@ if (steel helmet.holder==player)
 		flooded tunnel.sw=large chamber;
 		volt meter.description = "THE NEEDLE INDICATES CURRENT IS FLOWING.";
 		flooded tunnel.description = "THIS IS A LOW POINT AT THE END OF AN E-W TUNNEL. THE MAIN TUNNEL LEADS EAST. SMALLER PASSAGES LEAD NORTHWEST AND SOUTHWEST.";
+		add(score,25);
 	}
 	else
 	{

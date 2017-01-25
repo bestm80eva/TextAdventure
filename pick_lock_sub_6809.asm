@@ -85,6 +85,15 @@ pick_lock_sub
 	anda ,s   ; clear the bit
 	leas 1,s ; pop stack
 	sta ,x  ; store it
+	nop ; add(score,10)
+	pshs a
+	lda score
+	pshu a ; push var value
+	lda #10 ; push val to add
+	adda ,u ; add it 
+	sta score ; store it back
+	pulu a ; remove temp
+	puls a
 	bra @b ; skip else 
 @a	nop ; close (paperclip.holder == player)
 	nop ; {	printl("YOU HAVE NOTHING TO DO THAT WITH.")

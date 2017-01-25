@@ -2,42 +2,54 @@
 ;vars.asm
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;x is on stack
-;y is the value
-setvar
-	pshs d,y
-	sty ,x
-	puls y,d
-	rts
-
-;x is the address to test
-;y is the value	
+ 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;
+;user stack contains return var (1 byte)
+;user stack contains addr   (2 bytes)
+;user stack contains value  (1 byte)
 ;0 or 1 is returned on the stack
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 testvar
 	pshs d,x,y
-	lda #0
-	cmpy ,x
-	bne @x
-	lda #1
-@x	pshu a
-	puls y,x,d
-	rts
-	
-;x contains address of the var
-;y contains value	
-addtovar
-	pshs d,x,y
-	ldx ,x
-	leax ,y
-	stx ,x
+	ldb #0
+	sta 3,u ; set return code
+	ldx 1,u ; load var address
+	lda ,x	; load var value
+	cmpa ,u	; compare it to val on stack
+	beq @x
+	ldb #1
+@x	leau 3,u ; pop 2 params (3 bytes total)
+	stb ,u   ; store ret val
 	puls y,x,d
 	rts
 
-subtractfromvar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
+;set var
+;stack contains addr of var (2 bytes)
+;stack contains addr of val (1 byte)  on top
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
+setvar
 	pshs d,x,y
+	pulu a
+	pulu x
+	sta ,x
 	puls y,x,d
-	rts
-	
+	rts	
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
+;stack contains addr of var (2 bytes)
+;stack contains addr of val (1 byte)  on top
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
+addtovar
+	pshs d,x,y
+	pulu a
+	pulu x
+	adda ,x
+	sta ,x
+	puls y,x,d
+	rts	
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;built-in vars
@@ -46,4 +58,4 @@ var_moves .dw 0
 var_score .dw 0
 var_health .dw 100
 var_prev_room .dw 0
-turns_without_light .db 0
+turns_without_light .db 0 
