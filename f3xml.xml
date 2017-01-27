@@ -2127,6 +2127,7 @@ unused="0"/>
 <check verb="put" check="check_see_dobj"/>
 <check verb="put" check="check_prep_supplied"/>
 <check verb="put" check="check_iobj_supplied"/>
+<check verb="put" check="check_self_or_child"/>
 <check verb="turn on" check="check_dobj_supplied"/>
 <check verb="turn on" check="check_see_dobj"/>
 <check verb="turn on" check="check_have_dobj"/>

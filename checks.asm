@@ -195,8 +195,8 @@ check_have_dobj
 @x	puls y,x,d
 	rts
 	
-;top of stack is player
-;under that is object
+;top of stack is player (holder)
+;under that is object (child)
 ;under that is space for return var
 is_child_of
 	pshs d,x,y
@@ -223,3 +223,34 @@ is_child_of
 	pulu b ;
 	puls y,x,d
 	rts
+
+;check_self_or_child	
+; put box in table (make sure box isn't a child of table)
+; used for making sure you can't put an object in iteself or a child 
+; return is #0 for true (don't proceed)
+; return is #1 for no (ok to proceed)
+check_self_or_child
+	pshs d,x,y
+	lda #1	; set return code to 1
+	pshs a
+	lda sentence+1  ; 
+	cmpa sentence+3 
+	beq @n	; objects are the same
+	lda sentence+3 ; child
+	pshu a
+	lda sentence+1 ; holder 
+	pshu a	
+	jsr is_child_of  ; params are already on stack
+	pulu a
+	eora #1 ; flip bit if child (1) don't proceed (0)
+	sta 2,u		; result will be return code
+	cmpa #0 
+	beq	@x
+@n	ldx #impossible
+	jsr PRINT
+	jsr PRINTCR
+@x 	leau 2,u	 ; pop 2 params leaving return code on stack
+	puls y,x,d
+	rts
+	
+impossible .strz "THAT'S PHYSICALLY IMPOSSIBLE."	
