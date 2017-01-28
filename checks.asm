@@ -229,28 +229,29 @@ is_child_of
 ; used for making sure you can't put an object in iteself or a child 
 ; return is #0 for true (don't proceed)
 ; return is #1 for no (ok to proceed)
-check_self_or_child
+check_not_self_or_child
 	pshs d,x,y
 	lda #1	; set return code to 1
-	pshs a
+	pshu a
 	lda sentence+1  ; 
 	cmpa sentence+3 
 	beq @n	; objects are the same
+	lda #0  ; push space for return var (could just subtract 1, too)
+	pshu a 
 	lda sentence+3 ; child
 	pshu a
 	lda sentence+1 ; holder 
 	pshu a	
 	jsr is_child_of  ; params are already on stack
 	pulu a
-	eora #1 ; flip bit if child (1) don't proceed (0)
-	sta 2,u		; result will be return code
-	cmpa #0 
+	cmpa #0  ; no means ok to proceed
 	beq	@x
-@n	ldx #impossible
+@n	lda #0
+	sta ,u
+	ldx #impossible
 	jsr PRINT
 	jsr PRINTCR
-@x 	leau 2,u	 ; pop 2 params leaving return code on stack
-	puls y,x,d
+@x 	puls y,x,d
 	rts
 	
 impossible .strz "THAT'S PHYSICALLY IMPOSSIBLE."	

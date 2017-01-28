@@ -71,6 +71,8 @@ check_table
 	.dw check_prep_supplied
 	.db 26 ; put
 	.dw check_iobj_supplied
+	.db 26 ; put
+	.dw check_not_self_or_child
 	.db 39 ; turn on
 	.dw check_dobj_supplied
 	.db 39 ; turn on
