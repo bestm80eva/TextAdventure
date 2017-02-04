@@ -69,10 +69,10 @@ count_visible_items
 	ldb HOLDER_ID,x
 	cmpb 1,u	;is the holder the parameter?
 	bne @c
-;	lda PROPERTY_BYTE_1,x		;get the byte with the scenery bit
-;	anda #SCENERY_MASK
-;	cmpa #0
-;	bne @c
+	lda PROPERTY_BYTE_1,x		;get the byte with the scenery bit
+	anda #SCENERY_MASK
+	cmpa #0
+	bne @c
 	inc 0,u			;found an object
 	bra @x			;we only need to find 1
 @c  leax OBJ_ENTRY_SIZE,x	 ; skip to next object
