@@ -63,6 +63,7 @@ find_obj_word_entry
 print_obj_contents
 	pshs d,x,y
 	nop ; now list all the objects
+	inc indent_level	;
 	ldx #obj_table
 @lp lda ,x
 	cmpa #$ff	; end of table?
@@ -104,6 +105,7 @@ print_obj_contents
 @c  leax OBJ_ENTRY_SIZE,x	 ; skip to next object
 	bra @lp	
 @x	pulu a ; pop parameter
+	dec indent_level
 	puls y,x,d
 	rts	
 
@@ -166,6 +168,7 @@ print_table_entry
 print_nested_contents
 	pshs d,x,y
 	nop ; check if it has contents
+	inc indent_level
 	lda OBJ_ID,x
 	pshu a
 	jsr count_visible_items
@@ -177,6 +180,7 @@ print_nested_contents
 	cmpa #CONTAINER_MASK
 	bne @s
 	pshs x
+	jsr indent
 	ldx #itcontains
 	jsr PRINT
 	jsr PRINTCR
@@ -190,6 +194,7 @@ print_nested_contents
 	bne @d
 	jsr PRINTCR
 	pshs x
+	jsr indent
 	ldx #onitis
 	jsr PRINT
 	jsr PRINTCR
@@ -197,9 +202,21 @@ print_nested_contents
 	lda OBJ_ID,x
 	pshu a
 	jsr print_obj_contents
-@d	puls y,x,d
+@d	dec indent_level
+	puls y,x,d
 	rts
 
-
+indent
+	pshs d,x,y
+	lda indent_level
+@lp	deca
+    ldx #space
+	jsr PRINT
+	cmpa #0
+	bne @lp
+	puls y,x,d
+	rts
+	
+indent_level .db 0
 	
 space .strz " "
