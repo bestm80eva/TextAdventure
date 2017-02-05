@@ -103,7 +103,7 @@ door="0"
 unused="0"/>
 </object>
 <object id="1" holder="2" name="PLAYER">
-<description>YOUR CLOTHES ARE BIT DIRTY FROM YOUR LONG HIKE THROUGH THE WOODS. ASIDE FROM THAT, YOU'RE FINE.</description>
+<description>YOUR CLOTHES ARE BIT DIRTY FROM HIKING THROUGH THE WOODS. ASIDE FROM THAT, YOU'RE FINE.</description>
 <initialdescription/>
 <synonyms names="ME,SELF"/>
 <directions n="0"
@@ -1652,7 +1652,7 @@ door="0"
 unused="0"/>
 </object>
 
-<object id="42" name="WRENCH" holder="2">
+<object id="42" name="WRENCH" holder="19">
 <description></description>
 <initialdescription>A RUSTED WRENCH LIES ON THE FLOOR.</initialdescription>
 <nogo>
@@ -1836,7 +1836,7 @@ unused="0"/>
 </object>
 <object id="47" name="WOODEN CRATE" holder="22">
 <description>THE WOODEN CRATE IS NAILED SHUT.</description>
-<initialdescription>A LARGE WOODEN CRATE OCCUPIES SITS IN THE CENTER OF THE CHAMBER.</initialdescription>
+<initialdescription>A LARGE WOODEN CRATE SITS IN THE CENTER OF THE CHAMBER.</initialdescription>
 <nogo>
 </nogo>
 <directions
@@ -1962,7 +1962,7 @@ down="255"
 in = "255"
 out="255"
 mass="0"/>
-<flags scenery="0"
+<flags scenery="1"
 portable="0"
 container="0"
 transparent="0"

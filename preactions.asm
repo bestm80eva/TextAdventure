@@ -35,21 +35,3 @@ run_actions
 	bra @lp
 @x	puls y,x,d
 	rts
-
-;west_preaction
-;		pshs d,x,y
-;		jsr get_player_room
-;		pulu a
-;		cmpa #9
-;		bne @x
-;		ldx #msg1
-;		jsr PRINT
-;		jsr PRINTCR
-;@x		puls y,x,d
-;		rts
-
-
-
-;onladder .strz "THIS IS REALLY NOT A WISE PLACE TO TRY THAT."
-;noburn .strz "THE LEAVES START TO SMOLDER, BUT QUICKLY DIE OUT IN THE HIGH UNDERGOUND HUMIDITY."	
-;brnstr .strz "FUELED BY A DRAFT FROM ABOVE, THE LEAVES RAPIDLY BURN, PRODUCING A CLOUD OF ACRID SMOKE, WHICH RISES UP THE SHAFT."	
