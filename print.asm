@@ -171,7 +171,7 @@ print_table_entry
 print_nested_contents
 	pshs d,x,y
 	nop ; check if it has contents
-	inc indent_level
+;	inc indent_level
 	lda OBJ_ID,x
 	pshu a
 	jsr count_visible_items
@@ -206,18 +206,19 @@ print_nested_contents
 	pshu a
 	jsr print_obj_contents
 @d	puls y,x,d
-	dec indent_level
+;	dec indent_level
 	rts
 
 indent
 	pshs d,x,y
 	lda indent_level
-@lp	deca
+@lp	cmpa #0
+	beq @x
     ldx #space
 	jsr PRINT
-	cmpa #0
-	bne @lp
-	puls y,x,d
+	deca
+	bra @lp
+@x	puls y,x,d
 	rts
 	
 indent_level .db 0
