@@ -91,13 +91,15 @@ print_obj_contents
 	pshs x
 	ldx #description_table
 	pshu b
-	jsr print_table_entry
+	jsr indent
+	jsr print_table_entry  ; print initial description
 	jsr PRINTCR
 	puls x
 	bra @r 
 @p	lda OBJ_ID,x
 	pshu a
-	jsr print_obj_name
+	jsr indent
+	jsr print_obj_name	; just print the object's name
 	jsr PRINTCR
 	nop ;	if that is an open container or transprent
 	nop ;	print its name
@@ -127,6 +129,7 @@ list_room_items
 ;	jsr PRINT
 ;	jsr PRINTCR
 	pshu b	;push room #
+	jsr indent
 	jsr print_obj_contents
 @x	puls y,x,d
 	rts
@@ -179,8 +182,8 @@ print_nested_contents
 	anda #CONTAINER_MASK
 	cmpa #CONTAINER_MASK
 	bne @s
-	pshs x
 	jsr indent
+	pshs x
 	ldx #itcontains
 	jsr PRINT
 	jsr PRINTCR
@@ -202,8 +205,8 @@ print_nested_contents
 	lda OBJ_ID,x
 	pshu a
 	jsr print_obj_contents
-@d	dec indent_level
-	puls y,x,d
+@d	puls y,x,d
+	dec indent_level
 	rts
 
 indent
